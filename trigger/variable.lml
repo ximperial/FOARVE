@@ -1,0 +1,189 @@
+UnitIcon: unit
+    Array : 1
+DialogButtonMode: button
+Dialog: dialog
+CountForCreep: integer
+    Array : 1
+CountForCreepLeft: integer
+    Array : 1
+CountForCreepRight: integer
+    Array : 1
+ScoreKill: integer
+    Array : 12
+ScoreDeath: integer
+    Array : 12
+DialogButtonKillMode: button
+    Array : 1
+KillModePoint: integer
+DialogButton: button
+    Array : 1
+MaxHero: integer
+EnableIcon: destructable
+    Array : 1
+OldIcon: destructable
+    Array : 1
+SelectedYet: boolean
+    Array : 1
+MemoHero: integer
+    Array : 1
+IconDisHero: destructablecode
+    Array : 1
+PlayerInteger: integer
+HeroGone: boolean
+    Array : 1
+PointSelectUnit: location
+    Array : 1
+RandomHero: integer
+IconHero: destructablecode
+    Array : 1
+SelectHeroTime: real
+SelectHeroTimer: timer
+HeroType: unitcode
+    Array : 1
+SelectHeroTimerWindow: timerdialog
+TemGroup: force
+    Array : 1
+PointModeTeam: integer
+    Array : 1
+TournamentHero: unit
+    Array : 1
+MultiboardCountDown: integer
+    Array : 1
+P12Revive: timer
+P1Revive: timer
+P2Revive: timer
+P3Revive: timer
+P4Revive: timer
+P5Revive: timer
+P6Revive: timer
+P7Revive: timer
+P8Revive: timer
+P9Revive: timer
+P10Revive: timer
+P11Revive: timer
+Second: integer
+Minute: integer
+ItemLimit: integer
+TournamentDuo: timer
+TournamentDuoTimerShow: timerdialog
+TournamentCount: integer
+TournamentJellalTimer: timer
+TournamentBossTimerShow: timerdialog
+TournamentDummy: unit
+TournamentGroup: group
+    Array : 5
+TournamentRandomPrcet: integer
+TourUnit: unit
+    Array : 1
+TournamentSoloTimerShow: timerdialog
+TournamentTeamTimer: timer
+TournamentTeamTimerShow: timerdialog
+TournamentWin: integer
+TournamentTimer: timer
+TournamentDeathmatch: timer
+TournamentDeathmatchTimerShow: timerdialog
+TournamentWindow: timerdialog
+TournamentSoloTimer: timer
+TourRandomUnit: unit
+TourTeamGroup: group
+    Array : 1
+CountForTournament: integer
+TourInPause: group
+TourUnitLeft: unit
+TimerP2: timer
+TimerP3: timer
+TimerP4: timer
+TimerP6: timer
+TimerP7: timer
+TimerP8: timer
+TimerP11: timer
+TimerP12: timer
+TimerP10: timer
+TimerP2Show: timerdialog
+TimerP3Show: timerdialog
+TimerP6Show: timerdialog
+TimerP11Show: timerdialog
+TimerP7Show: timerdialog
+TimerP8Show: timerdialog
+TimerP12Show: timerdialog
+TimerP10Show: timerdialog
+TimerP4Show: timerdialog
+PlayerWin: boolean
+RemoveHeroOut: group
+GroupSlow: group
+IconMultiboard: imagetype
+    Array : 1
+RemoveHeroWhenOut: group
+FloatTextSelectUnit: texttag
+    Array : 1
+Point: location
+LaxusCheckDeath: integer
+LaxusPoint: location
+    Array : 1
+LaxusRandomAi: integer
+TournamentBoss: timer
+TournamentJellalTimWin: timerdialog
+TournamentEtherianShow: timerdialog
+TournamentEtherian: timer
+BossWin: boolean
+CamSize: real
+    Array : 12
+GROUP: group
+UNITGROUP: unit
+SojiAlterRBool: boolean
+    Array : 12
+SojiAlterDBool: boolean
+    Array : 12
+sadge: group
+Tournament_OUTO: group
+ScoreAssist: integer
+    Array : 12
+MusicCount: integer
+    Array : 12
+HeroRevive: unit
+    Array : 1
+NAMABADUT: string
+    Array : 12
+TempLoc: location
+TempUnit: unit
+BanYet: boolean
+    Array : 1
+Hero: unit
+    Array : 1
+ScoreCreeps: integer
+    Array : 1
+MinatoQ: boolean
+    Array : 1
+MultiboardValue: real
+    Array : 1
+GutsF: integer
+    Array : 1
+GutsR: integer
+    Array : 1
+GutsR2: unit
+SkyUnit: unit
+    Array : 1
+SkyReal: real
+    Array : 1
+BootPirate: integer
+    Array : 1
+TourName: string
+TourTimer: timer
+isLowEff: boolean
+    Array : 11
+SelectHeroReady: boolean
+TourPauseTimer: timer
+TourPauseActive: boolean
+TestMod: boolean
+TourType: integer
+FinishSelect: boolean
+ratingo: string
+    Array : 11
+FloatTextCreep: texttag
+    Array : 1
+DamageEvent: group
+sadge2: group
+DisableIcon: destructable
+    Array : 1
+HeroName: string
+    Array : 1
