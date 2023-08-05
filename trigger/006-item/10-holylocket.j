@@ -3,7 +3,6 @@ scope holylocket initializer init
     private function pickItem takes nothing returns nothing
         local unit u = GetManipulatingUnit()
         local item it = GetManipulatedItem()
-        local ability a
 
         if GetItemTypeId(it) == 'I01N' then
             call UnitAddStat(u, 20, 20, 20)
@@ -11,13 +10,9 @@ scope holylocket initializer init
         elseif GetItemTypeId(it) == 'I01O' then
             call UnitAddStat(u, 30, 30, 30)
             call UnitAddBonus(u, BONUS_HEALTH, 200)
-            set a = GetItemAbility(it, 'A00S')
-            call SetAbilityLevel(a, 2)
         elseif GetItemTypeId(it) == 'I04U' then
             call UnitAddStat(u, 40, 40, 40)
             call UnitAddBonus(u, BONUS_HEALTH, 300)
-            set a = GetItemAbility(it, 'A00S')
-            call SetAbilityLevel(a, 3)
         endif
         if GetItemTypeId(it) == 'I01H' then
             call RemoveItem(it)
@@ -40,7 +35,6 @@ scope holylocket initializer init
 
         set u = null
         set it = null
-        set a = null
     endfunction
 
     private function dropItem takes nothing returns nothing

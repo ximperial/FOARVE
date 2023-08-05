@@ -187,6 +187,10 @@ scope specialitem initializer init
             call UnitAddItemByIdSwapped('I01M', u)
         elseif GetUnitTypeId(u) == 'H00F' then 
             call UnitAddItemByIdSwapped('I00Y', u)
+        elseif GetUnitTypeId(u) == 'H000' then 
+            call UnitAddItemByIdSwapped('I01P', u)
+        elseif GetUnitTypeId(u) == 'H012' then 
+            call UnitAddItemByIdSwapped('I01T', u)
         endif
         call SetItemDroppable(bj_lastCreatedItem, false)
 
@@ -205,9 +209,17 @@ scope specialitem initializer init
             if LoadInteger(ht, StringHash("specialitem"), GetHandleId(u)) == 0 then
                 call SaveInteger(ht, StringHash("specialitem"), GetHandleId(u), 1)
                 if GetRandomInt(1, 2) == 1 then
-                    call SoundStartPlayer(HeroVoice2[MemoHero[pid]], GetOwningPlayer(u), true)
+                    if HeroVoice2[MemoHero[pid]] != "" then
+                        call SoundStartPlayer(HeroVoice2[MemoHero[pid]], GetOwningPlayer(u), true)
+                    else
+                        call SoundStartPlayer(HeroVoice3[MemoHero[pid]], GetOwningPlayer(u), true)
+                    endif
                 else
-                    call SoundStartPlayer(HeroVoice3[MemoHero[pid]], GetOwningPlayer(u), true)
+                    if HeroVoice3[MemoHero[pid]] != "" then
+                        call SoundStartPlayer(HeroVoice3[MemoHero[pid]], GetOwningPlayer(u), true)
+                    else
+                        call SoundStartPlayer(HeroVoice2[MemoHero[pid]], GetOwningPlayer(u), true)
+                    endif
                 endif
                 if GetUnitPrimaryStat(u) == HERO_ATTRIBUTE_STR then
                     call UnitAddStat(u, 80, 30, 30)

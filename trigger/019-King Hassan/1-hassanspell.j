@@ -520,6 +520,8 @@ scope hassanspell initializer init
             call SetUnitXY(u, x, y, 0)
             set a = Angle(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
             call SetUnitFacingEx(u, a, true)
+            call SetUnitAnimationByIndex(u, 7)
+            call SetUnitTimeScale(u, 1.5)
             call Effect("war3mapImported\\BlackBlink.mdl", GetUnitX(u), GetUnitY(u), 0, randomAngle(), 0, 0, 1, 1, 255, 255, 255, 255)
         endif
         if count == 20 then
@@ -633,6 +635,7 @@ scope hassanspell initializer init
             call SaveUnitHandle(ht, GetHandleId(z), 1, t)
             call SaveInteger(ht, GetHandleId(z), 0, 0)
             call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call SaveReal(ht, GetHandleId(z), - 1, GetUnitState(t, UNIT_STATE_LIFE))
             call TimerStart(z, 0.02, true, function period5)
         endif
 

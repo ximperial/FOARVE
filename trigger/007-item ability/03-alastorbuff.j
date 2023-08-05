@@ -25,7 +25,7 @@ scope alastorbuff initializer init
         local buff buffs = GetTriggerBuff()
         local integer abilId = GetBuffTypeId(buffs)
 
-        if abilId == 'B010' and t != gg_unit_H0DS_0066 then
+        if abilId == 'B010' and t != gg_unit_H0DS_0046 then
             set z = CreateTimer()
             call SaveUnitHandle(ht, GetHandleId(z), 0, u)
             call SaveUnitHandle(ht, GetHandleId(z), 1, t)

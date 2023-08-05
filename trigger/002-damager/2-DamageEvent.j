@@ -1,4 +1,4 @@
-scope damageevenet initializer init
+scope damageevent initializer init
 
     private function action takes nothing returns nothing
         local timer z
@@ -17,12 +17,12 @@ scope damageevenet initializer init
         local integer alvl
         local real randomA
         
-        if dmg > GetHeroPrimaryStat(source, true) * 2 and target == gg_unit_H0DS_0066 and GetRandomInt(1, 100) <= 30 and not LoadBoolean(ht, StringHash("BossF"), 0) and FilterGeneral(target, source) then
+        if dmg > GetHeroPrimaryStat(source, true) * 2 and target == gg_unit_H0DS_0046 and GetRandomInt(1, 100) <= 30 and not LoadBoolean(ht, StringHash("BossF"), 0) and FilterGeneral(target, source) then
             call bossF(target, source)
             call SaveBoolean(ht, StringHash("BossF"), 0, true)
             set z = CreateTimer()
             call TimerStart(z, 40, false, function BossExtraEnd)
-        elseif dmg > GetHeroPrimaryStat(source, true) * 2 and target == gg_unit_H0DS_0066 and GetRandomInt(1, 100) <= 30 and not LoadBoolean(ht, StringHash("BossD"), 0) and FilterGeneral(target, source) then
+        elseif dmg > GetHeroPrimaryStat(source, true) * 2 and target == gg_unit_H0DS_0046 and GetRandomInt(1, 100) <= 30 and not LoadBoolean(ht, StringHash("BossD"), 0) and FilterGeneral(target, source) then
             call bossD(target, source)
             call SaveBoolean(ht, StringHash("BossD"), 0, true)
             set z = CreateTimer()
@@ -66,12 +66,6 @@ scope damageevenet initializer init
             call UnitRemoveAbility(target, 'A07Q')
             call UnitRemoveAbility(target, 'B016')
             call AizenD_Start(target, source)
-        endif
-    
-        if dmg > GetHeroPrimaryStat(source, true) * 2 and GetUnitAbilityLevel(target, 'B014') > 0 and IsUnitEnemy(source, GetOwningPlayer(target)) and IsUnitType(source, UNIT_TYPE_HERO) and GetUnitTypeId(source) != 'H0FS' and IsUnitAlive(source) then
-            call UnitRemoveAbility(target, 'A092')
-            call UnitRemoveAbility(target, 'B014')
-            call TomaE_Start(target, source)
         endif
     
         if dmg > GetHeroPrimaryStat(source, true) * 2 and GetUnitAbilityLevel(target, 'B00I') > 0 and IsUnitEnemy(source, GetOwningPlayer(target)) and IsUnitType(source, UNIT_TYPE_HERO) and GetUnitTypeId(source) != 'H00Y' and IsUnitAlive(source) then

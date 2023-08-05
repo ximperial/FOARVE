@@ -753,6 +753,7 @@ private function action takes nothing returns nothing
         call SaveUnitHandle(ht, GetHandleId(z), 1, t)
         call SaveInteger(ht, GetHandleId(z), 0, 0)
         call SaveInteger(ht, GetHandleId(z), 1, 0)
+        call SaveReal(ht, GetHandleId(z), - 1, GetUnitState(t, UNIT_STATE_LIFE))
         call TimerStart(z, 0.02, true, function period5)
     endif
 

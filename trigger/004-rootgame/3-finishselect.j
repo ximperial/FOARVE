@@ -59,8 +59,6 @@ library finishselect uses tournament gpm lockmap creepLib
         call AttackWave()
         call RunGPM()
         call runTimeCheck()
-        if playerCount > 1 then
-            call runLockMap()
-        endif
+        call runLockMap()
     endfunction
 endlibrary

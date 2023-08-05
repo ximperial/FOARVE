@@ -127,9 +127,9 @@ scope bossspell initializer init
                 set gUnit = GroupForEachUnit(gGroup)
                 exitwhen gUnit == null
                 set pid = GetPlayerId(GetOwningPlayer(gUnit))
-                if FilterGeneral(u, gUnit) and gUnit == MainHero[pid] then
+                //if FilterGeneral(u, gUnit) and gUnit == MainHero[pid] then
                     call GroupAddUnit(g, gUnit)
-                endif
+                //endif
             endloop
             call GroupClear(gGroup)
             if GroupGetCount(g) == 0 then

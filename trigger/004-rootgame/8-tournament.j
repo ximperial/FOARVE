@@ -75,8 +75,6 @@ library tournament uses Utilities
         local group g
         local group g2
         local group g3
-        local framehandle pFrame
-        local framehandle pFrame2
         local real array x
         local real array y
         local integer i
@@ -393,23 +391,7 @@ library tournament uses Utilities
                     call SetPlayerAllianceStateBJ( Player(i), Player(7), bj_ALLIANCE_ALLIED )
                     set i = i + 1
                 endloop
-                call GroupAddUnit(locktour[4], gg_unit_H0DS_0066)
-                set pFrame = GetFrameByName("StatInfoBordir", 4)
-                call ShowFrame(pFrame, true)
-                set pFrame2 = GetFrameByName("CustomHPBar2", 0)
-                call SetFrameValue(pFrame2, 100)
-                set pFrame2 = GetFrameByName("CustomHPBar2", 1)
-                call SetFrameValue(pFrame2, 100)
-                set pFrame = GetFrameByName("HeroIconBar", 0)
-                set s = GetUnitStringField(gg_unit_H0DS_0066, UNIT_SF_ICON_NORMAL)
-                call SetFrameTexture(pFrame, s, 0, true)
-                set pFrame = GetFrameByName("HeroNameText2", 0)
-                set s = GetUnitStringField(gg_unit_H0DS_0066, UNIT_SF_NAME)
-                set s2 = I2S(GetHeroLevel(gg_unit_H0DS_0066))
-                call SetFrameText(pFrame, "|cffE6E6E6" + s + " Lvl." + s2)
-                set pFrame = GetFrameByName("HeroIconBar", 0)
-                set s = GetUnitStringField(gg_unit_H0DS_0066, UNIT_SF_ICON_NORMAL)
-                call SetFrameTexture(pFrame, s, 0, true)
+                call GroupAddUnit(locktour[4], gg_unit_H0DS_0046)
             endif
         elseif tourStep == 4 then
             call pauseUnitTour()
@@ -637,48 +619,42 @@ library tournament uses Utilities
                 set g = CreateGroup()
                 call GroupEnumUnitsInRect(g, gg_rct_Boss_Arena, function bossTarget)
                 set u = GroupGetUnitByIndex(g, GetRandomInt(0, GroupGetCount(g) - 1))
-                if not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0066, 'A03N')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0066) != 852652 then
-                        call IssueTargetOrderById(gg_unit_H0DS_0066, 852652, u)
+                if not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A03N')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852652 then
+                        call IssueTargetOrderById(gg_unit_H0DS_0046, 852652, u)
                     endif
-                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0066, 'A0DK')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0066) != 852243 then
-                        call IssueTargetOrderById(gg_unit_H0DS_0066, 852243, u)
+                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A0DK')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852243 then
+                        call IssueTargetOrderById(gg_unit_H0DS_0046, 852243, u)
                     endif
-                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0066, 'A0DL')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0066) != 852474 then
-                        call IssueTargetOrderById(gg_unit_H0DS_0066, 852474, u)
+                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A0DL')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852474 then
+                        call IssueTargetOrderById(gg_unit_H0DS_0046, 852474, u)
                     endif
-                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0066, 'A04B')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0066) != 852244 then
-                        call IssueImmediateOrderById(gg_unit_H0DS_0066, 852244)
+                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A04B')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852244 then
+                        call IssueImmediateOrderById(gg_unit_H0DS_0046, 852244)
                     endif
-                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0066, 'A03O')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0066) != 852663 then
-                        call IssueImmediateOrderById(gg_unit_H0DS_0066, 852663)
+                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A03O')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852663 then
+                        call IssueImmediateOrderById(gg_unit_H0DS_0046, 852663)
                     endif
-                elseif GetUnitCurrentOrder(gg_unit_H0DS_0066) == 0 then
-                    call IssuePointOrderById(gg_unit_H0DS_0066, 851990, GetUnitX(u), GetUnitY(u))
+                elseif GetUnitCurrentOrder(gg_unit_H0DS_0046) == 0 then
+                    call IssuePointOrderById(gg_unit_H0DS_0046, 851990, GetUnitX(u), GetUnitY(u))
                 endif
-                if GetUnitLifePercent(gg_unit_H0DS_0066) < 50 and GetUnitTypeId(gg_unit_H0DS_0066) != 'H0G7' then
-                    call IssueImmediateOrderById(gg_unit_H0DS_0066, 852473) 
+                if GetUnitLifePercent(gg_unit_H0DS_0046) < 50 and GetUnitTypeId(gg_unit_H0DS_0046) != 'H0G7' then
+                    call IssueImmediateOrderById(gg_unit_H0DS_0046, 852473) 
                 endif
                 call DestroyGroup(g)
                 if GroupGetCount(locktour[4]) <= 1 then
                     set TourType = 0 
                     set BossStart = false
                     call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "No one survived" )
-                    set pFrame = GetFrameByName("StatInfoBordir", 4)
-                    call ShowFrame(pFrame, false)
-                    set pFrame = GetFrameByName("CustomHPBar2", 0)
-                    call SetFrameValue(pFrame, 0)
-                    set pFrame = GetFrameByName("CustomHPBar2", 1)
-                    call SetFrameValue(pFrame, 0)
                     set tourCount = tourCount + 1
                     set TourName = "Tournament Team"
                     set TourTime = 270
                     set tourStep = 0
-                elseif not IsUnitAlive(gg_unit_H0DS_0066) then
+                elseif not IsUnitAlive(gg_unit_H0DS_0046) then
                     set b = true
                 endif
                 if b then
@@ -702,6 +678,7 @@ library tournament uses Utilities
                             call AdjustPlayerStateBJ( 6000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD )
                         endif
                     endloop
+                    call GroupClear(locktour[4])
                     set i = 1
                     loop
                         exitwhen i > 3
@@ -735,12 +712,6 @@ library tournament uses Utilities
                         call SetPlayerAllianceStateBJ( Player(i), Player(7), bj_ALLIANCE_UNALLIED )
                         set i = i + 1
                     endloop
-                    set pFrame = GetFrameByName("StatInfoBordir", 4)
-                    call ShowFrame(pFrame, false)
-                    set pFrame = GetFrameByName("CustomHPBar2", 0)
-                    call SetFrameValue(pFrame, 0)
-                    set pFrame = GetFrameByName("CustomHPBar2", 1)
-                    call SetFrameValue(pFrame, 0)
                     set tourCount = tourCount + 1
                     set TourName = "Tournament Team"
                     set TourTime = 270
@@ -753,12 +724,10 @@ library tournament uses Utilities
         set g = null
         set g2 = null
         set g3 = null
-        set pFrame = null 
-        set pFrame2 = null
     endfunction
 
     function runTournament takes nothing returns nothing
-        if playerCount > 1 then
+        if playerCount >= 1 then
             set tourCount = tourCount + 1
             set TourTimer = CreateTimer()
             set TourName = "Tournament Team"

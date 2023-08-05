@@ -1,0 +1,19 @@
+Frame "EDITBOX" "ShopSearchFrame" {
+    Height 0.04,
+    EditBorderSize 0.009,
+    EditCursorColor 1.0 1.0 1.0,
+	FrameFont "MasterFont", 0.012, "",
+
+    ControlBackdrop "ShopSearchBackdrop",
+    Frame "BACKDROP" "ShopSearchBackdrop" {
+		DecorateFileNames,
+		BackdropTileBackground,
+		BackdropBackground  "EscMenuEditBoxBackground",
+		BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+		BackdropCornerSize  0.0125,
+		BackdropBackgroundSize  0.256,
+		BackdropBackgroundInsets 0.005 0.005 0.005 0.005,
+		BackdropEdgeFile  "EscMenuEditBoxBorder",
+		BackdropBlendAll,
+    }
+}

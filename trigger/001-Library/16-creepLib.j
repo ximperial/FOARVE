@@ -127,7 +127,7 @@ library creepLib uses Utilities
             set u = CreateUnit(p, uid, x, y, randomAngle())
             call UnitAddAbility(u, 'Aeth')
             call UnitMakeAbilityPermanent(u, true, 'Aeth')
-            call LinkSpell(u, 'Aeth', 10, false)
+            call LinkSpell(u, 'Aeth', 12, false)
             if p == Player(0) then 
                 if point == 0 then  
                     call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_Top) , GetRectCenterY(gg_rct_Top))
@@ -169,143 +169,119 @@ library creepLib uses Utilities
     endglobals
                                                                                                                                                                                                                                                                                                               
     function AttackWaveEnd takes nothing returns nothing
-        local integer i = 0
-        local integer i2 = 0
+        local integer i
         local string s = ""
 
         set CreepCountdown = CreepCountdown + 0.5
         set s = I2S(R2I(CreepCountdown))
+        set i = 0
         loop
             exitwhen i > 8
             if creepText[i] != null then
                 call SetTextTagTextBJ(creepText[i], s, 14)
-                set i2 = i2 + 1
             endif
             set i = i + 1
         endloop
-        
-        if i2 == 0 then
-            call PauseTimer(GetExpiredTimer())
-            call DestroyTimer(GetExpiredTimer())
-            return
-        endif
                                                                                                                                                                                                                                       
-        if CreepCountdown >= 28 then
-            if CreepCountdown == 31 then
+        if CreepCountdown >= 27 then
+            if CreepCountdown == 30 then
                 set CreepCountdown2 = CreepCountdown2 + 1
             endif
+
             // Team1
-            if IsUnitAlive(gg_unit_o008_0019) then
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(0), 'e002', GetRectCenterX(gg_rct_TopCTeam1), GetRectCenterY(gg_rct_TopCTeam1), 0)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(0), 'e003', GetRectCenterX(gg_rct_TopCTeam1), GetRectCenterY(gg_rct_TopCTeam1), 0)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(0), 'e004', GetRectCenterX(gg_rct_TopCTeam1), GetRectCenterY(gg_rct_TopCTeam1), 0)
-                endif
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
+                call CreateCreep(1, Player(0), 'e002', GetRectCenterX(gg_rct_TopCTeam1), GetRectCenterY(gg_rct_TopCTeam1), 0)
             endif
-            
-            if IsUnitAlive(gg_unit_o008_0023) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(0), 'e002', GetRectCenterX(gg_rct_MidCTeam1), GetRectCenterY(gg_rct_MidCTeam1), 1)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(0), 'e003', GetRectCenterX(gg_rct_MidCTeam1), GetRectCenterY(gg_rct_MidCTeam1), 1)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(0), 'e004', GetRectCenterX(gg_rct_MidCTeam1), GetRectCenterY(gg_rct_MidCTeam1), 1)
-                endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(0), 'e003', GetRectCenterX(gg_rct_TopCTeam1), GetRectCenterY(gg_rct_TopCTeam1), 0)
             endif
-            
-            if IsUnitAlive(gg_unit_o008_0014) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(0), 'e002', GetRectCenterX(gg_rct_BottomCTeam1), GetRectCenterY(gg_rct_BottomCTeam1), 2)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(0), 'e003', GetRectCenterX(gg_rct_BottomCTeam1), GetRectCenterY(gg_rct_BottomCTeam1), 2)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(0), 'e004', GetRectCenterX(gg_rct_BottomCTeam1), GetRectCenterY(gg_rct_BottomCTeam1), 2)
-                endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(0), 'e004', GetRectCenterX(gg_rct_TopCTeam1), GetRectCenterY(gg_rct_TopCTeam1), 0)
+            endif
+ 
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
+                call CreateCreep(1, Player(0), 'e002', GetRectCenterX(gg_rct_MidCTeam1), GetRectCenterY(gg_rct_MidCTeam1), 1)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(0), 'e003', GetRectCenterX(gg_rct_MidCTeam1), GetRectCenterY(gg_rct_MidCTeam1), 1)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(0), 'e004', GetRectCenterX(gg_rct_MidCTeam1), GetRectCenterY(gg_rct_MidCTeam1), 1)
+            endif
+
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
+                call CreateCreep(1, Player(0), 'e002', GetRectCenterX(gg_rct_BottomCTeam1), GetRectCenterY(gg_rct_BottomCTeam1), 2)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(0), 'e003', GetRectCenterX(gg_rct_BottomCTeam1), GetRectCenterY(gg_rct_BottomCTeam1), 2)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(0), 'e004', GetRectCenterX(gg_rct_BottomCTeam1), GetRectCenterY(gg_rct_BottomCTeam1), 2)
             endif
             
             // Team2
-            if IsUnitAlive(gg_unit_o008_0033) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(4), 'e005', GetRectCenterX(gg_rct_TopCTeam2), GetRectCenterY(gg_rct_TopCTeam2), 0)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(4), 'e006', GetRectCenterX(gg_rct_TopCTeam2), GetRectCenterY(gg_rct_TopCTeam2), 0)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(4), 'e007', GetRectCenterX(gg_rct_TopCTeam2), GetRectCenterY(gg_rct_TopCTeam2), 0)
-                endif
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
+                call CreateCreep(1, Player(4), 'e005', GetRectCenterX(gg_rct_TopCTeam2), GetRectCenterY(gg_rct_TopCTeam2), 0)
             endif
-            
-            if IsUnitAlive(gg_unit_o008_0034) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(4), 'e005', GetRectCenterX(gg_rct_MidCTeam2), GetRectCenterY(gg_rct_MidCTeam2), 1)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(4), 'e006', GetRectCenterX(gg_rct_MidCTeam2), GetRectCenterY(gg_rct_MidCTeam2), 1)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(4), 'e007', GetRectCenterX(gg_rct_MidCTeam2), GetRectCenterY(gg_rct_MidCTeam2), 1)
-                endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(4), 'e006', GetRectCenterX(gg_rct_TopCTeam2), GetRectCenterY(gg_rct_TopCTeam2), 0)
             endif
-            
-            if IsUnitAlive(gg_unit_o008_0032) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(4), 'e005', GetRectCenterX(gg_rct_BottomCTeam2), GetRectCenterY(gg_rct_BottomCTeam2), 2)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(4), 'e006', GetRectCenterX(gg_rct_BottomCTeam2), GetRectCenterY(gg_rct_BottomCTeam2), 2)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(4), 'e007', GetRectCenterX(gg_rct_BottomCTeam2), GetRectCenterY(gg_rct_BottomCTeam2), 2)
-                endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(4), 'e007', GetRectCenterX(gg_rct_TopCTeam2), GetRectCenterY(gg_rct_TopCTeam2), 0)
+            endif
+
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
+                call CreateCreep(1, Player(4), 'e005', GetRectCenterX(gg_rct_MidCTeam2), GetRectCenterY(gg_rct_MidCTeam2), 1)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(4), 'e006', GetRectCenterX(gg_rct_MidCTeam2), GetRectCenterY(gg_rct_MidCTeam2), 1)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(4), 'e007', GetRectCenterX(gg_rct_MidCTeam2), GetRectCenterY(gg_rct_MidCTeam2), 1)
+            endif
+
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
+                call CreateCreep(1, Player(4), 'e005', GetRectCenterX(gg_rct_BottomCTeam2), GetRectCenterY(gg_rct_BottomCTeam2), 2)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(4), 'e006', GetRectCenterX(gg_rct_BottomCTeam2), GetRectCenterY(gg_rct_BottomCTeam2), 2)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(4), 'e007', GetRectCenterX(gg_rct_BottomCTeam2), GetRectCenterY(gg_rct_BottomCTeam2), 2)
             endif
             
             // Team3
-            if IsUnitAlive(gg_unit_o008_0046) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(8), 'e009', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
-                endif
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 then
+                call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(8), 'e009', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
             endif                                        
 
-            if IsUnitAlive(gg_unit_o008_0047) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(8), 'e009', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
-                endif
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 then
+                call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(8), 'e009', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
             endif
 
-            if IsUnitAlive(gg_unit_o008_0045) then 
-                if CreepCountdown == 28.5 or CreepCountdown == 29.0 or CreepCountdown == 29.5 then
-                    call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
-                endif
-                if CreepCountdown == 30.0 or CreepCountdown == 30.5 then
-                    call CreateCreep(1, Player(8), 'e009', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
-                endif
-                if CreepCountdown2 == 2 and CreepCountdown == 31 then
-                    call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
-                endif
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 then
+                call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
+            endif
+            if CreepCountdown == 29.5 then
+                call CreateCreep(1, Player(8), 'e009', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
+            endif
+            if CreepCountdown2 == 2 and CreepCountdown == 30.0 then
+                call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
             endif
             
-            if CreepCountdown == 31 then
+            if CreepCountdown == 30.0 then
                 set CreepCountdown = 0
             endif
             if CreepCountdown2 >= 2 then

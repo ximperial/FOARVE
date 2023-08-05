@@ -5,57 +5,56 @@ scope startGame initializer init
         dialog gDialog = null
         button array gDialogButton
         private unit array dummyui
+        player hostPlayer = null
     endglobals
 
     private function fogRemove takes nothing returns nothing
         call SetPlayerHandicapXP( GetEnumPlayer(), 1.0 )
         call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_Boss_Arena )
-        call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_TestArea )
         call CreateFogModifierRectBJ( true, GetEnumPlayer(), FOG_OF_WAR_VISIBLE, gg_rct_HibariR )
     endfunction
 
     private function runMode takes nothing returns nothing
-        local integer i = 0
-        if preloadIconFinish then
-            call ClearTextMessagesBJ( bj_FORCE_ALL_PLAYERS )
-            call DisplayTextToForce( bj_FORCE_ALL_PLAYERS, "Waiting for " + "|cff0042ff" + playerName[1] + "|r" + " choose mode"   )
-            call DialogSetMessage(gDialog, "Game Mode")
-            call DialogAddButtonBJ(gDialog, "Point Mode")
-            set gDialogButton[0] = bj_lastCreatedButton
-            call DialogDisplay(Player(1), gDialog, true)
-            call UnitAddAbility(dummyui[0], 'A07Q')
-            call UnitAddAbility(dummyui[0], 'A03M')
-            call UnitAddAbility(dummyui[0], 'A0IA')
-            call UnitAddAbility(dummyui[0], 'A0EW')
-            call UnitAddAbility(dummyui[0], 'A0I1')
-            call UnitAddAbility(dummyui[0], 'A051')
-            call UnitAddAbility(dummyui[0], 'A059')
-            call UnitAddAbility(dummyui[0], 'A052')
-            call SelectUnit(dummyui[0], true)
-            set i = 0
-            loop
-                exitwhen i > 12
-                call RemoveUnit(dummyui[i])
-                set i = i + 1
-            endloop
-            call PauseTimer(GetExpiredTimer())
-            call DestroyTimer(GetExpiredTimer())
-        endif
+        local integer i
+
+        set i = GetPlayerId(hostPlayer)
+        call ClearTextMessagesBJ( bj_FORCE_ALL_PLAYERS )
+        call DisplayTextToForce( bj_FORCE_ALL_PLAYERS, "Waiting for " + "|cff0042ff" + playerName[i] + "|r" + " choose mode"   )
+        call DialogSetMessage(gDialog, "Game Mode")
+        call DialogAddButtonBJ(gDialog, "Point Mode")
+        set gDialogButton[0] = bj_lastCreatedButton
+        call DialogDisplay(hostPlayer, gDialog, true)
+        call UnitAddAbility(dummyui[0], 'A07Q')
+        call UnitAddAbility(dummyui[0], 'A03M')
+        call UnitAddAbility(dummyui[0], 'A0IA')
+        call UnitAddAbility(dummyui[0], 'A0EW')
+        call UnitAddAbility(dummyui[0], 'A0I1')
+        call UnitAddAbility(dummyui[0], 'A051')
+        call UnitAddAbility(dummyui[0], 'A059')
+        call UnitAddAbility(dummyui[0], 'A052')
+        call SelectUnit(dummyui[0], true)
+        set i = 0
+        loop
+            exitwhen i > 12
+            call RemoveUnit(dummyui[i])
+            set i = i + 1
+        endloop
+        call DestroyTimer(GetExpiredTimer())
     endfunction
 
     private function startGame takes nothing returns nothing
-        local integer i = 0
+        local integer i
         
         call ClearMapMusic( )
         call PlayMusic("Music\\1.mp3;Music\\2.mp3;Music\\3.mp3;Music\\4.mp3;Music\\5.mp3;Music\\6.mp3;Music\\7.mp3;Music\\8.mp3")
         call SetMapFlag( MAP_LOCK_RESOURCE_TRADING, true )
         call ClearTextMessagesBJ( bj_FORCE_ALL_PLAYERS )
-        call SetWidescreenState(true)
         call EnableOperationLimit(false)
         call EnableAntiHack(true)
         call dataOnStart()
         set UISync = DialogCreate()
         call DialogSetMessage(UISync, "UI Sync")
+        set i = 0
         loop
             exitwhen i > 11
             if UserPlayer(Player(i)) then
@@ -68,17 +67,16 @@ scope startGame initializer init
         set i = 0
         loop
             exitwhen i > 11
-            set dummyui[i] = CreateUnit(Player(1), 'ncop', 0, 0, 0)
+            set dummyui[i] = CreateUnit(Player(i), 'ncop', 0, 0, 0)
             set i = i + 1
         endloop
         set dummyui[12] = CreateUnit(Player(15), 'n000', 0, 0, 0)
         call SelectUnit(dummyui[12], true)
         call ForForce(bj_FORCE_ALL_PLAYERS, function fogRemove)
-        call DisplayTimedTextToForce( bj_FORCE_ALL_PLAYERS, 60, "Loading UI/UX Resources..."   )
         call AncestorFrame()
-        call setIconData()
-        call UnitAddBonus(gg_unit_H0DS_0066, BONUS_ATTACKSPEED, 5)
-        call TimerStart(GetExpiredTimer(), 0.1, true, function runMode)
+        call UnitAddBonus(gg_unit_H0DS_0046, BONUS_ATTACKSPEED, 5)
+        set hostPlayer = Player(1)
+        call TimerStart(GetExpiredTimer(), 2, false, function runMode)
     endfunction
     
     globals
@@ -88,12 +86,13 @@ scope startGame initializer init
     endglobals
 
     private function dialogClick takes nothing returns nothing
-        local integer i = 0
+        local integer i
         if GetClickedButton() == gDialogButton[0] then
+            set i = GetPlayerId(hostPlayer)
             call ClearTextMessagesBJ(bj_FORCE_ALL_PLAYERS)
-            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|c000000ff" + playerName[1] + "|r has chosen Point Mode")
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|c000000ff" + playerName[i] + "|r has chosen Point Mode")
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "Kill hero + 1 point")
-            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "Destroy structure + 3 point")
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "Destroy structure + 1 point")
             call PolledWaitEx(1.0)
             call DialogClear(gDialog)
             call DialogSetMessage(gDialog, "Set Point Amount")
@@ -103,17 +102,18 @@ scope startGame initializer init
             set gDialogButton[2] = bj_lastCreatedButton
             call DialogAddButtonBJ(gDialog, "70 point")
             set gDialogButton[3] = bj_lastCreatedButton
-            call DialogDisplay(Player(1), gDialog, true)
+            call DialogDisplay(hostPlayer, gDialog, true)
         elseif GetClickedButton() == gDialogButton[1] or GetClickedButton() == gDialogButton[2] or GetClickedButton() == gDialogButton[3] then
+            set i = GetPlayerId(hostPlayer)
             if GetClickedButton() == gDialogButton[1] then
                 set maxPointMode = 120
-                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[1] + "|r has chosen 120 point")
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[i] + "|r has chosen 120 point")
             elseif GetClickedButton() == gDialogButton[2] then
                 set maxPointMode = 100
-                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[1] + "|r has chosen 100 point")
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[i] + "|r has chosen 100 point")
             else
                 set maxPointMode = 70
-                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[1] + "|r has chosen 70 point")
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[i] + "|r has chosen 70 point")
             endif
             call PolledWaitEx(1.0)
             set teamPoint[1] = 0
@@ -125,16 +125,18 @@ scope startGame initializer init
             set gDialogButton[4] = bj_lastCreatedButton
             call DialogAddButtonBJ(gDialog, "Test")
             set gDialogButton[5] = bj_lastCreatedButton
-            call DialogDisplay(Player(1), gDialog, true)
+            call DialogDisplay(hostPlayer, gDialog, true)
         elseif GetClickedButton() == gDialogButton[4] or GetClickedButton() == gDialogButton[5] then
+            set i = GetPlayerId(hostPlayer)
             if GetClickedButton() == gDialogButton[4] then
-                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[1] + "|r has chosen Normal Mode")
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[i] + "|r has chosen Normal Mode")
             else
                 set isTestMode = true
-                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[1] + "|r has chosen Test Mode")
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff0042ff" + playerName[i] + "|r has chosen Test Mode")
             endif
             call PolledWaitEx(1.0)
             if isTestMode then
+                set i = 0
                 loop
                     exitwhen i > 11
                     if UserPlayer(Player(i)) then
@@ -234,43 +236,43 @@ scope startGame initializer init
             if IsUnitHero(t) then
                 if IsUnitAlly(u, Player(0)) then
                     set teamPoint[1] = teamPoint[1] + 1
-                    set pFrame = GetFrameByName("TextPoint", 0)
-                    set s = "|cffDAA520" + I2S(teamPoint[1])
+                    set pFrame = GetFrameByName("ScoreTxtFrame", 0)
+                    set s = I2S(teamPoint[1])
                     call SetFrameText(pFrame, s)
                 elseif IsUnitAlly(u, Player(4)) then
                     set teamPoint[2] = teamPoint[2] + 1
-                    set pFrame = GetFrameByName("TextPoint", 1)
-                    set s = "|cffDAA520" + I2S(teamPoint[2])
+                    set pFrame = GetFrameByName("ScoreTxtFrame", 1)
+                    set s = I2S(teamPoint[2])
                     call SetFrameText(pFrame, s)
                 elseif IsUnitAlly(u, Player(8)) then
                     set teamPoint[3] = teamPoint[3] + 1
-                    set pFrame = GetFrameByName("TextPoint", 2)
-                    set s = "|cffDAA520" + I2S(teamPoint[3])
+                    set pFrame = GetFrameByName("ScoreTxtFrame", 2)
+                    set s = I2S(teamPoint[3])
                     call SetFrameText(pFrame, s)
                 endif
                 call finishGame()
             endif
-            if IsUnitTower(t) and t != gg_unit_o003_0010 and t != gg_unit_o003_0031 and t != gg_unit_o003_0012 then
+            if IsUnitTower(t) and t != gg_unit_o003_0011 and t != gg_unit_o003_0012 and t != gg_unit_o003_0013 then
                 if IsUnitAlly(GetKillingUnit(), Player(0)) then
                     set teamPoint[1] = teamPoint[1] + 1
-                    set pFrame = GetFrameByName("TextPoint", 0)
-                    set s = "|cffDAA520" + I2S(teamPoint[1])
+                    set pFrame = GetFrameByName("ScoreTxtFrame", 0)
+                    set s = I2S(teamPoint[1])
                     call SetFrameText(pFrame, s)
                 elseif IsUnitAlly(GetKillingUnit(), Player(4)) then
                     set teamPoint[2] = teamPoint[2] + 1
-                    set pFrame = GetFrameByName("TextPoint", 1)
-                    set s = "|cffDAA520" + I2S(teamPoint[2])
+                    set pFrame = GetFrameByName("ScoreTxtFrame", 1)
+                    set s = I2S(teamPoint[2])
                     call SetFrameText(pFrame, s)
                 elseif IsUnitAlly(GetKillingUnit(), Player(8)) then
                     set teamPoint[3] = teamPoint[3] + 1
-                    set pFrame = GetFrameByName("TextPoint", 2)
-                    set s = "|cffDAA520" + I2S(teamPoint[3])
+                    set pFrame = GetFrameByName("ScoreTxtFrame", 2)
+                    set s = I2S(teamPoint[3])
                     call SetFrameText(pFrame, s)
                 endif
                 call finishGame()
             endif
         endif
-        if not isGameFinish and (not IsUnitAlive(gg_unit_o003_0010) or not IsUnitAlive(gg_unit_o003_0031) or not IsUnitAlive(gg_unit_o003_0012)) then
+        if not isGameFinish and (not IsUnitAlive(gg_unit_o003_0011) or not IsUnitAlive(gg_unit_o003_0012) or not IsUnitAlive(gg_unit_o003_0013)) then
             if IsUnitAlly(u, Player(0)) then
                 set isGameFinish = true
                 call GroupEnumUnitsInRect(gGroup, WorldBounds.world, null)
@@ -353,43 +355,27 @@ scope startGame initializer init
                 call AdjustPlayerStateBJ( 300, Player(10), PLAYER_STATE_RESOURCE_GOLD )
                 call AdjustPlayerStateBJ( 300, Player(11), PLAYER_STATE_RESOURCE_GOLD )
             endif
-            if t == gg_unit_o005_0057 then
-                call SetUnitInvulnerable( gg_unit_o005_0022, false)
-            elseif t == gg_unit_o005_0058 then
-                call SetUnitInvulnerable( gg_unit_o005_0021, false)
-            elseif t == gg_unit_o005_0059 then
-                call SetUnitInvulnerable( gg_unit_o005_0011, false)
-            elseif t == gg_unit_o005_0056 then
-                call SetUnitInvulnerable(gg_unit_o005_0035, false)
-            elseif t == gg_unit_o005_0055 then
-                call SetUnitInvulnerable(gg_unit_o005_0036, false)
-            elseif t == gg_unit_o005_0054 then
-                call SetUnitInvulnerable(gg_unit_o005_0037, false)
-            elseif t == gg_unit_o005_0053 then
-                call SetUnitInvulnerable(gg_unit_o005_0050, false)
-            elseif t == gg_unit_o005_0052 then
-                call SetUnitInvulnerable(gg_unit_o005_0049, false)
-            elseif t == gg_unit_o005_0002 then
-                call SetUnitInvulnerable(gg_unit_o005_0048, false)
-            elseif t == gg_unit_o005_0022 then
-                call SetUnitInvulnerable(gg_unit_o008_0019, false)
+            if t == gg_unit_o005_0023 then
+                call SetUnitInvulnerable( gg_unit_o000_0020, false)
             elseif t == gg_unit_o005_0021 then
-                call SetUnitInvulnerable(gg_unit_o008_0023, false)
-            elseif t == gg_unit_o005_0011 then
-                call SetUnitInvulnerable(gg_unit_o008_0014, false)
+                call SetUnitInvulnerable( gg_unit_o000_0019, false)
+            elseif t == gg_unit_o005_0022 then
+                call SetUnitInvulnerable( gg_unit_o000_0018, false)
+            elseif t == gg_unit_o005_0034 then
+                call SetUnitInvulnerable(gg_unit_o000_0030, false)
+            elseif t == gg_unit_o005_0033 then
+                call SetUnitInvulnerable(gg_unit_o000_0031, false)
             elseif t == gg_unit_o005_0035 then
-                call SetUnitInvulnerable(gg_unit_o008_0033, false)
+                call SetUnitInvulnerable(gg_unit_o000_0032, false)
             elseif t == gg_unit_o005_0036 then
-                call SetUnitInvulnerable(gg_unit_o008_0034, false)
+                call SetUnitInvulnerable(gg_unit_o000_0045, false)
             elseif t == gg_unit_o005_0037 then
-                call SetUnitInvulnerable(gg_unit_o008_0032, false)
-            elseif t == gg_unit_o005_0050 then
-                call SetUnitInvulnerable(gg_unit_o008_0046, false)
-            elseif t == gg_unit_o005_0048 then
-                call SetUnitInvulnerable(gg_unit_o008_0045, false)
+                call SetUnitInvulnerable(gg_unit_o000_0041, false)
+            elseif t == gg_unit_o005_0039 then
+                call SetUnitInvulnerable(gg_unit_o000_0040, false)
             endif
         endif
-        if GetUnitTypeId(t) == 'o008' then
+        if GetUnitTypeId(t) == 'o000' then
             if IsUnitAlly(u, Player(0)) then
                 call AdjustPlayerStateBJ( 500, Player(1), PLAYER_STATE_RESOURCE_GOLD )
                 call AdjustPlayerStateBJ( 500, Player(2), PLAYER_STATE_RESOURCE_GOLD )
@@ -403,33 +389,44 @@ scope startGame initializer init
                 call AdjustPlayerStateBJ( 500, Player(10), PLAYER_STATE_RESOURCE_GOLD )
                 call AdjustPlayerStateBJ( 500, Player(11), PLAYER_STATE_RESOURCE_GOLD )
             endif
-            if t == gg_unit_o008_0019 then
-                call DestroyTextTag(creepText[2])
-            elseif t == gg_unit_o008_0023 then
-                call DestroyTextTag(creepText[0])
-            elseif t == gg_unit_o008_0014 then
-                call DestroyTextTag(creepText[1])
-            elseif t == gg_unit_o008_0033 then
-                call DestroyTextTag(creepText[5])
-            elseif t == gg_unit_o008_0034 then
-                call DestroyTextTag(creepText[3])
-            elseif t == gg_unit_o008_0032 then
-                call DestroyTextTag(creepText[4])
-            elseif t == gg_unit_o008_0045 then
-                call DestroyTextTag(creepText[7])
-            elseif t == gg_unit_o008_0047 then
-                call DestroyTextTag(creepText[6])
-            elseif t == gg_unit_o008_0046 then
-                call DestroyTextTag(creepText[8])
+            if not IsUnitAlive(gg_unit_o000_0020) and not IsUnitAlive(gg_unit_o000_0019) and not IsUnitAlive(gg_unit_o000_0018) then
+                call SetUnitInvulnerable(gg_unit_o001_0016, false)
+                call SetUnitInvulnerable(gg_unit_o001_0017, false)
+                call SetUnitInvulnerable(gg_unit_o008_0024, false)
             endif
-            if not IsUnitAlive(gg_unit_o008_0019) and not IsUnitAlive(gg_unit_o008_0023) and not IsUnitAlive(gg_unit_o008_0014) then
-                call SetUnitInvulnerable(gg_unit_o003_0010, false)
+            if not IsUnitAlive(gg_unit_o000_0030) and not IsUnitAlive(gg_unit_o000_0032) and not IsUnitAlive(gg_unit_o000_0031) then
+                call SetUnitInvulnerable(gg_unit_o001_0029, false)
+                call SetUnitInvulnerable(gg_unit_o001_0028, false)
+                call SetUnitInvulnerable(gg_unit_o008_0025, false)
             endif
-            if not IsUnitAlive(gg_unit_o008_0033) and not IsUnitAlive(gg_unit_o008_0034) and not IsUnitAlive(gg_unit_o008_0032) then
-                call SetUnitInvulnerable(gg_unit_o003_0031, false)
+            if not IsUnitAlive(gg_unit_o000_0045) and not IsUnitAlive(gg_unit_o000_0040) and not IsUnitAlive(gg_unit_o000_0041) then
+                call SetUnitInvulnerable(gg_unit_o001_0042, false)
+                call SetUnitInvulnerable(gg_unit_o001_0043, false)
+                call SetUnitInvulnerable(gg_unit_o008_0026, false)
             endif
-            if not IsUnitAlive(gg_unit_o008_0046) and not IsUnitAlive(gg_unit_o008_0047) and not IsUnitAlive(gg_unit_o008_0045) then
+        endif
+        if GetUnitTypeId(t) == 'o001' or GetUnitTypeId(t) == 'o008' then
+            if IsUnitAlly(u, Player(0)) then
+                call AdjustPlayerStateBJ( 700, Player(1), PLAYER_STATE_RESOURCE_GOLD )
+                call AdjustPlayerStateBJ( 700, Player(2), PLAYER_STATE_RESOURCE_GOLD )
+                call AdjustPlayerStateBJ( 700, Player(3), PLAYER_STATE_RESOURCE_GOLD )
+            elseif IsUnitAlly(u, Player(4)) then
+                call AdjustPlayerStateBJ( 700, Player(5), PLAYER_STATE_RESOURCE_GOLD )
+                call AdjustPlayerStateBJ( 700, Player(6), PLAYER_STATE_RESOURCE_GOLD )
+                call AdjustPlayerStateBJ( 700, Player(7), PLAYER_STATE_RESOURCE_GOLD )
+            elseif IsUnitAlly(u, Player(8)) then
+                call AdjustPlayerStateBJ( 700, Player(9), PLAYER_STATE_RESOURCE_GOLD )
+                call AdjustPlayerStateBJ( 700, Player(10), PLAYER_STATE_RESOURCE_GOLD )
+                call AdjustPlayerStateBJ( 700, Player(11), PLAYER_STATE_RESOURCE_GOLD )
+            endif
+            if not IsUnitAlive(gg_unit_o001_0016) and not IsUnitAlive(gg_unit_o001_0017) and not IsUnitAlive(gg_unit_o008_0024) then
+                call SetUnitInvulnerable(gg_unit_o003_0011, false)
+            endif
+            if not IsUnitAlive(gg_unit_o001_0029) and not IsUnitAlive(gg_unit_o001_0028) and not IsUnitAlive(gg_unit_o008_0025) then
                 call SetUnitInvulnerable(gg_unit_o003_0012, false)
+            endif
+            if not IsUnitAlive(gg_unit_o001_0042) and not IsUnitAlive(gg_unit_o001_0043) and not IsUnitAlive(gg_unit_o008_0026) then
+                call SetUnitInvulnerable(gg_unit_o003_0013, false)
             endif
         endif
 

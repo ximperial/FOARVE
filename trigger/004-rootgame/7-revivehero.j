@@ -35,11 +35,11 @@ scope revivehero initializer init
     private function reviveUnit takes nothing returns nothing
         local timer z = GetExpiredTimer()
         local integer pid = LoadInteger(ht, GetHandleId(z), 0)
-        local framehandle pFrame = GetFrameByName("UICool", pid)
+        local framehandle pFrame = GetFrameByName("ScoreHeroTimerFrame", pid)
         local string s = ""
 
         set reviveTime[pid] = reviveTime[pid] - 1
-        set s = "|cffDAA520" + I2S(reviveTime[pid])
+        set s = I2S(reviveTime[pid])
         call SetFrameText(pFrame, s)
         if reviveTime[pid] <= 0 then
             call SetFrameText(pFrame, "")
@@ -58,7 +58,7 @@ scope revivehero initializer init
             call PauseUnit(MainHero[pid], false)
             call SetUnitInvulnerable(MainHero[pid], false)
             call PanCameraToTimedForPlayer(Player(pid), GetUnitX(MainHero[pid]), GetUnitY(MainHero[pid]), 1)
-            set pFrame = GetFrameByName("HeroBack4ground", pid)
+            set pFrame = GetFrameByName("ScoreHeroBackground", pid)
             call SetFrameTexture(pFrame, HeroPhoto[MemoHero[pid]], 0, true)
             call ResetVision(MainHero[pid])
             call FlushChildHashtable(ht, GetHandleId(z))
@@ -83,7 +83,7 @@ scope revivehero initializer init
             set reviveTime[pid] = 12
             call ResetToGameCameraForPlayer(p, 0)
             call SetCameraFieldForPlayer(p, CAMERA_FIELD_TARGET_DISTANCE, camZ[pid], 0)
-            set pFrame = GetFrameByName("HeroBack4ground", pid)
+            set pFrame = GetFrameByName("ScoreHeroBackground", pid)
             call SetFrameTexture(pFrame, HeroPhoto2[MemoHero[pid]], 0, true)
             set z = reviveTimer[pid]
             call SaveInteger(ht, GetHandleId(z), 0, pid)

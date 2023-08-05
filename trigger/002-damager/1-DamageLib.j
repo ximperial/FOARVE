@@ -73,74 +73,6 @@ scope DamageLib
         set z = null
     endfunction
     
-    function TomaE_End takes nothing returns nothing
-        local timer z = GetExpiredTimer()
-        local unit c = LoadUnitHandle(ht, GetHandleId(z) , 0)
-        local unit t = LoadUnitHandle(ht, GetHandleId(z) , 1)
-        local real a = Angle(GetUnitX(c) , GetUnitY(c) , GetUnitX(t) , GetUnitY(t))
-        local integer count = LoadInteger(ht, GetHandleId(z) , 0)
-        local real x
-        local real y
-        local integer i = 0
-        set count = count + 1
-        call SaveInteger(ht, GetHandleId(z) , 0, count)
-        call PauseUnit(c, true)
-        call SetUnitInvulnerable(c, true)
-        call PauseUnit(t, true)
-        call SetUnitInvulnerable(t, true)
-        if count == 1 then 
-            call SoundStart("war3mapImported\\Toma_1-1.mp3")
-            call SetUnitAnimationByIndex(c, 4)
-        endif
-        if count == 20 then 
-            call VisionArea(GetOwningPlayer(c) , 1200, 3, GetUnitX(t) , GetUnitY(t))
-            call SetUnitX(c, PolarX(GetUnitX(t) , - 120, a))
-            call SetUnitY(c, PolarY(GetUnitY(t) , - 120, a))
-            call SetUnitFacingEx(c, a, true)
-            loop
-                exitwhen i > 8
-                set x = PolarX(GetUnitX(t) , 300, i * 40)
-                set y = PolarY(GetUnitY(t) , 300, i * 40)
-                call Effect("war3mapimported\\BY_Wood_Eff_Ord_DanGe_Dus_Kuosan_1_1_1.mdx", x, y, 25, i * 40, 0, 0, 1, 1.5, 255, 255, 255, 255)
-                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.5)
-                set i = i + 1
-            endloop
-            call Effect("war3mapimported\\ToumaE2.mdx", GetUnitX(t) , GetUnitY(t) , 25, randomAngle(), 0, 0, 0.75, 1.5, 255, 255, 255, 255)
-            call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.8)
-            call Effect("war3mapimported\\ToumaE.mdx", GetUnitX(t) , GetUnitY(t) , 25, randomAngle(), 0, 0, 0.6, 1, 255, 255, 255, 255)
-            call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 1.25)
-            call Effect("war3mapimported\\62.mdx", GetUnitX(t) , GetUnitY(t) , 25, randomAngle(), 0, 0, 3.5, 1, 255, 255, 255, 255)
-            call Effect("war3mapimported\\WRing.mdx", GetUnitX(t) , GetUnitY(t) , 100, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, 255)
-            call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.9)
-            call PauseUnit(c, false)
-            call PauseUnit(t, false)
-            call SetUnitInvulnerable(c, false)
-            call SetUnitInvulnerable(t, false)
-            call silenceUnit(t, 1)
-            call IssueTargetOrderById(c, 851983, t)
-            call IssueImmediateOrderById(t, 851972)
-            call FlushChildHashtable(ht, GetHandleId(z))
-            call PauseTimer(z)
-            call DestroyTimer(z)
-        endif
-        set z = null
-        set c = null
-        set t = null
-    endfunction
-    
-    function TomaE_Start takes unit c, unit t returns nothing
-        local timer z = CreateTimer()
-        call PauseUnit(c, true)
-        call SetUnitInvulnerable(c, true)
-        call PauseUnit(t, true)
-        call SetUnitInvulnerable(t, true)
-        call SaveUnitHandle(ht, GetHandleId(z) , 0, c)
-        call SaveUnitHandle(ht, GetHandleId(z) , 1, t)
-        call SaveInteger(ht, GetHandleId(z) , 0, 0)
-        call TimerStart(z, 0.02, true, function TomaE_End)
-        set z = null
-    endfunction
-    
     function YamajiR_End takes nothing returns nothing 
         local timer z = GetExpiredTimer()
         local unit c = LoadUnitHandle(ht, GetHandleId(z) , 0)
@@ -456,21 +388,23 @@ scope DamageLib
     
     function ByakuranR_End takes nothing returns nothing
         local timer z = GetExpiredTimer()
-        local unit c = LoadUnitHandle(ht, GetHandleId(z) , 0)
+        local unit u = LoadUnitHandle(ht, GetHandleId(z) , 0)
         local unit t = LoadUnitHandle(ht, GetHandleId(z) , 1)
-        local real a = Angle(GetUnitX(c), GetUnitY(c), GetUnitX(t), GetUnitY(t))
-        local real dist = Distance(GetUnitX(c), GetUnitY(c), GetUnitX(t), GetUnitY(t))
-        local real x
-        local real y
         local integer count = LoadInteger(ht, GetHandleId(z) , 0)
         local integer iterator = LoadInteger(ht, GetHandleId(z) , 1)
-        local integer i = 0
+        local real a = Angle(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
+        local real dist = Distance(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
+        local real x
+        local real y
+        local integer i
         local effect e
+        local boolean b = LoadBoolean(ht, GetHandleId(z), 0)
+
         set count = count + 1
         call SaveInteger(ht, GetHandleId(z) , 0, count)
         if count <= 440 then
-            call PauseUnit(c, true)
-            call SetUnitInvulnerable(c, true)
+            call PauseUnit(u, true)
+            call SetUnitInvulnerable(u, true)
         endif
         call PauseUnit(t, true)
         call SetUnitInvulnerable(t, true)
@@ -482,11 +416,12 @@ scope DamageLib
         call SetUnitState(t, UNIT_STATE_LIFE, LoadReal(ht, GetHandleId(z), - 1))
         if count == 1 then 
             call SoundStart("war3mapImported\\Byakuran_4-3.mp3")
-            if GetUnitAbilityLevel(c, 'B00Y') > 0 then
-                call SetUnitAnimationByIndex(c, 10)
+            if b then
+                call SetUnitAnimationByIndex(u, 10)
             else
-                call SetUnitAnimationByIndex(c, 4)
+                call SetUnitAnimationByIndex(u, 4)
             endif
+            call SetUnitFacingEx(u, a, true)
             call Effect("war3mapImported\\Black.mdl", GetUnitX(t), GetUnitY(t), 25, randomAngle(), 0, 0, 1.5, 6, 255, 255, 255, PercentTo255(60))
             call TimeScaleEffect(bj_lastCreatedEffect, 0, 0.4)
         endif
@@ -495,97 +430,102 @@ scope DamageLib
             call SaveInteger(ht, GetHandleId(z), 1, iterator)
             if iterator >= 5 then
                 call SaveInteger(ht, GetHandleId(z), 1, 0)
-                call Effect("war3mapImported\\DustWaveAnimate2.mdx", GetUnitX(c), GetUnitY(c), 25, randomAngle(), 0, 0, GetRandomReal(0.75, 1.65), 1.5, 255, 255, 255, PercentTo255(8))
+                call Effect("war3mapImported\\DustWaveAnimate2.mdx", GetUnitX(u), GetUnitY(u), 0, randomAngle(), 0, 0, GetRandomReal(0.75, 1.65), 2, 255, 255, 255, PercentTo255(30))
                 call SetSpecialEffectAnimation(bj_lastCreatedEffect, "stand")
-                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, GetRandomReal(0.55, 0.75))
+                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, GetRandomReal(0.4, 0.75))
+                call Effect("war3mapImported\\DustWaveAnimate2.mdx", GetUnitX(u), GetUnitY(u), 0, randomAngle(), 0, 0, GetRandomReal(1.25, 2.15), 2, 255, 255, 255, PercentTo255(30))
+                call SetSpecialEffectAnimation(bj_lastCreatedEffect, "stand")
+                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, GetRandomReal(0.4, 0.75))
                 if count >= 290 then
-                    call Effect("war3mapImported\\SuperShinyThingy.mdx", GetUnitX(c), GetUnitY(c), 50, randomAngle(), 0, 0, GetRandomReal(1, 1.5), 1, 255, 255, 255, 255)
-                    call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.8)
+                    call Effect("war3mapImported\\SuperShinyThingy.mdx", GetUnitX(u), GetUnitY(u), 50, randomAngle(), 0, 0, GetRandomReal(1.2, 1.65), 1.5, 255, 255, 255, 255)
+                    call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.6)
                 endif
             endif
         endif
         if count == 380 then
-            call Effect("war3mapImported\\Shockwave White.mdl", GetUnitX(c), GetUnitY(c), 25, randomAngle(), 0, 0, 1.5, 1, 255, 255, 255, 255)
-            call Effect("war3mapImported\\WhiteDrive.mdl", GetUnitX(c), GetUnitY(c), 25, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, 255)
-            call Effect("war3mapImported\\WhiteXMissile.mdl", GetUnitX(c), GetUnitY(c), 100, a, 0, 0, 2, 2.5, 255, 255, 255, 255)
-            call SaveEffectHandle(ht, GetHandleId(z), 2, bj_lastCreatedEffect)
-            call SaveReal(ht, GetHandleId(z), 0, a)
+            call Effect("war3mapImported\\Shockwave White.mdl", GetUnitX(u), GetUnitY(u), 25, randomAngle(), 0, 0, 1.5, 1, 255, 255, 255, 255)
+            call Effect("war3mapImported\\WhiteDrive.mdl", GetUnitX(u), GetUnitY(u), 25, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, 255)
+            call Effect("war3mapImported\\WhiteXMissile.mdl", GetUnitX(u), GetUnitY(u), 100, a, 0, 0, 2, 2.5, 255, 255, 255, 255)
+            call SaveEffectHandle(ht, GetHandleId(z), 10, bj_lastCreatedEffect)
+            call SaveReal(ht, GetHandleId(z), 10, a)
         endif
         if count > 380 and count <= 480 then
-            set e = LoadEffectHandle(ht, GetHandleId(z), 2)
-            set a = LoadReal(ht, GetHandleId(z), 0)
+            set e = LoadEffectHandle(ht, GetHandleId(z), 10)
+            set a = LoadReal(ht, GetHandleId(z), 10)
             set dist = Distance(GetEffectX(e), GetEffectY(e), GetUnitX(t), GetUnitY(t))
             if dist > 140 then
                 set x = PolarX(GetEffectX(e), dist / 15, a)
                 set y = PolarY(GetEffectY(e), dist / 15, a)
-                call SetEffectXY(e, x, y, 1)
+                call SetEffectXY(e, x, y, 0)
             else
                 set x = PolarX(GetUnitX(t), 10, a)
                 set y = PolarY(GetUnitY(t), 10, a)
-                call SetUnitXY(t, x, y, 1)
+                call SetUnitXY(t, x, y, 2)
                 set x = PolarX(GetUnitX(t), - 50, a)
                 set y = PolarY(GetUnitY(t), - 50, a)
-                call SetEffectXY(e, x, y, 1)
+                call SetEffectXY(e, x, y, 0)
             endif
             set iterator = iterator + 1
             call SaveInteger(ht, GetHandleId(z), 1, iterator)
             if iterator >= 5 then
                 call SaveInteger(ht, GetHandleId(z), 1, 0)
-                call Effect("war3mapimported\\wind3.mdx", GetEffectX(e), GetEffectY(e), 100, a, - 90, 0, GetRandomReal(1, 1.55), 1, 255, 255, 255, PercentTo255(70))
-                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 1.35)
-                call Effect("war3mapImported\\SuperShinyThingy.mdl", GetEffectX(e), GetEffectY(e), 80, randomAngle(), 0, 0, GetRandomReal(1.25, 1.55), 1, 255, 255, 255, PercentTo255(90))
-                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.9)
+                call Effect("war3mapimported\\wind3.mdx", GetEffectX(e), GetEffectY(e), 100, a, - 90, 0, GetRandomReal(0.95, 1.55), 1, 255, 255, 255, PercentTo255(60))
+                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 1.25)
+                call Effect("war3mapImported\\SuperShinyThingy.mdl", GetEffectX(e), GetEffectY(e), 50, randomAngle(), 0, 0, GetRandomReal(1.2, 1.65), 1.5, 255, 255, 255, 255)
+                call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.8)
             endif
         endif
         if count == 440 then
-            call SetUnitTimeScale(c, 1)
-            call PauseUnit(c, false)
-            call SetUnitInvulnerable(c, false)
-            call IssueTargetOrderById(c, 851983, t)
+            call SetUnitTimeScale(u, 1)
+            call PauseUnit(u, false)
+            call SetUnitInvulnerable(u, false)
+            call IssueTargetOrderById(u, 851983, t)
         endif
         if count == 480 then
-            call Effect("war3mapimported\\wind3.mdx", GetUnitX(t), GetUnitY(t), 50, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, PercentTo255(70))
-            call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.5)
-            call Effect("war3mapimported\\WindCirclefaster.mdx", GetUnitX(t), GetUnitY(t), 100, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, 255)
+            call Effect("war3mapimported\\wind3.mdx", GetUnitX(t), GetUnitY(t), 50, randomAngle(), 0, 0, 2, 2, 255, 255, 255, 255)
+            call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.4)
+            call Effect("war3mapimported\\WindCirclefaster.mdx", GetUnitX(t), GetUnitY(t), 50, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, 255)
             call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.6)
             call Effect("war3mapimported\\ExpWhiteFaw.mdx", GetUnitX(t), GetUnitY(t), 50, randomAngle(), 0, 0, 1.5, 1.5, 255, 255, 255, 255)
             call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.75)
-            call Effect("war3mapimported\\ArcaneExplosion_Boss_Base.mdx", GetUnitX(t), GetUnitY(t), 25, randomAngle(), 0, 0, 0.65, 1.5, 255, 255, 255, 255)
+            call Effect("war3mapimported\\ArcaneExplosion_Boss_Base.mdx", GetUnitX(t), GetUnitY(t), 0, randomAngle(), 0, 0, 0.65, 1.5, 255, 255, 255, 255)
             call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.75)
-            call Effect("war3mapimported\\by_wood_flame_explosion_2_1.mdx", GetUnitX(t), GetUnitY(t), 25, randomAngle(), 0, 0, 1.5, 1.5, 255, 255, 255, 255)
+            call Effect("war3mapimported\\by_wood_flame_explosion_2_1.mdx", GetUnitX(t), GetUnitY(t), 0, randomAngle(), 0, 0, 1.5, 1.5, 255, 255, 255, 255)
             call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.8)
-            call Effect("war3mapimported\\EarthSlamWhiteSlashes.mdx", GetUnitX(t), GetUnitY(t), 25, randomAngle(), 0, 0, 1.5, 1.5, 255, 255, 255, 255)
+            call Effect("war3mapimported\\EarthSlamWhiteSlashes.mdx", GetUnitX(t), GetUnitY(t), 0, randomAngle(), 0, 0, 1.5, 1.5, 255, 255, 255, 255)
             call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.7)
-            call Effect("war3mapimported\\File00000283.mdx", GetUnitX(t), GetUnitY(t), 25, randomAngle(), 0, 0, 0.8, 1, 255, 255, 255, 255)
+            call Effect("war3mapimported\\File00000283.mdx", GetUnitX(t), GetUnitY(t), 0, randomAngle(), 0, 0, 0.8, 1, 255, 255, 255, 255)
         endif
         if count == 490 then 
             call PauseUnit(t, false)
             call SetUnitInvulnerable(t, false)
-            call DamageUnit(c , t, ((0.2 * GetUnitBuffLevel(c, 'B00Q')) + (6 + 2 * GetUnitAbilityLevel(c, 'A0AK'))) * GetHeroStr(c, true))
-            call VisionArea(GetOwningPlayer(c) , 1200, 3, GetUnitX(t) , GetUnitY(t))
+            call DamageUnit(u, t, (6 + 2 * GetUnitAbilityLevel(u, 'A0AK')) * GetHeroStr(u, true))
+            call VisionArea(GetOwningPlayer(u) , 1200, 3, GetUnitX(t) , GetUnitY(t))
             call IssueImmediateOrderById(t, 851972)
             call FlushChildHashtable(ht, GetHandleId(z))
             call PauseTimer(z)
             call DestroyTimer(z)
         endif
         set z = null
-        set c = null
+        set u = null
         set t = null
         set e = null
     endfunction
     
-    function ByakuranR_Start takes unit c, unit t returns nothing
+    function ByakuranR_Start takes unit u, unit t returns nothing
         local timer z = CreateTimer()
-        call PauseUnit(c, true)
-        call SetUnitInvulnerable(c, true)
+
+        call PauseUnit(u, true)
+        call SetUnitInvulnerable(u, true)
         call PauseUnit(t, true)
         call SetUnitInvulnerable(t, true)
-        call SaveUnitHandle(ht, GetHandleId(z) , 0, c)
+        call SaveUnitHandle(ht, GetHandleId(z) , 0, u)
         call SaveUnitHandle(ht, GetHandleId(z) , 1, t)
-        call SaveInteger(ht, GetHandleId(z) , 0, 0)
+        call SaveInteger(ht, GetHandleId(z), 0, 0)
         call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call SaveReal(ht, GetHandleId(z), - 1, GetUnitState(t, UNIT_STATE_LIFE))
+        call SaveBoolean(ht, GetHandleId(z), 0, GetUnitAbilityLevel(u, 'B00Y') > 0)
         call TimerStart(z, 0.02, true, function ByakuranR_End)
+        
         set z = null
     endfunction
     
@@ -656,8 +596,8 @@ scope DamageLib
             set x = PolarX(GetUnitX(t), 10, a)
             set y = PolarY(GetUnitY(t), 10, a)
             call SetUnitXY(t, x, y, 1)
-            set x = PolarX(GetUnitX(t), -120, a)
-            set y = PolarY(GetUnitY(t), -120, a)
+            set x = PolarX(GetUnitX(t), - 120, a)
+            set y = PolarY(GetUnitY(t), - 120, a)
             call SetUnitXY(c, x, y, 0)
         endif
         if count >= 180 and count <= 220 then

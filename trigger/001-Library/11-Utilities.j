@@ -15,6 +15,10 @@ library Utilities uses lowefflib
         force team3 = CreateForce()
         integer playerCount = 0
         string array COLOR
+        unit array MainHero
+        timer TourTimer = null
+        string TourName = ""
+        integer TourTime = 0
     endglobals
     
     function SetUnitZ takes unit u, real z returns nothing
@@ -27,6 +31,14 @@ library Utilities uses lowefflib
         endif
 
         return "no"
+    endfunction
+    
+    function B2I takes boolean flag returns integer
+        if flag then
+            return 1
+        endif
+
+        return 0
     endfunction
 
     function UserPlayer takes player p returns boolean
@@ -92,15 +104,15 @@ library Utilities uses lowefflib
             endif
         endloop
         call GroupClear(gGroup)
-        call SetUnitInvulnerable( gg_unit_o005_0057, false )
-        call SetUnitInvulnerable( gg_unit_o005_0058, false )
-        call SetUnitInvulnerable( gg_unit_o005_0059, false )
-        call SetUnitInvulnerable( gg_unit_o005_0056, false )
-        call SetUnitInvulnerable( gg_unit_o005_0055, false )
-        call SetUnitInvulnerable( gg_unit_o005_0054, false )
-        call SetUnitInvulnerable( gg_unit_o005_0053, false )
-        call SetUnitInvulnerable( gg_unit_o005_0052, false )
-        call SetUnitInvulnerable( gg_unit_o005_0002, false )
+        call SetUnitInvulnerable( gg_unit_o005_0023, false )
+        call SetUnitInvulnerable( gg_unit_o005_0021, false )
+        call SetUnitInvulnerable( gg_unit_o005_0022, false )
+        call SetUnitInvulnerable( gg_unit_o005_0034, false )
+        call SetUnitInvulnerable( gg_unit_o005_0033, false )
+        call SetUnitInvulnerable( gg_unit_o005_0035, false )
+        call SetUnitInvulnerable( gg_unit_o005_0036, false )
+        call SetUnitInvulnerable( gg_unit_o005_0037, false )
+        call SetUnitInvulnerable( gg_unit_o005_0039, false )
         set i = 0
         loop
             exitwhen i > 4
@@ -152,6 +164,7 @@ library Utilities uses lowefflib
             call SetCineFilterEndColor(PercentTo255(red1), PercentTo255(green1), PercentTo255(blue1), PercentTo255(100 - trans1))
             call SetCineFilterDuration(duration)
             call DisplayCineFilter(true)
+            call EnableUserUI(true)
         endif
     endfunction
 
@@ -511,6 +524,18 @@ library Utilities uses lowefflib
     function GetEffectZ takes effect e returns real
         return GetSpecialEffectZ(e)
     endfunction
+    
+    function SetEffectX takes effect e, real x returns nothing
+        call SetSpecialEffectX(e, x)
+    endfunction
+    
+    function SetEffectY takes effect e, real y returns nothing
+        call SetSpecialEffectY(e, y)
+    endfunction
+    
+    function SetEffectZ takes effect e, real z returns nothing
+        call SetSpecialEffectZ(e, z)
+    endfunction
 
     function SetEffectXY takes effect e, real x, real y, integer pathing returns nothing
         if pathing == 1 then
@@ -584,6 +609,29 @@ library Utilities uses lowefflib
         call SaveEffectHandle(ht, GetHandleId(z) , 0, e)
         call SaveInteger(ht, GetHandleId(z) , 0, anim)
         call TimerStart(z, duration, false, function AnimEffectEnd)
+
+        set z = null
+    endfunction
+
+    function AnimEffectExEnd takes nothing returns nothing 
+        local timer z = GetExpiredTimer()
+        local effect e = LoadEffectHandle(ht, GetHandleId(z) , 0)
+        local string anim = LoadStr(ht, GetHandleId(z) , 1)
+
+        call SetSpecialEffectAnimation(e, anim)
+        call FlushChildHashtable(ht, GetHandleId(z))
+        call DestroyTimer(z)
+
+        set z = null
+        set e = null
+    endfunction
+                                                                                                                                                                                                                                                                                                                                                                  
+    function AnimEffectEx takes effect e, string anim, real duration returns nothing
+        local timer z = CreateTimer()
+
+        call SaveEffectHandle(ht, GetHandleId(z) , 0, e)
+        call SaveStr(ht, GetHandleId(z) , 1, anim)
+        call TimerStart(z, duration, false, function AnimEffectExEnd)
 
         set z = null
     endfunction

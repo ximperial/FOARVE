@@ -15,22 +15,20 @@
     14-crowdcontrol: crowdcontrol
     15-spellLib: spellLib
     16-creepLib: creepLib
-    17-towerLib: towerLib
-    18-regionLib: regionLib
-    19-cooldown: cooldown
-    20-backwards: backwards
+    17-regionLib: regionLib
+    18-cooldown: cooldown
+    19-backwards: backwards
 002-damager: damager
     1-DamageLib: DamageLib
     2-DamageEvent: DamageEvent
 003-CustomUI: CustomUI
     1-StartInitFrame: StartInitFrame
         Run
-    2-interactionUI: interactionUI
-    3-initFrame: initFrame
-    4-mainSelect: mainSelect
-    5-runTimeUI: runTimeUI
-    6-joinMap: joinMap
-    7-lvlUP: lvlUP
+    2-initFrame: initFrame
+    3-mainSelect: mainSelect
+    4-runTimeUI: runTimeUI
+    5-joinMap: joinMap
+    6-lvlUP: lvlUP
 004-rootgame: rootgame
     1-gamesystem: gamesystem
     2-preloadEffect: preloadEffect
@@ -111,29 +109,13 @@
 '019-King Hassan': 'King Hassan'
     1-hassanspell: hassanspell
 020-Ace: Ace
-    1-AceQ: AceQ
-    2-AceW: AceW
-    3-AceE: AceE
-    4-AceR: AceR
-    5-AceT: AceT
-    6-AceF: AceF
-    7-AceD: AceD
+    1-acespell: acespell
 021-Byakuran: Byakuran
-    1-ByakuranQ: ByakuranQ
-    2-ByakuranW: ByakuranW
-    3-ByakuranE: ByakuranE
-    4-ByakuranR: ByakuranR
-    5-ByakuranT: ByakuranT
-    6-ByakuranF: ByakuranF
-    7-ByakuranD: ByakuranD
+    1-byakuranspell: byakuranspell
+    2-ByakuranD: ByakuranD
+        Disab
 '022-Kamijo Toma': 'Kamijo Toma'
-    1-TomaQ: TomaQ
-    2-TomaW: TomaW
-    3-TomaE: TomaE
-    4-TomaR: TomaR
-    5-TomaT: TomaT
-    6-TomaF: TomaF
-    7-TomaD: TomaD
+    1-tomaspell: tomaspell
 '023-Sakamaki Izayoi': 'Sakamaki Izayoi'
     1-IzayoiQ: IzayoiQ
     2-IzayoiW: IzayoiW
@@ -267,8 +249,12 @@
     5-CloudsT: CloudsT
     6-CloudsF: CloudsF
     7-CloudsD: CloudsD
-040---------------------------------------------------: --------------------------------------------------
-'041-Hibari Kyoya': 'Hibari Kyoya'
+040-Zamasu: Zamasu
+    1-zamasuspell: zamasuspell
+041-Allmight: Allmight
+    1-allmightspell: allmightspell
+042---------------------------------------------------: --------------------------------------------------
+'043-Hibari Kyoya': 'Hibari Kyoya'
     1-HibariQ: HibariQ
     2-HibariW: HibariW
     3-HibariR: HibariR
@@ -277,7 +263,7 @@
     6-HibariF: HibariF
     7-HibariD: HibariD
     8-HibariD2: HibariD2
-'042-Kirigaya Kazuto': 'Kirigaya Kazuto'
+'044-Kirigaya Kazuto': 'Kirigaya Kazuto'
     1-KiritoQ: KiritoQ
     2-KiritoW: KiritoW
     3-KiritoE: KiritoE
@@ -287,7 +273,7 @@
     7-KiritoD: KiritoD
     8-KiritoDold: KiritoDold
         Disab
-'043-Namikaze Minato': 'Namikaze Minato'
+'045-Namikaze Minato': 'Namikaze Minato'
     1-MinatoQ: MinatoQ
     2-MinatoQ2: MinatoQ2
     3-MinatoW: MinatoW
@@ -296,7 +282,7 @@
     6-MinatoT: MinatoT
     7-MinatoF: MinatoF
     8-MinatoD: MinatoD
-'044-Tendo Kisara': 'Tendo Kisara'
+'046-Tendo Kisara': 'Tendo Kisara'
     1-KisaraQ: KisaraQ
     2-KisaraW: KisaraW
     3-KisaraE: KisaraE
@@ -304,7 +290,7 @@
     5-KisaraT: KisaraT
     6-KisaraF: KisaraF
     7-KisaraD: KisaraD
-'045-Tokisaki Kurumi': 'Tokisaki Kurumi'
+'047-Tokisaki Kurumi': 'Tokisaki Kurumi'
     1-KurumiQ: KurumiQ
     2-KurumiW: KurumiW
     3-KurumiE: KurumiE
@@ -312,7 +298,7 @@
     5-KurumiT: KurumiT
     6-KurumiF: KurumiF
     7-KurumiD: KurumiD
-'046-Sawada Tsunayoshi': 'Sawada Tsunayoshi'
+'048-Sawada Tsunayoshi': 'Sawada Tsunayoshi'
     1-TsunaQ: TsunaQ
     2-TsunaW: TsunaW
     3-TsunaE: TsunaE
@@ -320,7 +306,7 @@
     5-TsunaT: TsunaT
     6-TsunaF: TsunaF
     7-TsunaD: TsunaD
-'047-Borsalino Kizaru': 'Borsalino Kizaru'
+'049-Borsalino Kizaru': 'Borsalino Kizaru'
     1-KizaruQ: KizaruQ
     2-KizaruW: KizaruW
     3-KizaruE: KizaruE
@@ -328,21 +314,21 @@
     5-KizaruT: KizaruT
     6-KizaruF: KizaruF
     7-KizaruD: KizaruD
-'048-Gray Fullbuster': 'Gray Fullbuster'
+'050-Gray Fullbuster': 'Gray Fullbuster'
     1-GrayQ: GrayQ
     2-GrayW: GrayW
     3-GrayR: GrayR
     4-GrayT: GrayT
     5-GrayF: GrayF
     6-GrayD: GrayD
-'049-Aizen Sousuke': 'Aizen Sousuke'
+'051-Aizen Sousuke': 'Aizen Sousuke'
     1-AizenQ: AizenQ
     2-AizenW: AizenW
     3-AizenR: AizenR
     4-AizenT: AizenT
     5-AizenF: AizenF
     6-AizenD: AizenD
-'050-Esdeath Shoukun': 'Esdeath Shoukun'
+'052-Esdeath Shoukun': 'Esdeath Shoukun'
     1-EsdeathQ: EsdeathQ
     2-EsdeathW: EsdeathW
     3-EsdeathE: EsdeathE
@@ -350,7 +336,7 @@
     5-EsdeathT: EsdeathT
     6-EsdeathF: EsdeathF
     7-EsdeathD: EsdeathD
-'051-Okita Soji': 'Okita Soji'
+'053-Okita Soji': 'Okita Soji'
     1-OkitaSojiQ: OkitaSojiQ
     2-OkitaSojiW: OkitaSojiW
     3-OkitaSojiE: OkitaSojiE
@@ -358,7 +344,7 @@
     5-OkitaSojiT: OkitaSojiT
     6-OkitaSojiF: OkitaSojiF
     7-OkitaSojiD: OkitaSojiD
-'052-Kanzaki Kaori': 'Kanzaki Kaori'
+'054-Kanzaki Kaori': 'Kanzaki Kaori'
     1-KanzakiQ: KanzakiQ
     2-KanzakiW: KanzakiW
     3-KanzakiE: KanzakiE
@@ -366,7 +352,7 @@
     5-KanzakiT: KanzakiT
     6-KanzakiF: KanzakiF
     7-KanzakiD: KanzakiD
-053-Kuroyukihime: Kuroyukihime
+055-Kuroyukihime: Kuroyukihime
     1-KuroyukihimeQ: KuroyukihimeQ
     2-KuroyukihimeW: KuroyukihimeW
     3-KuroyukihimeE: KuroyukihimeE
@@ -374,14 +360,14 @@
     5-KuroyukihimeT: KuroyukihimeT
     6-KuroyukihimeF: KuroyukihimeF
     7-KuroyukihimeD: KuroyukihimeD
-'054-Shiki Tohno': 'Shiki Tohno'
+'056-Shiki Tohno': 'Shiki Tohno'
     1-TohnoQ: TohnoQ
     2-TohnoW: TohnoW
     3-TohnoR: TohnoR
     4-TohnoT: TohnoT
     5-TohnoF: TohnoF
     6-TohnoD: TohnoD
-'055-Shiki Ryougi': 'Shiki Ryougi'
+'057-Shiki Ryougi': 'Shiki Ryougi'
     1-RyougiQ: RyougiQ
     2-RyougiW: RyougiW
     3-RyougiE: RyougiE
@@ -389,7 +375,7 @@
     5-RyougiT: RyougiT
     6-RyougiF: RyougiF
     7-RyougiD: RyougiD
-'056-Alibaba Saluja': 'Alibaba Saluja'
+'058-Alibaba Saluja': 'Alibaba Saluja'
     1-AlibabaQ: AlibabaQ
     2-AlibabaW: AlibabaW
     3-AlibabaE: AlibabaE
@@ -397,14 +383,14 @@
     5-AlibabaT: AlibabaT
     6-AlibabaF: AlibabaF
     7-AlibabaD: AlibabaD
-'057-Miyamoto Musashi': 'Miyamoto Musashi'
+'059-Miyamoto Musashi': 'Miyamoto Musashi'
     1-MusashiQ: MusashiQ
     2-MusashiW: MusashiW
     3-MusashiR: MusashiR
     4-MusashiT: MusashiT
     5-MusashiF: MusashiF
     6-MusashiD: MusashiD
-'058-Nura Rikuo': 'Nura Rikuo'
+'060-Nura Rikuo': 'Nura Rikuo'
     1-NuraQ: NuraQ
     2-NuraW: NuraW
     3-NuraE: NuraE
@@ -412,7 +398,7 @@
     5-NuraT: NuraT
     6-NuraF: NuraF
     7-NuraD: NuraD
-'059-Wendy Marvell': 'Wendy Marvell'
+'061-Wendy Marvell': 'Wendy Marvell'
     1-WendyQ: WendyQ
     2-WendyW: WendyW
     3-WendyE: WendyE
@@ -420,7 +406,7 @@
     5-WendyT: WendyT
     6-WendyF: WendyF
     7-WendyD: WendyD
-'060-Shiki Nanaya': 'Shiki Nanaya'
+'062-Shiki Nanaya': 'Shiki Nanaya'
     1-NanayaQ: NanayaQ
     2-NanayaW: NanayaW
     3-NanayaE: NanayaE
@@ -428,14 +414,14 @@
     5-NanayaT: NanayaT
     6-NanayaF: NanayaF
     7-NanayaD: NanayaD
-'061-Kumagawa Misogi': 'Kumagawa Misogi'
+'063-Kumagawa Misogi': 'Kumagawa Misogi'
     1-MisogiQ: MisogiQ
     2-MisogiW: MisogiW
     3-MisogiR: MisogiR
     4-MisogiT: MisogiT
     5-MisogiF: MisogiF
     6-MisogiD: MisogiD
-'062-Okumura Rin': 'Okumura Rin'
+'064-Okumura Rin': 'Okumura Rin'
     1-RinQ: RinQ
     2-RinW: RinW
     3-RinE: RinE
@@ -443,7 +429,7 @@
     5-RinT: RinT
     6-RinF: RinF
     7-RinD: RinD
-'063-Monke D. Luffy': 'Monke D. Luffy'
+'065-Monke D. Luffy': 'Monke D. Luffy'
     1-MonkeQ: MonkeQ
     2-MonkeW: MonkeW
     3-MonkeE: MonkeE
@@ -451,14 +437,14 @@
     5-MonkeT: MonkeT
     6-MonkeF: MonkeF
     7-MonkeD: MonkeD
-064-Neptun: Neptun
+066-Neptun: Neptun
     1-NeptunQ: NeptunQ
     2-NeptunW: NeptunW
     3-NeptunR: NeptunR
     4-NeptunT: NeptunT
     5-NeptunF: NeptunF
     6-NeptunD: NeptunD
-'065-Rogue Cheney': 'Rogue Cheney'
+'067-Rogue Cheney': 'Rogue Cheney'
     1-RoguQ: RoguQ
     2-RoguW: RoguW
     3-RoguE: RoguE
@@ -467,7 +453,7 @@
     6-RoguT: RoguT
     7-RoguF: RoguF
     8-RoguD: RoguD
-'066-Kenshin Himura': 'Kenshin Himura'
+'068-Kenshin Himura': 'Kenshin Himura'
     1-KenshinQ: KenshinQ
     2-KenshinW: KenshinW
     3-KenshinE: KenshinE
@@ -475,7 +461,7 @@
     5-KenshinT: KenshinT
     6-KenshinF: KenshinF
     7-KenshinD: KenshinD
-'067-Emiya Shiro': 'Emiya Shiro'
+'069-Emiya Shiro': 'Emiya Shiro'
     1-EmiyaQ: EmiyaQ
     2-EmiyaW: EmiyaW
     3-EmiyaE: EmiyaE
@@ -483,7 +469,7 @@
     5-EmiyaT: EmiyaT
     6-EmiyaF: EmiyaF
     7-EmiyaD: EmiyaD
-068-Naruto: Naruto
+070-Naruto: Naruto
     1-NarutoQ: NarutoQ
     2-NarutoW: NarutoW
     3-NarutoE: NarutoE
@@ -491,7 +477,7 @@
     5-NarutoT: NarutoT
     6-NarutoF: NarutoF
     7-NarutoD: NarutoD
-'069-Isayama Yomi': 'Isayama Yomi'
+'071-Isayama Yomi': 'Isayama Yomi'
     1-YomiQ: YomiQ
     2-YomiW: YomiW
     3-YomiE: YomiE
@@ -499,7 +485,7 @@
     5-YomiT: YomiT
     6-YomiF: YomiF
     7-YomiD: YomiD
-'070-Levi Akkaman': 'Levi Akkaman'
+'072-Levi Akkaman': 'Levi Akkaman'
     1-LeviQ: LeviQ
     2-LeviW: LeviW
     3-LeviE: LeviE
@@ -508,7 +494,7 @@
     6-LeviT: LeviT
     7-LeviF: LeviF
     8-LeviD: LeviD
-'071-Dio Brando': 'Dio Brando'
+'073-Dio Brando': 'Dio Brando'
     1-DioQ: DioQ
     2-DioW: DioW
     3-DioE: DioE
@@ -516,7 +502,7 @@
     5-DioT: DioT
     6-DioF: DioF
     7-DioD: DioD
-072-Chtholly: Chtholly
+074-Chtholly: Chtholly
     1-ChthollyQ: ChthollyQ
     2-ChthollyW: ChthollyW
     3-ChthollyE: ChthollyE
@@ -524,7 +510,7 @@
     5-ChthollyT: ChthollyT
     6-ChthollyF: ChthollyF
     7-ChthollyD: ChthollyD
-073-Akame: Akame
+075-Akame: Akame
     1-AkameQ: AkameQ
     2-AkameW: AkameW
     3-AkameE: AkameE
@@ -532,7 +518,7 @@
     5-AkameT: AkameT
     6-AkameF: AkameF
     7-AkameD: AkameD
-074-Fujiren: Fujiren
+076-Fujiren: Fujiren
     1-FujirenQ: FujirenQ
     2-FujirenW: FujirenW
     3-FujirenE: FujirenE
@@ -540,7 +526,7 @@
     5-FujirenT: FujirenT
     6-FujirenF: FujirenF
     7-FujirenD: FujirenD
-'075-Ogita Soji': 'Ogita Soji'
+'077-Ogita Soji': 'Ogita Soji'
     1-OgitaQ: OgitaQ
     2-OgitaW: OgitaW
     3-OgitaE: OgitaE
@@ -548,31 +534,31 @@
     5-OgitaT: OgitaT
     6-OgitaF: OgitaF
     7-OgitaD: OgitaD
-076-KuroIkki: KuroIkki
+078-KuroIkki: KuroIkki
     1-IkkiQ: IkkiQ
     2-IkkiW: IkkiW
     3-IkkiR: IkkiR
     4-IkkiT: IkkiT
     5-IkkiF: IkkiF
     6-IkkiD: IkkiD
-077-Akainu: Akainu
+079-Akainu: Akainu
     1-AkainuQ: AkainuQ
     2-AkainuW: AkainuW
     3-AkainuR: AkainuR
     4-AkainuT: AkainuT
     5-AkainuF: AkainuF
     6-AkainuD: AkainuD
-078-Momiji: Momiji
+080-Momiji: Momiji
     1-MomijiQ: MomijiQ
     2-MomijiW: MomijiW
     3-MomijiR: MomijiR
     4-MomijiT: MomijiT
     5-MomijiF: MomijiF
     6-MomijiD: MomijiD
-079-Kei: Kei
+081-Kei: Kei
     1-KeiQ: KeiQ
     2-KeiW: KeiW
-'080-Alice Zuberg': 'Alice Zuberg'
+'082-Alice Zuberg': 'Alice Zuberg'
     1-AliceQ: AliceQ
     2-AliceW: AliceW
     3-AliceE: AliceE
@@ -580,17 +566,17 @@
     5-AliceT: AliceT
     6-AliceF: AliceF
     7-AliceD: AliceD
-'081-Gin Ichimaru': 'Gin Ichimaru'
+'083-Gin Ichimaru': 'Gin Ichimaru'
     1-ginspell: ginspell
-082---------------------------------------------------: --------------------------------------------------
-'083-Kiana Kaslana': 'Kiana Kaslana'
+084---------------------------------------------------: --------------------------------------------------
+'085-Kiana Kaslana': 'Kiana Kaslana'
     1-KianaQ: KianaQ
     2-KianaW: KianaW
     3-KianaR: KianaR
     4-KianaT: KianaT
     5-KianaF: KianaF
     6-KianaD: KianaD
-'084-Reinforce Zwei': 'Reinforce Zwei'
+'086-Reinforce Zwei': 'Reinforce Zwei'
     1-ZweiQ: ZweiQ
     2-ZweiW: ZweiW
     3-ZweiE: ZweiE
@@ -598,14 +584,14 @@
     5-ZweiT: ZweiT
     6-ZweiF: ZweiF
     7-ZweiD: ZweiD
-'085-Sasuke Uchiha': 'Sasuke Uchiha'
+'087-Sasuke Uchiha': 'Sasuke Uchiha'
     1-SasukeQ: SasukeQ
     2-SasukeW: SasukeW
     3-SasukeR: SasukeR
     4-SasukeT: SasukeT
     5-SasukeF: SasukeF
     6-SasukeD: SasukeD
-'086-Jellal Fernandes': 'Jellal Fernandes'
+'088-Jellal Fernandes': 'Jellal Fernandes'
     1-JellalQ: JellalQ
     2-JellalW: JellalW
     3-JellalE: JellalE
@@ -614,14 +600,14 @@
     6-JellalT: JellalT
     7-JellalF: JellalF
     8-JellalD: JellalD
-087-Yugi: Yugi
+089-Yugi: Yugi
     1-YugiQ: YugiQ
     2-YugiW: YugiW
     3-YugiR: YugiR
     4-YugiT: YugiT
     5-YugiF: YugiF
     6-YugiD: YugiD
-088-Omashu: Omashu
+090-Omashu: Omashu
     1-ShuQ: ShuQ
     2-ShuW: ShuW
     3-ShuE: ShuE
@@ -629,14 +615,14 @@
     5-ShuT: ShuT
     6-ShuF: ShuF
     7-ShuD: ShuD
-089-Cronus: Cronus
+091-Cronus: Cronus
     1-CronusQ: CronusQ
     2-CronusW: CronusW
     3-CronusR: CronusR
     4-CronusT: CronusT
     5-CronusF: CronusF
     6-CronusD: CronusD
-'090-Reimu Hakurei': 'Reimu Hakurei'
+'092-Reimu Hakurei': 'Reimu Hakurei'
     1-ReimuQ: ReimuQ
     2-ReimuW: ReimuW
     3-ReimuE: ReimuE
@@ -644,14 +630,14 @@
     5-ReimuT: ReimuT
     6-ReimuF: ReimuF
     7-ReimuD: ReimuD
-'091-Aokiji Kuzan': 'Aokiji Kuzan'
+'093-Aokiji Kuzan': 'Aokiji Kuzan'
     1-KuzanQ: KuzanQ
     2-KuzanW: KuzanW
     3-KuzanR: KuzanR
     4-KuzanT: KuzanT
     5-KuzanF: KuzanF
     6-KuzanD: KuzanD
-092-Shana: Shana
+094-Shana: Shana
     1-ShanaQ: ShanaQ
     2-ShanaW: ShanaW
     3-ShanaE: ShanaE
@@ -659,14 +645,14 @@
     5-ShanaT: ShanaT
     6-ShanaF: ShanaF
     7-ShanaD: ShanaD
-'093-Hitsugaya Toshiro': 'Hitsugaya Toshiro'
+'095-Hitsugaya Toshiro': 'Hitsugaya Toshiro'
     1-ToshiQ: ToshiQ
     2-ToshiW: ToshiW
     3-ToshiR: ToshiR
     4-ToshiT: ToshiT
     5-ToshiF: ToshiF
     6-ToshiD: ToshiD
-094-Fuhua: Fuhua
+096-Fuhua: Fuhua
     1-FuhuaQ: FuhuaQ
     2-FuhuaW: FuhuaW
     3-FuhuaE: FuhuaE
@@ -674,7 +660,7 @@
     5-FuhuaT: FuhuaT
     6-FuhuaF: FuhuaF
     7-FuhuaD: FuhuaD
-095-Mystogan: Mystogan
+097-Mystogan: Mystogan
     1-MystoQ: MystoQ
     2-MystoW: MystoW
     3-MystoE: MystoE
@@ -683,21 +669,21 @@
     6-MystoT: MystoT
     7-MystoF: MystoF
     8-MystoD: MystoD
-096-Misaka: Misaka
+098-Misaka: Misaka
     1-MisakaQ: MisakaQ
     2-MisakaW: MisakaW
     3-MisakaR: MisakaR
     4-MisakaT: MisakaT
     5-MisakaF: MisakaF
     6-MisakaD: MisakaD
-'097-Anos Voldigord': 'Anos Voldigord'
+'099-Anos Voldigord': 'Anos Voldigord'
     1-AnosQ: AnosQ
     2-AnosW: AnosW
     3-AnosR: AnosR
     4-AnosT: AnosT
     5-AnosF: AnosF
     6-AnosD: AnosD
-'098-Aya Shameimaru': 'Aya Shameimaru'
+'100-Aya Shameimaru': 'Aya Shameimaru'
     1-AyaQ: AyaQ
     2-AyaW: AyaW
     3-AyaE: AyaE
@@ -705,14 +691,14 @@
     5-AyaT: AyaT
     6-AyaF: AyaF
     7-AyaD: AyaD
-'099-Yarai Miu': 'Yarai Miu'
+'101-Yarai Miu': 'Yarai Miu'
     1-MiuQ: MiuQ
     2-MiuW: MiuW
     3-MiuR: MiuR
     4-MiuT: MiuT
     5-MiuF: MiuF
     6-MiuD: MiuD
-'100-Tohka Yategami': 'Tohka Yategami'
+'102-Tohka Yategami': 'Tohka Yategami'
     1-TohkaQ: TohkaQ
     2-TohkaW: TohkaW
     3-TohkaE: TohkaE
@@ -720,18 +706,20 @@
     5-TohkaT: TohkaT
     6-TohkaF: TohkaF
     7-TohkaD: TohkaD
-'101-Todo Kirin': 'Todo Kirin'
+'103-Todo Kirin': 'Todo Kirin'
     1-KirinQ: KirinQ
     2-KirinW: KirinW
     3-KirinR: KirinR
     4-KirinT: KirinT
     5-KirinF: KirinF
     6-KirinD: KirinD
-'102-Fujiwara Moko': 'Fujiwara Moko'
+'104-Fujiwara Moko': 'Fujiwara Moko'
     1-MokoQ: MokoQ
     2-MokoW: MokoW
     3-MokoR: MokoR
     4-MokoT: MokoT
     5-MokoF: MokoF
     6-MokoD: MokoD
-103---------------------------------------------------: --------------------------------------------------
+'105-Hatsune Miku': 'Hatsune Miku'
+    1-mikuspell: mikuspell
+106---------------------------------------------------: --------------------------------------------------

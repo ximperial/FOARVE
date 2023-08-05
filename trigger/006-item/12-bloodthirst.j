@@ -3,7 +3,6 @@ scope bloodthirst initializer init
     private function pickItem takes nothing returns nothing
         local unit u = GetManipulatingUnit()
         local item it = GetManipulatedItem()
-        local ability a
 
         if GetItemTypeId(it) == 'I06N' then
             call UnitAddStat(u, 20, 20, 20)
@@ -11,13 +10,9 @@ scope bloodthirst initializer init
         elseif GetItemTypeId(it) == 'I06O' then
             call UnitAddStat(u, 25, 25, 25)
             call UnitAddBonus(u, BONUS_ATTACK, 250)
-            set a = GetItemAbility(it, 'A055')
-            call SetAbilityLevel(a, 2)
         elseif GetItemTypeId(it) == 'I06P' then
             call UnitAddStat(u, 30, 30, 30)
             call UnitAddBonus(u, BONUS_ATTACK, 300)
-            set a = GetItemAbility(it, 'A055')
-            call SetAbilityLevel(a, 3)
         endif
         if GetItemTypeId(it) == 'I007' then
             call RemoveItem(it)
@@ -40,7 +35,6 @@ scope bloodthirst initializer init
 
         set u = null
         set it = null
-        set a = null
     endfunction
 
     private function dropItem takes nothing returns nothing
