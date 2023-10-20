@@ -5,7 +5,7 @@ scope ghostblast initializer init
 
         if GetSpellAbilityId() == 'A00F' then
             call Effect("war3mapImported\\Nature Blast - Classic.mdl", GetUnitX(u), GetUnitY(u), 50, GetUnitFacing(u), 0, 0, 2.5, 1.5, 255, 255, 255, 255)
-            call GroupEnumUnitsInRange(gGroup, GetUnitX(u), GetUnitY(u), 600, null)
+            call GroupEnumUnitsInRange(gGroup, GetUnitX(u), GetUnitY(u), 800, null)
             loop
                 set gUnit = GroupForEachUnit(gGroup)
                 exitwhen gUnit == null

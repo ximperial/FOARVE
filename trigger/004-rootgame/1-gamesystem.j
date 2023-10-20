@@ -50,7 +50,7 @@ scope startGame initializer init
         call SetMapFlag( MAP_LOCK_RESOURCE_TRADING, true )
         call ClearTextMessagesBJ( bj_FORCE_ALL_PLAYERS )
         call EnableOperationLimit(false)
-        call EnableAntiHack(true)
+        call AntiHackEnable(true)
         call dataOnStart()
         set UISync = DialogCreate()
         call DialogSetMessage(UISync, "UI Sync")
@@ -474,6 +474,11 @@ scope startGame initializer init
                         set i = i + 1
                     endloop
                 endif
+                call GroupRemoveUnit(locktour[0], gUnit)
+                call GroupRemoveUnit(locktour[1], gUnit)
+                call GroupRemoveUnit(locktour[2], gUnit)
+                call GroupRemoveUnit(locktour[3], gUnit)
+                call GroupRemoveUnit(locktour[4], gUnit)
                 call RemoveUnit(gUnit)
             endif
         endloop

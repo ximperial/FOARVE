@@ -81,13 +81,14 @@ library initFrame uses Utilities
     
     function InitHeroData takes nothing returns nothing
         call SetHeroData('H046', "aizenpick.mp3", "aizen10k.mp3", "aizen15k.mp3", "Aizen-icon.blp", "Aizen-icon.blp")
-        call SetHeroData('H00J', "akamepick.mp3", "", "", "Akame-icon.blp", "Akame-icon.blp")
-        call SetHeroData('H0CX', "", "", "", "Alibaba-icon.blp", "Alibaba-icon.blp")
+        call SetHeroData('H00J', "akamepick.mp3", "akame10k.mp3", "", "Akame-icon.blp", "Akame-icon.blp")
+        call SetHeroData('H0CX', "alibabapick.mp3", "alibaba10k.mp3", "", "Alibaba-icon.blp", "Alibaba-icon.blp")
         call SetHeroData('H011', "alicepick.mp3", "alice10k.mp3", "alice15k.mp3", "Alice-icon.blp", "Alice-icon.blp")
-        call SetHeroData('H012', "allmightpick.mp3", "", "", "allmight-icon.blp", "allmight-icon.blp")
-        call SetHeroData('H00E', "anospick.mp3", "", "", "Anos-icon.blp", "Anos-icon.blp")
-        call SetHeroData('H0FY', "", "", "", "Aokiji-icon.blp", "Aokiji-icon.blp")
-        call SetHeroData('H00T', "", "", "", "Arash-icon.blp", "Arash-icon.blp")
+        call SetHeroData('H012', "allmightpick.mp3", "allmight10k.mp3", "", "allmight-icon.blp", "allmight-icon.blp")
+        call SetHeroData('H00E', "anospick.mp3", "anos10k.mp3", "", "Anos-icon.blp", "Anos-icon.blp")
+        call SetHeroData('H0FY', "kuzanpick.mp3", "kuzan10k.mp3", "", "Aokiji-icon.blp", "Aokiji-icon.blp")
+        call SetHeroData('H00T', "arashpick.mp3", "arash10k.mp3", "", "Arash-icon.blp", "Arash-icon.blp")
+        call SetHeroData('H016', "arthurpick.mp3", "arthur10k.mp3", "", "Arthur-icon.blp", "Arthur-icon.blp")
         call SetHeroData('H00G', "", "", "", "Aya-icon.blp", "Aya-icon.blp")
         call SetHeroData('H04M', "kizarupick.mp3", "kizaru10k.mp3", "kizaru15k.mp3", "Kizaru-icon.blp", "Borsalino-icon.blp")
         call SetHeroData('H0CA', "byakuranpick.mp3", "byakuran10k.mp3", "byakuran15k.mp3", "Byakuran-icon.blp", "Byakuran-icon.blp")
@@ -110,7 +111,9 @@ library initFrame uses Utilities
         call SetHeroData('H04R', "", "", "", "Gray-icon.blp", "Gray-icon.blp")
         call SetHeroData('H0EF', "", "", "", "Guts-icon.blp", "Guts-icon.blp")
         call SetHeroData('H0EQ', "hibaripick.mp3", "hibari10k.mp3", "hibari15k.mp3", "Hibari-icon.blp", "Hibari-icon.blp")
-        call SetHeroData('H0G1', "", "", "", "Toshiro-icon.blp", "Toshiro-icon.blp")
+        call SetHeroData('H017', "", "", "", "hibiki-icon.blp", "hibiki-icon.blp")
+        call SetHeroData('H0G1', "toshiropick.mp3", "toshiro10k.mp3", "", "Toshiro-icon.blp", "Toshiro-icon.blp")
+        call SetHeroData('H015', "inoripick.mp3", "inori10k.mp3", "", "inori-icon.blp", "inori-icon.blp")
         call SetHeroData('H0D0', "", "", "", "Jellal-icon.blp", "Jellal-icon.blp")
         call SetHeroData('H0CW', "jotaropick.mp3", "jotaro10k.mp3", "jotaro15k.mp3", "Jotaro-icon.blp", "Jotaro-icon.blp")
         call SetHeroData('H07C', "tanjiropick.mp3", "tanjiro10k.mp3", "tanjiro15k.mp3", "Tanjiro-icon.blp", "Tanjiro-icon.blp")
@@ -120,6 +123,8 @@ library initFrame uses Utilities
         call SetHeroData('H002', "", "", "", "Kenshin-icon.blp", "Kenshin-icon.blp")
         call SetHeroData('H0CN', "", "", "", "Kenshiro-icon.blp", "Kenshiro-icon.blp")
         call SetHeroData('H01Z', "kianapick.mp3", "kiana10k.mp3", "kiana15k.mp3", "Kiana-icon.blp", "Kiana-icon.blp")
+        call SetHeroData('H018', "FlameKianaPick.mp3", "FlameKiana10k.mp3", "", "FlameKiana-icon.blp", "FlameKiana-icon.blp")
+        call SetHeroData('H014', "hydepick.mp3", "hyde10k.mp3", "", "KidoHide-icon.blp", "KidoHide-icon.blp")
         call SetHeroData('H0AN', "hassanpick.mp3", "hassan10k.mp3", "hassan15k.mp3", "Hassan-icon.blp", "Hassan-icon.blp")
         call SetHeroData('H05G', "kiritopick.mp3", "kirito10k.mp3", "kirito15k.mp3", "Kirito-icon.blp", "Kirito-icon.blp")
         call SetHeroData('H0CR', "misogipick.mp3", "misogi10k.mp3", "misogi15k.mp3", "Misogi-icon.blp", "Misogi-icon.blp")
@@ -146,12 +151,13 @@ library initFrame uses Utilities
         call SetHeroData('H0BM', "", "", "", "Ace-icon.blp", "Ace-icon.blp")
         call SetHeroData('H0CV', "", "", "", "Reimu-icon.blp", "Reimu-icon.blp")
         call SetHeroData('H006', "", "", "", "hatsune-icon.blp", "hatsune-icon.blp")
-        call SetHeroData('H09Y', "", "", "", "Zwei-icon.blp", "Zwei-icon.blp")
+        call SetHeroData('H09Y', "reinforcepick.mp3", "reinforce10k.mp3", "", "Zwei-icon.blp", "Zwei-icon.blp")
         call SetHeroData('H0D4', "", "", "", "Okumura-icon.blp", "Okumura-icon.blp")
             
         call SetHeroData('H0G3', "", "", "", "Rogue-icon.blp", "Rogue-icon.blp")
         call SetHeroData('H02L', "zoropick.mp3", "zoro10k.mp3", "zoro15k.mp3", "Zoro-icon.blp", "Zoro-icon.blp")
         call SetHeroData('H00P', "", "", "", "Ryuzaki-icon.blp", "Ryuzaki-icon.blp")
+        call SetHeroData('H013', "salterpick.mp3", "salter10k.mp3", "", "SAlter-icon.blp", "SAlter-icon.blp")
         call SetHeroData('H0D3', "", "", "", "Sabo-icon.blp", "Sabo-icon.blp")
         call SetHeroData('H0CT', "izayoipick.mp3", "", "", "Izayoi-icon.blp", "Izayoi-icon.blp")
         call SetHeroData('H00N', "", "", "", "Akainu-icon.blp", "Akainu-icon.blp")
@@ -165,7 +171,7 @@ library initFrame uses Utilities
         call SetHeroData('H0EG', "tohnopick.mp3", "tohno10k.mp3", "tohno15k.mp3", "Tohno-icon.blp", "Tohno-icon.blp")
         call SetHeroData('H00W', "", "", "", "Sistina-icon.blp", "Sistina-icon.blp")
         call SetHeroData('H03B', "", "", "", "Sting-icon.blp", "Sting-icon.blp")
-        call SetHeroData('H00X', "", "", "", "Momiji-icon.blp", "Momiji-icon.blp")
+        call SetHeroData('H00X', "momijipick.mp3", "momiji10k.mp3", "", "Momiji-icon.blp", "Momiji-icon.blp")
         call SetHeroData('H029', "", "", "", "Kisara-icon.blp", "Kisara-icon.blp")
         call SetHeroData('H00Y', "", "", "", "Kirin-icon.blp", "Kirin-icon.blp")
         call SetHeroData('H00U', "", "", "", "Tohka-icon.blp", "Tohka-icon.blp")
@@ -173,7 +179,8 @@ library initFrame uses Utilities
             
         call SetHeroData('H05R', "vegetapick.mp3", "vegeta10k.mp3", "vegeta15k.mp3", "Vegeta-icon.blp", "Vegeta-icon.blp")
         call SetHeroData('H0CP', "", "", "", "Wendy-icon.blp", "Wendy-icon.blp")
-        call SetHeroData('H0FU', "", "", "", "Yamaji-icon.blp", "Yamaji-icon.blp")
+        call SetHeroData('H019', "yayapick.mp3", "yaya10k.mp3", "", "Yaya-icon.blp", "Yaya-icon.blp")
+        call SetHeroData('H0FU', "yamajipick.mp3", "yamaji10k.mp3", "", "Yamaji-icon.blp", "Yamaji-icon.blp")
         call SetHeroData('H00Q', "", "", "", "Miu-icon.blp", "Miu-icon.blp")
         call SetHeroData('H008', "yomipick.mp3", "", "", "Yomi-icon.blp", "Yomi-icon.blp")
         call SetHeroData('H0D2', "", "", "", "Yugi-icon.blp", "Yugi-icon.blp")
@@ -184,7 +191,7 @@ library initFrame uses Utilities
     endfunction
 
     globals
-        real SelectHeroTime = 60
+        real SelectHeroTime = 30
         integer MaxHero = 0
     endglobals
 
@@ -205,6 +212,7 @@ library initFrame uses Utilities
         integer array MemoHero
         boolean array HeroGone
         boolean array SelectedYet
+        boolean array BanYet
     endglobals
 
     function HeroButtonClick takes nothing returns nothing
@@ -220,21 +228,31 @@ library initFrame uses Utilities
             call SetFrameEnabled(trigFrame, true)
         endif
 
-        if mouseType == MOUSE_BUTTON_TYPE_RIGHT and not SelectedYet[pid] and not HeroGone[frameId] then
-            set MemoHero[pid] = frameId
+        if not LoadBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(trigFrame)) and UserPlayer(p) then
+            if mouseType == MOUSE_BUTTON_TYPE_RIGHT and not SelectedYet[pid] and not HeroGone[frameId] then
+                set MemoHero[pid] = frameId
 
-            set backFrame = GetFrameByName("SelectHeroBackViewFrame", pid)
-            call SetFrameTexture(backFrame, HeroPhoto[frameId], 0, false)
+                set backFrame = GetFrameByName("SelectHeroBackViewFrame", pid)
+                call SetFrameTexture(backFrame, HeroPhoto[frameId], 0, false)
 
-            set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
-            call SetFrameTexture(backFrame, HeroPhoto2[frameId], 0, false)
+                set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                call SetFrameTexture(backFrame, HeroPhoto2[frameId], 0, false)
 
-            if HeroVoice[frameId] != "" then
-                call SoundStartPlayer(HeroVoice[frameId], p, true)
+                if HeroVoice[frameId] != "" then
+                    call SoundStartPlayer(HeroVoice[frameId], p, true)
+                endif
+
+                set HeroGone[frameId] = true
+                set SelectedYet[pid] = true
             endif
 
-            set HeroGone[frameId] = true
-            set SelectedYet[pid] = true
+            if mouseType == MOUSE_BUTTON_TYPE_MIDDLE and not SelectedYet[pid] and not BanYet[pid] and not HeroGone[frameId] then
+                set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                call SetFrameTexture(backFrame, HeroPhoto2[frameId], 0, false)
+
+                set HeroGone[frameId] = true
+                set BanYet[pid] = true
+            endif
         endif
 
         set p = null
@@ -246,7 +264,7 @@ library initFrame uses Utilities
     globals
         real array heroiconX
         real array heroiconY
-        private integer heroiconMaxScroll = 3
+        private integer heroiconMaxScroll = 1
     endglobals
 
     function HeroSelectionScrolling takes nothing returns nothing
@@ -283,81 +301,53 @@ library initFrame uses Utilities
         loop
             exitwhen k > MaxHero
             set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
-            if IsFrameVisible(buttonFrame) then
+            if IsFrameVisible(buttonFrame) and GetLocalPlayer() == p then
                 call ShowFrame(buttonFrame, false)
             endif
             set k = k + 1
         endloop
 
-        if frameValue == 3 then
+        if frameValue == 1 then
             set k = 1
             loop
-                exitwhen k > MaxHero - 21
-                set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
-                set heroiconX[i] = 0.003 + 0.032 * i
-                set heroiconY[j] = - 0.001 - 0.034 * j
-                call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
-                if not IsFrameVisible(buttonFrame) then
-                    call ShowFrame(buttonFrame, true)
-                endif
-                set i = i + 1
-                if i >= 10 then
-                    set i = 0
-                    set j = j + 1
-                endif
-                set k = k + 1
-            endloop
-        elseif frameValue == 2 then
-            set k = 11
-            loop
-                exitwhen k > MaxHero - 11
-                set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
-                set heroiconX[i] = 0.003 + 0.032 * i
-                set heroiconY[j] = - 0.001 - 0.034 * j
-                call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
-                if not IsFrameVisible(buttonFrame) then
-                    call ShowFrame(buttonFrame, true)
-                endif
-                set i = i + 1
-                if i >= 10 then
-                    set i = 0
-                    set j = j + 1
-                endif
-                set k = k + 1
-            endloop
-        elseif frameValue == 1 then
-            set k = 21
-            loop
-                exitwhen k > MaxHero - 1
-                set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
-                set heroiconX[i] = 0.003 + 0.032 * i
-                set heroiconY[j] = - 0.001 - 0.034 * j
-                call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
-                if not IsFrameVisible(buttonFrame) then
-                    call ShowFrame(buttonFrame, true)
-                endif
-                set i = i + 1
-                if i >= 10 then
-                    set i = 0
-                    set j = j + 1
+                exitwhen k > MaxHero
+                if k >= 1 and k <= 90 then
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set heroiconX[i] = 0.005 + 0.035 * i
+                    set heroiconY[j] = - 0.001 - 0.038 * j
+                    if GetLocalPlayer() == p then
+                        call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
+                        if not IsFrameVisible(buttonFrame) then
+                            call ShowFrame(buttonFrame, true)
+                        endif
+                    endif
+                    set i = i + 1
+                    if i >= 10 then
+                        set i = 0
+                        set j = j + 1
+                    endif
                 endif
                 set k = k + 1
             endloop
         elseif frameValue == 0 then
-            set k = 31
+            set k = 1
             loop
                 exitwhen k > MaxHero
-                set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
-                set heroiconX[i] = 0.003 + 0.032 * i
-                set heroiconY[j] = - 0.001 - 0.034 * j
-                call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
-                if not IsFrameVisible(buttonFrame) then
-                    call ShowFrame(buttonFrame, true)
-                endif
-                set i = i + 1
-                if i >= 10 then
-                    set i = 0
-                    set j = j + 1
+                if k >= 11 and k <= 100 then
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set heroiconX[i] = 0.005 + 0.035 * i
+                    set heroiconY[j] = - 0.001 - 0.038 * j
+                    if GetLocalPlayer() == p then
+                        call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
+                        if not IsFrameVisible(buttonFrame) then
+                            call ShowFrame(buttonFrame, true)
+                        endif
+                    endif
+                    set i = i + 1
+                    if i >= 10 then
+                        set i = 0
+                        set j = j + 1
+                    endif
                 endif
                 set k = k + 1
             endloop
@@ -367,6 +357,204 @@ library initFrame uses Utilities
         set trigFrame = null
         set buttonFrame = null
         set timerFrame = null
+    endfunction
+
+    globals
+        boolean array useFilter1
+        boolean array useFilter2
+        boolean array useFilter3
+    endglobals
+
+    function FilterStrength takes nothing returns nothing
+        local player p = GetTriggerPlayer()
+        local framehandle trigFrame = GetTriggerFrame()
+        local framehandle buttonFrame
+        local framehandle backFrame
+        local integer pid = GetPlayerId(p)
+        local integer frameId
+        local integer k
+
+        if GetLocalPlayer() == p then
+            call SetFrameEnabled(trigFrame, false)
+            call SetFrameEnabled(trigFrame, true)
+        endif
+
+        if not useFilter2[pid] and not useFilter3[pid] then
+            if not useFilter1[pid] then
+                set useFilter1[pid] = true
+                set backFrame = GetFrameByName("SelectionFilterFrame", 0)
+                if GetLocalPlayer() == p then
+                    call SetFrameTexture(backFrame, GetDisabledIcon(GetFrameTexture(backFrame, 0)), 0, false)
+                endif
+                set k = 1
+                loop
+                    exitwhen k > MaxHero
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set frameId = LoadInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame))
+                    if GetUnitBaseIntegerFieldById(HeroType[frameId], UNIT_IF_PRIMARY_ATTRIBUTE) != 1 and not HeroGone[frameId] then
+                        set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                        if GetLocalPlayer() == p then
+                            call SetFrameTexture(backFrame, HeroPhoto2[frameId], 0, false)
+                        endif
+                        call SaveBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(buttonFrame), true)
+                    endif
+                    set k = k + 1
+                endloop
+            else
+                set useFilter1[pid] = false
+                set backFrame = GetFrameByName("SelectionFilterFrame", 0)
+                if GetLocalPlayer() == p then
+                    call SetFrameTexture(backFrame, "ReplaceableTextures\\CommandButtons\\BTNGauntletsOfOgrePower.blp", 0, false)
+                endif
+                set k = 1
+                loop
+                    exitwhen k > MaxHero
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set frameId = LoadInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame))
+                    if GetUnitBaseIntegerFieldById(HeroType[frameId], UNIT_IF_PRIMARY_ATTRIBUTE) != 1 and not HeroGone[frameId] then
+                        set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                        if GetLocalPlayer() == p then
+                            call SetFrameTexture(backFrame, HeroPhoto[frameId], 0, false)
+                        endif
+                        call SaveBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(buttonFrame), false)
+                    endif
+                    set k = k + 1
+                endloop
+            endif
+        endif
+
+        set p = null
+        set trigFrame = null
+        set buttonFrame = null
+        set backFrame = null
+    endfunction
+
+    function FilterAgility takes nothing returns nothing
+        local player p = GetTriggerPlayer()
+        local framehandle trigFrame = GetTriggerFrame()
+        local framehandle buttonFrame
+        local framehandle backFrame
+        local integer pid = GetPlayerId(p)
+        local integer frameId
+        local integer k
+
+        if GetLocalPlayer() == p then
+            call SetFrameEnabled(trigFrame, false)
+            call SetFrameEnabled(trigFrame, true)
+        endif
+
+        if not useFilter1[pid] and not useFilter3[pid] then
+            if not useFilter2[pid] then
+                set useFilter2[pid] = true
+                set backFrame = GetFrameByName("SelectionFilterFrame", 1)
+                if GetLocalPlayer() == p then
+                    call SetFrameTexture(backFrame, GetDisabledIcon(GetFrameTexture(backFrame, 0)), 0, false)
+                endif
+                set k = 1
+                loop
+                    exitwhen k > MaxHero
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set frameId = LoadInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame))
+                    if GetUnitBaseIntegerFieldById(HeroType[frameId], UNIT_IF_PRIMARY_ATTRIBUTE) != 3 and not HeroGone[frameId] then
+                        set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                        if GetLocalPlayer() == p then
+                            call SetFrameTexture(backFrame, HeroPhoto2[frameId], 0, false)
+                        endif
+                        call SaveBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(buttonFrame), true)
+                    endif
+                    set k = k + 1
+                endloop
+            else
+                set useFilter2[pid] = false
+                set backFrame = GetFrameByName("SelectionFilterFrame", 1)
+                if GetLocalPlayer() == p then
+                    call SetFrameTexture(backFrame, "ReplaceableTextures\\CommandButtons\\BTNSlippersOfAgility.blp", 0, false)
+                endif
+                set k = 1
+                loop
+                    exitwhen k > MaxHero
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set frameId = LoadInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame))
+                    if GetUnitBaseIntegerFieldById(HeroType[frameId], UNIT_IF_PRIMARY_ATTRIBUTE) != 3 and not HeroGone[frameId] then
+                        set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                        if GetLocalPlayer() == p then
+                            call SetFrameTexture(backFrame, HeroPhoto[frameId], 0, false)
+                        endif
+                        call SaveBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(buttonFrame), false)
+                    endif
+                    set k = k + 1
+                endloop
+            endif
+        endif
+
+        set p = null
+        set trigFrame = null
+        set buttonFrame = null
+        set backFrame = null
+    endfunction
+
+    function FilterIntelligence takes nothing returns nothing
+        local player p = GetTriggerPlayer()
+        local framehandle trigFrame = GetTriggerFrame()
+        local framehandle buttonFrame
+        local framehandle backFrame
+        local integer pid = GetPlayerId(p)
+        local integer frameId
+        local integer k
+
+        if GetLocalPlayer() == p then
+            call SetFrameEnabled(trigFrame, false)
+            call SetFrameEnabled(trigFrame, true)
+        endif
+
+        if not useFilter1[pid] and not useFilter2[pid] then
+            if not useFilter3[pid] then
+                set useFilter3[pid] = true
+                set backFrame = GetFrameByName("SelectionFilterFrame", 2)
+                if GetLocalPlayer() == p then
+                    call SetFrameTexture(backFrame, GetDisabledIcon(GetFrameTexture(backFrame, 0)), 0, false)
+                endif
+                set k = 1
+                loop
+                    exitwhen k > MaxHero
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set frameId = LoadInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame))
+                    if GetUnitBaseIntegerFieldById(HeroType[frameId], UNIT_IF_PRIMARY_ATTRIBUTE) != 2 and not HeroGone[frameId] then
+                        set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                        if GetLocalPlayer() == p then
+                            call SetFrameTexture(backFrame, HeroPhoto2[frameId], 0, false)
+                        endif
+                        call SaveBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(buttonFrame), true)
+                    endif
+                    set k = k + 1
+                endloop
+            else
+                set useFilter3[pid] = false
+                set backFrame = GetFrameByName("SelectionFilterFrame", 2)
+                if GetLocalPlayer() == p then
+                    call SetFrameTexture(backFrame, "ReplaceableTextures\\CommandButtons\\BTNMantleOfIntelligence.blp", 0, false)
+                endif
+                set k = 1
+                loop
+                    exitwhen k > MaxHero
+                    set buttonFrame = GetFrameByName("SelectHeroButtonFrame", k)
+                    set frameId = LoadInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame))
+                    if GetUnitBaseIntegerFieldById(HeroType[frameId], UNIT_IF_PRIMARY_ATTRIBUTE) != 2 and not HeroGone[frameId] then
+                        set backFrame = GetFrameByName("SelectHeroButtonBackFrame", frameId)
+                        if GetLocalPlayer() == p then
+                            call SetFrameTexture(backFrame, HeroPhoto[frameId], 0, false)
+                        endif
+                        call SaveBoolean(ht, StringHash("FilterHero_" + I2S(pid)), GetHandleId(buttonFrame), false)
+                    endif
+                    set k = k + 1
+                endloop
+            endif
+        endif
+
+        set p = null
+        set trigFrame = null
+        set buttonFrame = null
+        set backFrame = null
     endfunction
 
     function createSelectionUI takes nothing returns nothing
@@ -384,26 +572,96 @@ library initFrame uses Utilities
         local framehandle buttonTxtFrame
         local framehandle scrollareaFrame
         local framehandle scrollFrame
+        local framehandle filterFrame
         local trigger trig
         local integer i = 0
         local integer j = 0
         local integer k = 1
 
         call ClearFrameAllPoints(unitmsgFrame)
-        call SetFrameRelativePoint(unitmsgFrame, FRAMEPOINT_BOTTOMLEFT, gameuiFrame, FRAMEPOINT_BOTTOMLEFT, 0.05, 0.07)
+        call SetFrameRelativePoint(unitmsgFrame, FRAMEPOINT_BOTTOMLEFT, gameuiFrame, FRAMEPOINT_BOTTOMLEFT, 0.06, 0.07)
         call ClearFrameAllPoints(chatmsgFrame)
         call SetFrameRelativePoint(chatmsgFrame, FRAMEPOINT_BOTTOMLEFT, gameuiFrame, FRAMEPOINT_BOTTOMLEFT, 0.01, 0.04)
-        call SetFrameRelativePoint(chatmsgFrame, FRAMEPOINT_TOPRIGHT, gameuiFrame, FRAMEPOINT_BOTTOMLEFT, 0.28, 0.16)
+        call SetFrameRelativePoint(chatmsgFrame, FRAMEPOINT_TOPRIGHT, gameuiFrame, FRAMEPOINT_BOTTOMLEFT, 0.3, 0.16)
         call ClearFrameAllPoints(editbarFrame)
         call SetFrameRelativePoint(editbarFrame, FRAMEPOINT_TOPLEFT, chatmsgFrame, FRAMEPOINT_BOTTOMLEFT, - 0.005, - 0.005)
         call SetFrameRelativePoint(editbarFrame, FRAMEPOINT_BOTTOMRIGHT, chatmsgFrame, FRAMEPOINT_BOTTOMRIGHT, 0, - 0.031)
-        
+
         set mainFrame = CreateFrameByType("BACKDROP", "SelectHeroMainFrame", gameuiFrame, "", 0) 
         call SetFrameBackdropTexture(mainFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL, false)
         call SetFrameCornerSize(mainFrame, 0, 0.0125)
         call SetFrameBackgroundInsets(mainFrame, 0, 0.005, 0.005, 0.005, 0.005)
-        call SetFrameSize(mainFrame, 0.35, 0.31)
-        call SetFrameRelativePoint(mainFrame, FRAMEPOINT_BOTTOMLEFT, gameuiFrame, FRAMEPOINT_BOTTOMLEFT, 0.2, 0.2)
+        call SetFrameSize(mainFrame, 0.4, 0.4)
+        call SetFrameRelativePoint(mainFrame, FRAMEPOINT_BOTTOM, gameuiFrame, FRAMEPOINT_BOTTOM, 0, 0.12)
+
+        set filterFrame = CreateFrameByType("BACKDROP", "SelectionFilterFrame", mainFrame, "", 0)
+        call SetFrameTexture(filterFrame, "ReplaceableTextures\\CommandButtons\\BTNGauntletsOfOgrePower.blp", 0, false)
+        call SetFrameSize(filterFrame, 0.03, 0.03)
+        call SetFrameRelativePoint(filterFrame, FRAMEPOINT_TOPRIGHT, mainFrame, FRAMEPOINT_TOPLEFT, - 0.001, 0)
+        set filterFrame = CreateFrameByType("BUTTON", "SelectionFilterButton", mainFrame, "", 0)
+        call SetFrameAllPoints(filterFrame, GetFrameByName("SelectionFilterFrame", 0))
+        set trig = CreateTrigger()
+        call TriggerRegisterFrameEvent(trig, filterFrame, FRAMEEVENT_CONTROL_CLICK)
+        call TriggerAddAction(trig, function FilterStrength)
+
+        set filterFrame = CreateFrameByType("BACKDROP", "SelectionFilterFrame", mainFrame, "", 1)
+        call SetFrameTexture(filterFrame, "ReplaceableTextures\\CommandButtons\\BTNSlippersOfAgility.blp", 0, false)
+        call SetFrameSize(filterFrame, 0.03, 0.03)
+        call SetFrameRelativePoint(filterFrame, FRAMEPOINT_TOP, GetFrameByName("SelectionFilterFrame", 0), FRAMEPOINT_BOTTOM, 0, - 0.001)
+        set filterFrame = CreateFrameByType("BUTTON", "SelectionFilterButton", mainFrame, "", 1)
+        call SetFrameAllPoints(filterFrame, GetFrameByName("SelectionFilterFrame", 1))
+        set trig = CreateTrigger()
+        call TriggerRegisterFrameEvent(trig, filterFrame, FRAMEEVENT_CONTROL_CLICK)
+        call TriggerAddAction(trig, function FilterAgility)
+
+        set filterFrame = CreateFrameByType("BACKDROP", "SelectionFilterFrame", mainFrame, "", 2)
+        call SetFrameTexture(filterFrame, "ReplaceableTextures\\CommandButtons\\BTNMantleOfIntelligence.blp", 0, false)
+        call SetFrameSize(filterFrame, 0.03, 0.03)
+        call SetFrameRelativePoint(filterFrame, FRAMEPOINT_TOP, GetFrameByName("SelectionFilterFrame", 1), FRAMEPOINT_BOTTOM, 0, - 0.001)
+        set filterFrame = CreateFrameByType("BUTTON", "SelectionFilterButton", mainFrame, "", 2)
+        call SetFrameAllPoints(filterFrame, GetFrameByName("SelectionFilterFrame", 2))
+        set trig = CreateTrigger()
+        call TriggerRegisterFrameEvent(trig, filterFrame, FRAMEEVENT_CONTROL_CLICK)
+        call TriggerAddAction(trig, function FilterIntelligence)
+
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 1) // Team 1
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_TOPLEFT, gameuiFrame, FRAMEPOINT_TOPLEFT, 0.005, - 0.005)
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 2)
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 1), FRAMEPOINT_RIGHT, 0.001, 0)
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 3)
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 2), FRAMEPOINT_RIGHT, 0.001, 0)
+
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 5) // Team 2
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_TOP, gameuiFrame, FRAMEPOINT_TOP, - 0.04, - 0.005)
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 6)
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 5), FRAMEPOINT_RIGHT, 0.001, 0)
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 7)
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 6), FRAMEPOINT_RIGHT, 0.001, 0)
+
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 9) // Team 3
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_TOP, gameuiFrame, FRAMEPOINT_TOPRIGHT, - 0.11, - 0.005)
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 10)
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 9), FRAMEPOINT_RIGHT, 0.001, 0)
+        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 11)
+        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
+        call SetFrameSize(backviewFrame, 0.04, 0.04)
+        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 10), FRAMEPOINT_RIGHT, 0.001, 0)
 
         set scrollareaFrame = CreateFrameByType("BUTTON", "SelectHeroScrollAreaFrame", mainFrame, "", 0)
         call SetFrameAllPoints(scrollareaFrame, mainFrame)
@@ -414,55 +672,16 @@ library initFrame uses Utilities
         call TriggerRegisterFrameEvent(trig, scrollareaFrame, FRAMEEVENT_MOUSE_WHEEL)
         call TriggerAddAction(trig, function HeroSelectionScrolling)
 
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 1) // Team 1
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_TOPLEFT, mainFrame, FRAMEPOINT_TOPLEFT, 0.005, - 0.005)
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 2)
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 1), FRAMEPOINT_RIGHT, 0.001, 0)
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 3)
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 2), FRAMEPOINT_RIGHT, 0.001, 0)
-
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 5) // Team 2
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 3), FRAMEPOINT_RIGHT, 0.031, 0)
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 6)
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 5), FRAMEPOINT_RIGHT, 0.001, 0)
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 7)
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 6), FRAMEPOINT_RIGHT, 0.001, 0)
-
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 9) // Team 3
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 7), FRAMEPOINT_RIGHT, 0.031, 0)
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 10)
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 9), FRAMEPOINT_RIGHT, 0.001, 0)
-        set backviewFrame = CreateFrameByType("BACKDROP", "SelectHeroBackViewFrame", mainFrame, "", 11)
-        call SetFrameTexture(backviewFrame, "war3mapImported\\selectview.blp", 0, false)
-        call SetFrameSize(backviewFrame, 0.03, 0.03)
-        call SetFrameRelativePoint(backviewFrame, FRAMEPOINT_LEFT, GetFrameByName("SelectHeroBackViewFrame", 10), FRAMEPOINT_RIGHT, 0.001, 0)
-
         set timerFrame = CreateFrameByType("BACKDROP", "SelectHeroTimerFrame", mainFrame, "", 0)
         call SetFrameBackdropTexture(timerFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL, false)
         call SetFrameCornerSize(timerFrame, 0, 0.0125)
         call SetFrameBackgroundInsets(timerFrame, 0, 0.005, 0.005, 0.005, 0.005)
-        call SetFrameSize(timerFrame, 0.34, 0.025)
-        call SetFrameRelativePoint(timerFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("SelectHeroBackViewFrame", 1), FRAMEPOINT_BOTTOMLEFT, 0, - 0.001)
+        call SetFrameSize(timerFrame, 0.39, 0.03)
+        call SetFrameRelativePoint(timerFrame, FRAMEPOINT_TOPLEFT, mainFrame, FRAMEPOINT_TOPLEFT, 0.005, - 0.005)
 
         set timertxtFrame = CreateFrameByType("TEXT", "SelectHeroTimerTextFrame", timerFrame, "", 0)
         call SetFrameTextAlignment(timertxtFrame, TEXT_JUSTIFY_MIDDLE, TEXT_JUSTIFY_CENTER)
-        call SetFrameFont(timertxtFrame, "Fonts\\FRIZQT__.TTF", 0.013, 0)
+        call SetFrameFont(timertxtFrame, "Fonts\\FRIZQT__.TTF", 0.014, 0)
         call SetFrameRelativePoint(timertxtFrame, FRAMEPOINT_CENTER, timerFrame, FRAMEPOINT_CENTER, 0, 0)
         call SetFrameText(timertxtFrame, "Selection Time Left : " + R2SW(SelectHeroTime, 0, 1) )
         call SetFrameEnabled(timertxtFrame, false)
@@ -472,8 +691,8 @@ library initFrame uses Utilities
         call SetFrameMinMaxValues(scrollFrame, 0, heroiconMaxScroll)
         call SetFrameValue(scrollFrame, heroiconMaxScroll)
         call SetFrameStepSize(scrollFrame, 1)
-        call SetFrameSize(scrollFrame, 0.012, 0.22)
-        call SetFrameRelativePoint(scrollFrame, FRAMEPOINT_RIGHT, mainFrame, FRAMEPOINT_RIGHT, - 0.005, - 0.015)
+        call SetFrameSize(scrollFrame, 0.012, 0.34)
+        call SetFrameRelativePoint(scrollFrame, FRAMEPOINT_RIGHT, mainFrame, FRAMEPOINT_RIGHT, - 0.005, - 0.01)
         set trig = CreateTrigger()
         call TriggerRegisterFrameEvent(trig, scrollFrame, FRAMEEVENT_SLIDER_VALUE_CHANGED)
         call TriggerAddAction(trig, function HeroSelectionSlider)
@@ -482,10 +701,10 @@ library initFrame uses Utilities
         loop
             exitwhen k > MaxHero
             set buttonFrame = CreateFrameByType("BUTTON", "SelectHeroButtonFrame", mainFrame, "", k)
-            call SetFrameSize(buttonFrame, 0.03, 0.03)
-            if j < 7 then
-                set heroiconX[i] = 0.003 + 0.032 * i
-                set heroiconY[j] = - 0.001 - 0.034 * j
+            call SetFrameSize(buttonFrame, 0.032, 0.032)
+            if j < 9 then
+                set heroiconX[i] = 0.005 + 0.035 * i
+                set heroiconY[j] = - 0.001 - 0.038 * j
                 call SetFrameRelativePoint(buttonFrame, FRAMEPOINT_TOPLEFT, timerFrame, FRAMEPOINT_BOTTOMLEFT, heroiconX[i], heroiconY[j])
             else
                 call ShowFrame(buttonFrame, false)
@@ -499,9 +718,9 @@ library initFrame uses Utilities
             call SetFrameBackgroundInsets(buttonTipFrame, 0, 0.005, 0.005, 0.005, 0.005)
             set buttonTxtFrame = CreateFrameByType("TEXT", "SelectHeroButtonTxtFrame", buttonTipFrame, "", k)
             call SetFrameTextAlignment(buttonTxtFrame, TEXT_JUSTIFY_MIDDLE, TEXT_JUSTIFY_LEFT)
-            call SetFrameFont(buttonTxtFrame, "Fonts\\FRIZQT__.TTF", 0.011, 0)
-            call SetFrameWidth(buttonTxtFrame, 0.16)
-            call SetFrameRelativePoint(buttonTxtFrame, FRAMEPOINT_TOPLEFT, mainFrame, FRAMEPOINT_TOPRIGHT, 0.005, - 0.005)
+            call SetFrameFont(buttonTxtFrame, "Fonts\\FRIZQT__.TTF", 0.012, 0)
+            call SetFrameWidth(buttonTxtFrame, 0.17)
+            call SetFrameRelativePoint(buttonTxtFrame, FRAMEPOINT_TOPLEFT, mainFrame, FRAMEPOINT_TOPRIGHT, 0.005, - 0.01)
             call SetFrameRelativePoint(buttonTipFrame, FRAMEPOINT_BOTTOMLEFT, buttonTxtFrame, FRAMEPOINT_BOTTOMLEFT, - 0.01, - 0.01)
             call SetFrameRelativePoint(buttonTipFrame, FRAMEPOINT_TOPRIGHT, buttonTxtFrame, FRAMEPOINT_TOPRIGHT, 0.01, 0.01)
             call SetFrameTooltip(buttonFrame, buttonTipFrame)
@@ -511,6 +730,7 @@ library initFrame uses Utilities
             call SaveInteger(ht, StringHash("HeroIndex"), GetHandleId(buttonFrame), k)
             call TriggerRegisterFrameEvent(trig, buttonFrame, FRAMEEVENT_CONTROL_CLICK)
             call RegisterFrameMouseButton(buttonFrame, MOUSE_BUTTON_TYPE_RIGHT, true)
+            call RegisterFrameMouseButton(buttonFrame, MOUSE_BUTTON_TYPE_MIDDLE, true)
             call TriggerAddAction(trig, function HeroButtonClick)
             set i = i + 1
             if i >= 10 then
@@ -534,6 +754,7 @@ library initFrame uses Utilities
         set buttonTxtFrame = null
         set scrollareaFrame = null
         set scrollFrame = null
+        set filterFrame = null
         set trig = null
     endfunction
 
@@ -576,7 +797,7 @@ library initFrame uses Utilities
     
         call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0))
         call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0), FRAMEPOINT_BOTTOMLEFT, mapborderFrame, FRAMEPOINT_TOPLEFT, 0.005, 0.03)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0), FRAMEPOINT_TOPRIGHT, mapborderFrame, FRAMEPOINT_TOPLEFT, 0.32, 0.2)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0), FRAMEPOINT_TOPRIGHT, mapborderFrame, FRAMEPOINT_TOPLEFT, 0.33, 0.2)
         call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_UNIT_MSG, 0))
         call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_UNIT_MSG, 0), FRAMEPOINT_BOTTOMLEFT, GetOriginFrame(ORIGIN_FRAME_CHAT_MSG, 0), FRAMEPOINT_CENTER, - 0.05, 0)
             
@@ -597,7 +818,7 @@ library initFrame uses Utilities
     
         call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_CHAT_EDITBAR, 0))
         call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_CHAT_EDITBAR, 0), FRAMEPOINT_BOTTOMLEFT, mainFrame, FRAMEPOINT_TOPLEFT, 0, 0.001)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_CHAT_EDITBAR, 0), FRAMEPOINT_TOPRIGHT, mainFrame, FRAMEPOINT_TOPRIGHT, 0.1, 0.025)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_CHAT_EDITBAR, 0), FRAMEPOINT_TOPRIGHT, mainFrame, FRAMEPOINT_TOPRIGHT, 0.12, 0.025)
 
         set statFrame = CreateFrameByType("BACKDROP", "MainStatFrame", mainFrame, "", 0)
         call SetFrameTexture(statFrame, "ReplaceableTextures\\CommandButtons\\BTNGauntletsOfOgrePower.blp", 0, false)
@@ -682,41 +903,41 @@ library initFrame uses Utilities
         call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BAR, 0))
         call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 0))
         call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 0), FRAMEPOINT_CENTER, 10.0, 10.0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 3))
-        call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 3), FRAMEPOINT_CENTER, 10.0, 10.0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 6))
-        call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 6), FRAMEPOINT_CENTER, 10.0, 10.0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 9))
-        call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 9), FRAMEPOINT_CENTER, 10.0, 10.0)
         call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 1))
         call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 1), FRAMEPOINT_CENTER, 10.0, 10.0)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 2))
+        call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 2), FRAMEPOINT_CENTER, 10.0, 10.0)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 3))
+        call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 3), FRAMEPOINT_CENTER, 10.0, 10.0)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 4))
+        call SetFrameAbsolutePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 4), FRAMEPOINT_CENTER, 10.0, 10.0)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "SkillSimpleFrame", gameuiFrame, "", 0)
         call ClearFrameAllPoints(simpleFrame)
         call SetFrameSize(simpleFrame, 0.037, 0.037)
         call SetFrameTextureEx(simpleFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL)
         call SetFrameRelativePoint(simpleFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("XPSimpleFrame", 0), FRAMEPOINT_BOTTOMLEFT, 0, - 0.001)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 2))
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 2), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 2), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 8))
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 8), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 8), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "SkillSimpleFrame", gameuiFrame, "", 1)
         call ClearFrameAllPoints(simpleFrame)
         call SetFrameSize(simpleFrame, 0.037, 0.037)
         call SetFrameTextureEx(simpleFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL)
         call SetFrameRelativePoint(simpleFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("SkillSimpleFrame", 0), FRAMEPOINT_TOPRIGHT, 0.001, 0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 5))
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 5), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 5), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 9))
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 9), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 9), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "SkillSimpleFrame", gameuiFrame, "", 2)
         call ClearFrameAllPoints(simpleFrame)
         call SetFrameSize(simpleFrame, 0.037, 0.037)
         call SetFrameTextureEx(simpleFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL)
         call SetFrameRelativePoint(simpleFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("SkillSimpleFrame", 1), FRAMEPOINT_TOPRIGHT, 0.001, 0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 8))
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 8), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 8), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 10))
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 10), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 10), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "SkillSimpleFrame", gameuiFrame, "", 3)
         call ClearFrameAllPoints(simpleFrame)
@@ -732,27 +953,27 @@ library initFrame uses Utilities
         call SetFrameSize(simpleFrame, 0.037, 0.037)
         call SetFrameTextureEx(simpleFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL)
         call SetFrameRelativePoint(simpleFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("SkillSimpleFrame", 3), FRAMEPOINT_TOPRIGHT, 0.001, 0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 10))
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 10), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 10), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 7))
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 7), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 7), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "SkillSimpleFrame", gameuiFrame, "", 5)
         call ClearFrameAllPoints(simpleFrame)
         call SetFrameSize(simpleFrame, 0.037, 0.037)
         call SetFrameTextureEx(simpleFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL)
         call SetFrameRelativePoint(simpleFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("SkillSimpleFrame", 4), FRAMEPOINT_TOPRIGHT, 0.001, 0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 7))
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 7), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 7), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 6))
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 6), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 6), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "SkillSimpleFrame", gameuiFrame, "", 6)
         call ClearFrameAllPoints(simpleFrame)
         call SetFrameSize(simpleFrame, 0.037, 0.037)
         call SetFrameTextureEx(simpleFrame, 0, "UI\\Widgets\\EscMenu\\Human\\editbox-background.blp", true, "UI\\Widgets\\EscMenu\\Human\\editbox-border.blp", CORNER_FLAG_ALL)
         call SetFrameRelativePoint(simpleFrame, FRAMEPOINT_TOPLEFT, GetFrameByName("SkillSimpleFrame", 5), FRAMEPOINT_TOPRIGHT, 0.001, 0)
-        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 4))
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 4), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
-        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 4), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
+        call ClearFrameAllPoints(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 5))
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 5), FRAMEPOINT_BOTTOMLEFT, simpleFrame, FRAMEPOINT_BOTTOMLEFT, 0.005, 0.005)
+        call SetFrameRelativePoint(GetOriginFrame(ORIGIN_FRAME_COMMAND_BUTTON, 5), FRAMEPOINT_TOPRIGHT, simpleFrame, FRAMEPOINT_TOPRIGHT, - 0.005, - 0.005)
 
         set simpleFrame = CreateFrameByType("SIMPLEFRAME", "HPSimpleFrame", gameuiFrame, "", 0)
         call ClearFrameAllPoints(simpleFrame)
@@ -892,12 +1113,78 @@ library initFrame uses Utilities
         set buffFrame = null
         set trig = null
     endfunction
+
+    globals
+        string array voiceTxT
+        boolean array voicePlayer
+    endglobals
+
+    function voicebattonEx takes nothing returns nothing
+        local timer z = GetExpiredTimer()
+        local integer zid = GetHandleId(z)
+        local integer frameId = LoadInteger(ht, zid, 0)
+        local integer pid = LoadInteger(ht, zid, 1)
+        set voicePlayer[pid] = false
+        call SetFrameEnabled(GetFrameByName("VoiceButton", frameId), true)
+        call FlushChildHashtable(ht, zid)
+        call DestroyTimer(z)
+    endfunction
+
+    function voicebatton takes nothing returns nothing
+        local timer z
+        local player p = GetTriggerPlayer()
+        local framehandle trigFrame = GetTriggerFrame()
+        local integer frameId = GetFrameContext(trigFrame)
+        local integer pid = GetPlayerId(p)
+
+        if not voicePlayer[pid] then
+            set voicePlayer[pid] = true
+            call DisplayChatMessage(p, CHAT_RECIPIENT_ALL, voiceTxT[frameId])
+            call SetFrameEnabled(trigFrame, false)
+            call SoundStart("war3mapImported\\voicewheel" + I2S(frameId) + ".mp3")
+            set z = CreateTimer()
+            call SaveInteger(ht, GetHandleId(z), 0, frameId)
+            call SaveInteger(ht, GetHandleId(z), 1, pid)
+            call TimerStart(z, 30, false, function voicebattonEx)
+        endif
+
+        set z = null
+        set p = null
+        set trigFrame = null
+    endfunction
+
+    function voicewheeler takes nothing returns nothing
+        local player p = GetTriggerPlayer()
+        local framehandle trigFrame = GetTriggerFrame()
+        local framehandle scrollFrame = GetFrameChild(trigFrame, 2)
+        local real frameValue = GetTriggerFrameReal()
+
+        if frameValue > 0 then
+            if GetLocalPlayer() == p then
+                call SetFrameValue(scrollFrame, GetFrameValue(scrollFrame) + 1)
+            endif
+        else
+            if GetLocalPlayer() == p then
+                call SetFrameValue(scrollFrame, GetFrameValue(scrollFrame) - 1)
+            endif
+        endif
+
+        set p = null
+        set trigFrame = null
+        set scrollFrame = null
+    endfunction
     
     function createDefaultUI2 takes nothing returns nothing
         local framehandle gameuiFrame = GetOriginFrame(ORIGIN_FRAME_GAME_UI, 0)
         local framehandle simpleFrame
         local framehandle simpletxtFrame
         local framehandle textureFrame
+        local framehandle listBoxFrame
+        local framehandle listItemFrame
+        local framehandle backDropFrame
+        local framehandle buttonFrame
+        local framehandle textFrame
+        local framehandle listBoxScroll
         local trigger trig
         local integer i
         local integer j
@@ -1250,10 +1537,69 @@ library initFrame uses Utilities
             set i = i + 1
         endloop
 
+        set listBoxFrame = CreateFrameByType("LISTBOX", "VoiceBox", gameuiFrame, "", 0)
+        call SetFrameSize(listBoxFrame, 0.15, 0.2)
+        call SetFrameRelativePoint(listBoxFrame, FRAMEPOINT_CENTER, gameuiFrame, FRAMEPOINT_CENTER, 0, 0)
+        set trig = CreateTrigger()
+        call TriggerRegisterFrameEvent(trig, listBoxFrame, FRAMEEVENT_MOUSE_WHEEL)
+        call TriggerAddAction(trig, function voicewheeler)
+
+        call SetFrameItemsHeight(listBoxFrame, 0.02)
+        set listBoxScroll = GetFrameChild(listBoxFrame, 2)
+
+        set voiceTxT[1] = "APADAH GUA MULU"
+        set voiceTxT[2] = "HUAAAAAAAAAAAAA"
+        set voiceTxT[3] = "EZPZ"
+        set voiceTxT[4] = "SURAT KABAR LAMA"
+        set voiceTxT[5] = "MAU GAMAU"
+        set voiceTxT[6] = "YAUDAH PASRAH"
+        set voiceTxT[7] = "YA AMPUN"
+        set voiceTxT[8] = "DIA YANG KENA"
+        set voiceTxT[9] = "AAAHHH"
+        set voiceTxT[10] = "SABAR"
+        set voiceTxT[11] = "GA BEGINI JUGA"
+        set voiceTxT[12] = "DEJAVU"
+        set voiceTxT[13] = "AH JANGAN DONG"
+        set voiceTxT[14] = "HALO SAYANG"
+
+        set i = 1
+        loop
+            exitwhen i > 14
+            set backDropFrame = CreateFrameByType( "BACKDROP", "VoiceBackDrop", listBoxScroll, "", i )
+            set listItemFrame = AddFrameListItem( listBoxFrame, "", backDropFrame )
+            call SetFrameEnabled( listItemFrame, false )
+            call SetFrameBackdropTexture( backDropFrame, 0, "UI\\widgets\\BattleNet\\bnet-tooltip-background.blp", true, true, "UI\\widgets\\BattleNet\\bnet-tooltip-border.blp", CORNER_FLAG_ALL, false )
+            call SetFrameHeight( backDropFrame, .02 )
+            call SetFrameCornerSize( backDropFrame, 0, .0125 )
+            call SetFrameBackgroundSize( backDropFrame, 0, .128 )
+            call SetFrameBackgroundInsets( backDropFrame, 0, .005, .005, .005, .005 )
+        
+            set textFrame = CreateFrameByType( "TEXT", "VoiceText", backDropFrame, "", i )
+            call SetFrameTextAlignment(textFrame, TEXT_JUSTIFY_MIDDLE, TEXT_JUSTIFY_CENTER)
+            call SetFrameFont(textFrame, "Fonts\\FRIZQT__.TTF", 0.012, 0)
+            call SetFrameRelativePoint( textFrame, FRAMEPOINT_CENTER, backDropFrame, FRAMEPOINT_CENTER, .0, .0 )
+            call SetFrameText( textFrame, voiceTxT[i] )
+            call SetFrameEnabled(textFrame, false)
+        
+            set buttonFrame = CreateFrameByType("BUTTON", "VoiceButton", backDropFrame, "", i)
+            call SetFrameAllPoints(buttonFrame, backDropFrame)
+            set trig = CreateTrigger()
+            call TriggerRegisterFrameEvent(trig, buttonFrame, FRAMEEVENT_CONTROL_CLICK)
+            call TriggerAddAction(trig, function voicebatton)
+            set i = i + 1
+        endloop
+        call ShowFrame(listBoxFrame, false)
+
         set gameuiFrame = null
         set simpleFrame = null
         set simpletxtFrame = null
         set textureFrame = null
+        set listBoxFrame = null
+        set listItemFrame = null
+        set backDropFrame = null
+        set buttonFrame = null
+        set textFrame = null
+        set listBoxScroll = null
         set trig = null
     endfunction
 
@@ -1297,7 +1643,7 @@ library initFrame uses Utilities
                 set i = i + 1
             endloop
 
-            if GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) >= shopharga[frameId] and j < 6 and IsUnitAlive(MainHero[pid]) and not IsUnitPaused(MainHero[pid]) then
+            if IsUnitInRange(MainHero[pid], MainUnit[pid], 1200) and GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD) >= shopharga[frameId] and j < 6 and IsUnitAlive(MainHero[pid]) and not IsUnitPaused(MainHero[pid]) then
                 call AdjustPlayerStateBJ(- shopharga[frameId], p, PLAYER_STATE_RESOURCE_GOLD)
                 call UnitAddItemByIdSwapped(shopItemInt[frameId], MainHero[pid])
             endif
@@ -1523,11 +1869,11 @@ library initFrame uses Utilities
                 exitwhen i == shopItemIndex
                 if i >= 7 and i <= 41 then
                     set itemFrame = GetFrameByName("ShopItemFrame", i)
-                    if GetLocalPlayer() == p and not IsFrameVisible(itemFrame) then
-                        call ShowFrame(itemFrame, true)
-                    endif
                     if GetLocalPlayer() == p then
                         call SetFrameRelativePoint(itemFrame, FRAMEPOINT_TOPLEFT, mainFrame, FRAMEPOINT_TOPLEFT, shopItemPosX[i - 7], shopItemPosY[i - 7])
+                        if not IsFrameVisible(itemFrame) then
+                            call ShowFrame(itemFrame, true)
+                        endif
                     endif
                 endif
                 set i = i + 1
@@ -1538,11 +1884,11 @@ library initFrame uses Utilities
                 exitwhen i == shopItemIndex
                 if i >= 0 and i <= 34 then
                     set itemFrame = GetFrameByName("ShopItemFrame", i)
-                    if GetLocalPlayer() == p and not IsFrameVisible(itemFrame) then
-                        call ShowFrame(itemFrame, true)
-                    endif
                     if GetLocalPlayer() == p then
                         call SetFrameRelativePoint(itemFrame, FRAMEPOINT_TOPLEFT, mainFrame, FRAMEPOINT_TOPLEFT, shopItemPosX[i], shopItemPosY[i])
+                        if not IsFrameVisible(itemFrame) then
+                            call ShowFrame(itemFrame, true)
+                        endif
                     endif
                 endif
                 set i = i + 1

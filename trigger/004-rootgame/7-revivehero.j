@@ -57,7 +57,7 @@ scope revivehero initializer init
             call SetUnitTimeScale(MainHero[pid], 1)
             call PauseUnit(MainHero[pid], false)
             call SetUnitInvulnerable(MainHero[pid], false)
-            call PanCameraToTimedForPlayer(Player(pid), GetUnitX(MainHero[pid]), GetUnitY(MainHero[pid]), 1)
+            call PanCameraToTimedForPlayer(Player(pid), GetUnitX(MainHero[pid]), GetUnitY(MainHero[pid]), 0)
             set pFrame = GetFrameByName("ScoreHeroBackground", pid)
             call SetFrameTexture(pFrame, HeroPhoto[MemoHero[pid]], 0, true)
             call ResetVision(MainHero[pid])

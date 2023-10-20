@@ -27,11 +27,6 @@ scope cooldown initializer init
                 set value = 0.95
             endif
             set value2 = 0
-            if GetUnitAbilityLevel(u, 'B00Y') > 0 then
-                if aid == 'A0AH' or aid == 'A0AI' then
-                    set value2 = 5
-                endif
-            endif
             set bcd = GetAbilityBaseRealLevelFieldById(aid, ABILITY_RLF_COOLDOWN, alvl - 1)
             set rcd = GetAbilityRealLevelField(a, ABILITY_RLF_COOLDOWN, alvl - 1)
             if rcd != value2 + bcd * value then

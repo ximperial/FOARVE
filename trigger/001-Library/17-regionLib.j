@@ -7,8 +7,6 @@ scope regionLib initializer init
         region centerLane2 = null
         region centerLane3 = null
         region rightLane = null
-        region rightLane1 = null
-        region rightLane2 = null
         region leftLane = null
     endglobals
 
@@ -100,26 +98,6 @@ scope regionLib initializer init
                     call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam2) , GetRectCenterY(gg_rct_BaseTeam2))
                 endif
             endif
-        elseif reg == rightLane1 then
-            if IsUnitAlive(u) then
-                if p == Player(4) then
-                    call setUnitData(u, 8)
-                    call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam3) , GetRectCenterY(gg_rct_BaseTeam3))
-                elseif p == Player(8) then
-                    call setUnitData(u, 8)
-                    call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BottomRight) , GetRectCenterY(gg_rct_BottomRight))
-                endif
-            endif
-        elseif reg == rightLane2 then
-            if IsUnitAlive(u) then
-                if p == Player(4) then
-                    call setUnitData(u, 9)
-                    call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BottomRight) , GetRectCenterY(gg_rct_BottomRight))
-                elseif p == Player(8) then
-                    call setUnitData(u, 9)
-                    call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam2) , GetRectCenterY(gg_rct_BaseTeam2))
-                endif
-            endif
         endif
 
         set u = null
@@ -160,10 +138,6 @@ scope regionLib initializer init
         call RegionAddRect(centerLane3, gg_rct_MidCTeam3_1)
         set rightLane = CreateRegion()
         call RegionAddRect(rightLane, gg_rct_BottomRight)
-        set rightLane1 = CreateRegion()
-        call RegionAddRect(rightLane, gg_rct_RightCTeam3_1)
-        set rightLane2 = CreateRegion()
-        call RegionAddRect(rightLane, gg_rct_BottomCTeam2_1)
         set leftLane = CreateRegion()
         call RegionAddRect(leftLane, gg_rct_BottomLeft)
         set t = CreateTrigger()
@@ -177,8 +151,6 @@ scope regionLib initializer init
         call TriggerAddAction(t, function enterCenter)
         set t = CreateTrigger()
         call TriggerRegisterEnterRegion(t, rightLane, null)
-        call TriggerRegisterEnterRegion(t, rightLane1, null)
-        call TriggerRegisterEnterRegion(t, rightLane2, null)
         call TriggerAddAction(t, function enterRight)
         set t = CreateTrigger()
         call TriggerRegisterEnterRegion(t, leftLane, null)

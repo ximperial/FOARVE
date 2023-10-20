@@ -325,7 +325,7 @@ scope natsuspell initializer init
             call SetEffectXY(e, x, y, 1)
             set x = GetEffectX(e)
             set y = GetEffectY(e)
-            call GroupEnumUnitsInRange(gGroup, x, y, 300 + (count - 25) * 5, null)
+            call GroupEnumUnitsInRange(gGroup, x, y, 300, null)
             loop
                 set gUnit = GroupForEachUnit(gGroup)
                 exitwhen gUnit == null

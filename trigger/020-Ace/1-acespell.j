@@ -349,7 +349,7 @@ scope acespell initializer init
             call SetUnitAnimationByIndex(u, 11)
             call SetUnitTimeScale(u, 1)
             set d = CreateUnit(GetOwningPlayer(u), 'h0CO', GetUnitX(u), GetUnitY(u), a)
-            call EnableUnitMovement(d, false)
+            call UnitEnableMovement(d, false, false)
             call SaveUnitHandle(ht, GetHandleId(z), 1000, d)
             if GetLocalPlayer() == GetOwningPlayer(u) then
                 call SelectUnit(d, true)
@@ -491,7 +491,7 @@ scope acespell initializer init
                 exitwhen gUnit == null
                 if FilterGeneral(u, gUnit) then
                     call DamageUnit(u, gUnit, 11 * GetHeroStr(u, true))
-                    call knockupUnit(gUnit, 1.5, 600)
+                    call knockupUnit(gUnit, 1.6, 600)
                 endif
             endloop
             call GroupClear(gGroup)

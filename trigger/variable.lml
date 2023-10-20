@@ -17,7 +17,6 @@ DialogButtonKillMode: button
 KillModePoint: integer
 DialogButton: button
     Array : 1
-MaxHero: integer
 EnableIcon: destructable
     Array : 1
 OldIcon: destructable

@@ -4,7 +4,7 @@ library lockmap uses Utilities
         local unit u = GetEnumUnit()
         local player p = GetOwningPlayer(u)
         local integer pid = GetPlayerId(p)
-        if not IsUnitInvulnerable(u) then
+        if not IsUnitInvulnerable(u) and not RectContainsCoords(gg_rct_HibariR, GetUnitX(u), GetUnitY(u)) then
             if IsUnitInGroup(u, locktour[0]) then
                 if not RectContainsCoords(gg_rct_TournamentTeam, GetUnitX(u), GetUnitY(u)) then
                     call SetUnitBoundXY(u, gg_rct_TournamentTeam, false)

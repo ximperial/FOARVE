@@ -11,11 +11,11 @@ scope stormexplode initializer init
             call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.8)
             call Effect("war3mapImported\\SuperBigBombExplosionRed.mdl", GetUnitX(u), GetUnitY(u), 0, randomAngle(), 0, 0, 2, 1.5, 255, 255, 255, 255)
             if UnitHasItemOfTypeBJ(u, 'I04L') then
-                set dmg = 7 * GetHeroInt(u, true)
+                set dmg = 8 * GetHeroInt(u, true)
             elseif UnitHasItemOfTypeBJ(u, 'I02N') then
-                set dmg = 6 * GetHeroInt(u, true)
+                set dmg = 7 * GetHeroInt(u, true)
             else
-                set dmg = 5 * GetHeroInt(u, true)
+                set dmg = 6 * GetHeroInt(u, true)
             endif
             call GroupEnumUnitsInRange(gGroup, GetUnitX(u), GetUnitY(u), 700, null)
             loop

@@ -13,7 +13,7 @@ scope creepbonty initializer init
         if GetLocalPlayer() == p then
             set tt = CreateTextTag()
             call SetTextTagText(tt, s, 0.0253)
-            call SetTextTagPosUnit(tt, u, 0)
+            call SetTextTagPos(tt, GetUnitX(u), GetUnitY(u), 0)
             call SetTextTagColor(tt, 255, 220, 0, 255)
             call SetTextTagVelocity(tt, 0, 0.03)
             call SetTextTagLifespan(tt, 1)

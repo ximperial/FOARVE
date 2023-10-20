@@ -479,7 +479,6 @@ scope byakuranspell initializer init
         local unit u = LoadUnitHandle(ht, GetHandleId(z), 0)
         local integer count = LoadInteger(ht, GetHandleId(z), 0)
         local integer iterator = LoadInteger(ht, GetHandleId(z), 1)
-        local integer iterator2 = LoadInteger(ht, GetHandleId(z), 2)
         local real a = LoadReal(ht, GetHandleId(z), 0)
         local real x
         local real y
@@ -535,20 +534,18 @@ scope byakuranspell initializer init
             set g2 = CreateGroup()
             set iterator = iterator + 1
             call SaveInteger(ht, GetHandleId(z), 1, iterator)
-            set iterator2 = iterator2 + 1
-            call SaveInteger(ht, GetHandleId(z), 2, iterator2)
             set i = 1
             loop
                 exitwhen i > 10
                 set x = PolarX(GetUnitX(u), 120 * i, a)
                 set y = PolarY(GetUnitY(u), 120 * i, a)
-                call GroupEnumUnitsInRange(g2, x, y, 250, null)
+                call GroupEnumUnitsInRange(g2, x, y, 300, null)
                 loop
                     set v = GroupForEachUnit(g2)
                     exitwhen v == null
                     if FilterGeneral(u, v) then
-                        if not IsUnitInGroup(v, g1) and iterator2 == 5 then
-                            call DamageUnit(u, v, 2 * GetHeroStr(u, true) / 10)
+                        if not IsUnitInGroup(v, g1) then
+                            call DamageUnit(u, v, 15 * GetHeroStr(u, true) / 360)
                             call GroupAddUnit(g1, v)
                         endif
                         call IssueImmediateOrderById(v, 851972)
@@ -564,14 +561,11 @@ scope byakuranspell initializer init
                 endif
                 set i = i + 1
             endloop
+            call GroupClear(g1)
+            call DestroyGroup(g2)
             if iterator >= 20 then
                 call SaveInteger(ht, GetHandleId(z), 1, 0)
             endif
-            if iterator2 >= 5 then
-                call SaveInteger(ht, GetHandleId(z), 2, 0)
-                call GroupClear(g1)
-            endif
-            call DestroyGroup(g2)
         endif
         if count == 420 then
             call PauseUnit(u, false)
@@ -825,7 +819,6 @@ scope byakuranspell initializer init
             call SaveReal(ht, GetHandleId(z), 0, a)
             call SaveInteger(ht, GetHandleId(z), 0, 0)
             call SaveInteger(ht, GetHandleId(z), 1, 0)
-            call SaveInteger(ht, GetHandleId(z), 2, 0)
             call SaveBoolean(ht, GetHandleId(z), 0, GetUnitAbilityLevel(u, 'B00Y') > 0)
             call SaveGroupHandle(ht, GetHandleId(z), 10, CreateGroup())
             call TimerStart(z, 0.02, true, function period8)

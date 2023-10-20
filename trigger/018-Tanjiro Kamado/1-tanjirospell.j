@@ -403,6 +403,59 @@ scope tanjirospell initializer init
         
 endstruct
 
+private function period5_2 takes nothing returns nothing
+    local timer z = GetExpiredTimer()
+    local integer zid = GetHandleId(z)
+    local effect e = LoadEffectHandle(ht, zid, 100)
+    local integer count = LoadInteger(ht, zid, 0) + 1
+    local integer iterator = LoadInteger(ht, zid, 1)
+    local real a = GetSpecialEffectYaw(e)
+    local real x = PolarX(GetEffectX(e), 40, a)
+    local real y = PolarY(GetEffectY(e), 40, a)
+    
+    call SaveInteger(ht, zid, 0, count)
+    call SetEffectXY(e, x, y, 0)
+    call SetSpecialEffectZ(e, GetAxisZ(x, y))
+    if count == 1 or count == 10 or count == 20 then
+        call Effect("war3mapimported\\HakenSaber2.mdx", GetEffectX(e), GetEffectY(e), 50, randomAngle(), 0, 0, 0.75, 1.5, 255, 255, 255, 255)
+        call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.75)
+        call Effect("war3mapimported\\[A]az_axe_ef1.mdx", GetEffectX(e), GetEffectY(e), 50, randomAngle(), 0, 0, 0.45, 1.5, 255, 255, 255, 255)
+        call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.5)
+        call Effect("war3mapimported\\WindCirclefaster.mdx", GetEffectX(e), GetEffectY(e), 100, randomAngle(), 0, 0, 1.15, 1.5, 255, 255, 255, 255)
+        call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.8)
+    endif
+    if count == 10 or count == 20 then
+        call Effect("war3mapimported\\SenjiSwordEffect.mdx", GetEffectX(e), GetEffectY(e), 100, a, 0, - 180, 1.5, 1.5, 255, 255, 255, 255)
+        call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.75)
+    endif
+    if count == 5 or count == 15 or count == 25 then
+        call Effect("war3mapimported\\SenjiSwordEffect.mdx", GetEffectX(e), GetEffectY(e), 100, a, 0, 0, 1.5, 1.5, 255, 255, 255, 255)
+        call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.75)
+    endif
+    if count >= 30 then
+        call FlushChildHashtable(ht, zid)
+        call PauseTimer(z)
+        call DestroyTimer(z)
+    endif
+
+    set z = null
+    set e = null
+endfunction
+
+private function period5_1 takes real x, real y, real a returns nothing
+    local timer z = CreateTimer()
+    local integer zid = GetHandleId(z)
+
+    call SaveInteger(ht, zid, 0, 0)
+    call SaveInteger(ht, zid, 1, 0)
+    call Effect("war3mapImported\\tzl.mdl", x, y, 0, a, 0, 0, 1, 0.65, 255, 255, 255, 255)
+    call SetSpecialEffectAnimationByIndex(bj_lastCreatedEffect, 10)
+    call SaveEffectHandle(ht, zid, 100, bj_lastCreatedEffect)
+    call TimerStart(z, 0.02, true, function period5_2)
+
+    set z = null
+endfunction
+
 private function period5 takes nothing returns nothing
     local timer z = GetExpiredTimer()
     local unit u = LoadUnitHandle(ht, GetHandleId(z), 0)
@@ -411,13 +464,9 @@ private function period5 takes nothing returns nothing
     local real dist = Distance(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
     local real x
     local real y
-    local real x2
-    local real y2
     local real randomA
     local integer count = LoadInteger(ht, GetHandleId(z), 0) + 1
     local integer iterator = LoadInteger(ht, GetHandleId(z), 1)
-    local TanjiroT move
-    local effect e
 
     call SaveInteger(ht, GetHandleId(z), 0, count)
     call PauseUnit(t, true)
@@ -433,19 +482,9 @@ private function period5 takes nothing returns nothing
     if count == 1 then
         call SoundStart("war3mapImported\\Tanjiro_5.mp3")
         call SetUnitVertexColor(u, 255, 255, 255, 0)
-        call Effect("war3mapImported\\Black.mdl", GetUnitX(t), GetUnitY(t), 0, a, 0, 0, 2, 19, 255, 255, 255, PercentTo255(60))
+        call Effect("war3mapImported\\Black.mdl", GetUnitX(t), GetUnitY(t), 0, a, 0, 0, 2, 19, 255, 255, 255, PercentTo255(40))
         call TimeScaleEffect(bj_lastCreatedEffect, 0, 0.4)
-        call Effect("war3mapImported\\tzl.mdl", GetUnitX(u), GetUnitY(u), 0, a, 0, 0, 1, 14.2, 255, 255, 255, 255)
-        call SetSpecialEffectAnimationByIndex(bj_lastCreatedEffect, 10)
-        call SaveEffectHandle(ht, GetHandleId(z), 10, bj_lastCreatedEffect)
-        set x = PolarX(GetUnitX(t), 700, a)
-        set y = PolarY(GetUnitY(t), 700, a)
-        set move = TanjiroT.create(GetUnitX(u), GetUnitY(u), 0, x, y, 0)
-        set move.duration = 0.6
-        set move.e = LoadEffectHandle(ht, GetHandleId(z), 10)
-        set move.i = 0
-        set move.i2 = 0
-        call move.launch()
+        call period5_1(GetUnitX(u), GetUnitY(u), a)
     endif
     if count >= 30 and count <= 680 then
         set iterator = iterator + 1
@@ -453,25 +492,19 @@ private function period5 takes nothing returns nothing
         if iterator >= 30 then
             call SaveInteger(ht, GetHandleId(z), 1, 0)
             set randomA = randomAngle()
-            set x = PolarX(GetUnitX(t), 700, randomA)
-            set y = PolarY(GetUnitY(t), 700, randomA)
+            set x = PolarX(GetUnitX(t), 600, randomA)
+            set y = PolarY(GetUnitY(t), 600, randomA)
             set a = Angle(x, y, GetUnitX(t), GetUnitY(t))
-            set x2 = PolarX(GetUnitX(t), 700, a)
-            set y2 = PolarY(GetUnitY(t), 700, a)
-            set move = TanjiroT.create(x, y, 0, x2, y2, 0)
-            set move.duration = 0.6
-            set move.e = LoadEffectHandle(ht, GetHandleId(z), 10)
-            set move.i = 0
-            set move.i2 = 0
-            call move.launch()
+            call period5_1(x, y, a)
         endif
     endif
     if count == 720 then
         call SoundStart("war3mapImported\\Tanjiro_5-1.mp3")
         call SetUnitVertexColor(u, 255, 255, 255, 255)
-        call SetUnitX(u, PolarX(GetUnitX(t), - 200, a))
-        call SetUnitY(u, PolarY(GetUnitY(t), - 200, a))
-        call Effect("war3mapImported\\shanguangbiubiu.mdl", GetUnitX(u), GetUnitY(u), 200, a, 0, 0, 2, 2, 255, 255, 255, 255)
+        set x = PolarX(GetUnitX(t), - 200, a)
+        set y = PolarY(GetUnitY(t), - 200, a)
+        call SetUnitXY(u, x, y, 0)
+        call Effect("war3mapImported\\shanguangbiubiu.mdl", GetUnitX(u), GetUnitY(u), 150, a, 0, 0, 2, 2, 255, 255, 255, 255)
         call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.6)
     endif
     if count >= 720 and count <= 920 then
@@ -527,7 +560,6 @@ private function period5 takes nothing returns nothing
     set z = null
     set u = null
     set t = null
-    set e = null
 endfunction
 
 private function period6 takes nothing returns nothing

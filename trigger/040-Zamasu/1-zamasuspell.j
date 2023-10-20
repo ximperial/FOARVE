@@ -568,8 +568,8 @@ scope zamasuspell initializer init
         endif
         if count >= 80 and count <= 110 then
             set e = LoadEffectHandle(ht, zid, 10)
-            set x = PolarX(GetEffectX(e), 50, GetSpecialEffectYaw(e))
-            set y = PolarY(GetEffectY(e), 50, GetSpecialEffectYaw(e))
+            set x = PolarX(GetEffectX(e), 60, GetSpecialEffectYaw(e))
+            set y = PolarY(GetEffectY(e), 60, GetSpecialEffectYaw(e))
             call SetEffectXY(e, x, y, 1)
             call SetSpecialEffectZ(e, 150 + GetAxisZ(x, y))
             call GroupEnumUnitsInRange(gGroup, x, y, 350, null)

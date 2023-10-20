@@ -19,15 +19,15 @@ library selectsystem uses preloadEffect finishselect initFrame
             loop
                 exitwhen i > 11
                 if UserPlayer(Player(i)) then
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(1), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(2), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(3), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(5), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(6), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(7), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(9), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(10), 0.1 )
-                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(11), 0.1 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(1), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(2), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(3), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(5), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(6), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(7), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(9), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(10), 0 )
+                    call CameraSetupApplyForPlayer( true, gg_cam_Select_Hero, Player(11), 0 )
                 endif
                 set i = i + 1
             endloop
@@ -64,7 +64,7 @@ library selectsystem uses preloadEffect finishselect initFrame
                 if UserPlayer(Player(i)) then
                     loop
                         exitwhen SelectedYet[i]
-                        set randomI = GetRandomInt(1, udg_MaxHero)
+                        set randomI = GetRandomInt(1, MaxHero)
                         if not HeroGone[randomI] then
                             set MemoHero[i] = randomI
 
@@ -107,13 +107,13 @@ library selectsystem uses preloadEffect finishselect initFrame
                     call ResetToGameCameraForPlayer(Player(i) , 0)
                     if IsPlayerAlly(Player(i) , Player(0)) then
                         set bj_lastCreatedUnit = CreateUnit(Player(i), HeroType[MemoHero[i]], GetRectCenterX(gg_rct_Team1Revive), GetRectCenterY(gg_rct_Team1Revive), 0)
-                        call PanCameraToTimedForPlayer(Player(i), GetRectCenterX(gg_rct_Team1Revive) , GetRectCenterY(gg_rct_Team1Revive) , 1)
+                        call PanCameraToTimedForPlayer(Player(i), GetRectCenterX(gg_rct_Team1Revive) , GetRectCenterY(gg_rct_Team1Revive) , 0)
                     elseif IsPlayerAlly(Player(i) , Player(4)) then
                         set bj_lastCreatedUnit = CreateUnit(Player(i), HeroType[MemoHero[i]], GetRectCenterX(gg_rct_Team2Revive), GetRectCenterY(gg_rct_Team2Revive), 0)
-                        call PanCameraToTimedForPlayer(Player(i), GetRectCenterX(gg_rct_Team2Revive) , GetRectCenterY(gg_rct_Team2Revive) , 1)
+                        call PanCameraToTimedForPlayer(Player(i), GetRectCenterX(gg_rct_Team2Revive) , GetRectCenterY(gg_rct_Team2Revive) , 0)
                     else
                         set bj_lastCreatedUnit = CreateUnit(Player(i), HeroType[MemoHero[i]], GetRectCenterX(gg_rct_Team3Revive), GetRectCenterY(gg_rct_Team3Revive), 0)
-                        call PanCameraToTimedForPlayer(Player(i), GetRectCenterX(gg_rct_Team3Revive) , GetRectCenterY(gg_rct_Team3Revive) , 1)
+                        call PanCameraToTimedForPlayer(Player(i), GetRectCenterX(gg_rct_Team3Revive) , GetRectCenterY(gg_rct_Team3Revive) , 0)
                     endif
 
                     if isTestMode then

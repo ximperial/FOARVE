@@ -127,9 +127,9 @@ scope bossspell initializer init
                 set gUnit = GroupForEachUnit(gGroup)
                 exitwhen gUnit == null
                 set pid = GetPlayerId(GetOwningPlayer(gUnit))
-                //if FilterGeneral(u, gUnit) and gUnit == MainHero[pid] then
+                if FilterGeneral(u, gUnit) and gUnit == MainHero[pid] then
                     call GroupAddUnit(g, gUnit)
-                //endif
+                endif
             endloop
             call GroupClear(gGroup)
             if GroupGetCount(g) == 0 then
@@ -450,26 +450,22 @@ scope bossspell initializer init
         local timer z
         local unit u = GetTriggerUnit()
         local unit t = GetSpellTargetUnit()
-        local unit d
-        local ability a
+        local integer abilId = GetSpellAbilityId()
         local real x
         local real y
         local integer i
-        local integer abilId = GetSpellAbilityId()
 
         if abilId == 'A03O' then
             call SoundStart("war3mapImported\\Ushiwakamaru_1.mp3")
-            set d = DummyCall(GetOwningPlayer(u), GetUnitX(u), GetUnitY(u))
             set i = 1
             loop
                 exitwhen i > 2
-                call UnitAddAbility(d, 'A0EX')
-                set a = GetUnitAbility(d, 'A0EX')
-                call CastAbilityTarget(a, u)
-                call UnitRemoveAbility(d, 'A0EX')
+                set bj_lastCreatedUnit = CreateIllusionFromUnit(u)
+                call SetIllusionDamageDealt(bj_lastCreatedUnit, 0.5)
+                call SetIllusionDamageReceived(bj_lastCreatedUnit, 10)
+                call UnitApplyTimedLife(bj_lastCreatedUnit, 'BTLF', 14)
                 set i = i + 1
             endloop
-            call DummyRecycle(d)
             set x = PolarX(GetUnitX(u), 200, randomAngle())
             set y = PolarY(GetUnitY(u), 200, randomAngle())
             call SetUnitXY(u, x, y, 2)
@@ -545,8 +541,6 @@ scope bossspell initializer init
         set z = null
         set u = null
         set t = null
-        set d = null
-        set a = null
     endfunction
 
     private function init takes nothing returns nothing

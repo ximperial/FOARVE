@@ -29,9 +29,9 @@ scope clodbarrier initializer init
         if GetSpellAbilityId() == 'A050' then
             set z = CreateTimer()
             if UnitHasItemOfTypeBJ(u, 'I04C') then
-                call SaveReal(ht, StringHash("cloud"), GetHandleId(u), 5000)
-            elseif UnitHasItemOfTypeBJ(u, 'I026') then
                 call SaveReal(ht, StringHash("cloud"), GetHandleId(u), 4000)
+            elseif UnitHasItemOfTypeBJ(u, 'I026') then
+                call SaveReal(ht, StringHash("cloud"), GetHandleId(u), 3500)
             else
                 call SaveReal(ht, StringHash("cloud"), GetHandleId(u), 3000)
             endif

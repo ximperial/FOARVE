@@ -15,8 +15,8 @@ library runTimeUI uses Utilities
         
         if u != null then
             set frame1 = GetFrameByName("ShopMainFrame", 0)
-            set frame2 = GetFrameByName("ShopItemTiframe1", 0)
-            if IsUnitInRange(MainHero[pid], u, 1200) and (GetUnitTypeId(u) == 'n00C' or GetUnitTypeId(u) == 'n009' or GetUnitTypeId(u) == 'n00B' or GetUnitTypeId(u) == 'n004' or GetUnitTypeId(u) == 'n006') then
+            set frame2 = GetFrameByName("ShopItemTipFrame", 0)
+            if GetUnitTypeId(u) == 'n00C' or GetUnitTypeId(u) == 'n009' or GetUnitTypeId(u) == 'n00B' or GetUnitTypeId(u) == 'n004' or GetUnitTypeId(u) == 'n006' then
                 if GetLocalPlayer() == p and not IsFrameVisible(frame1) then
                     call ShowFrame(frame1, true)
                     call ShowFrame(shopItemSprite, false)
@@ -78,7 +78,12 @@ library runTimeUI uses Utilities
                 set str = ""
             else
                 set iStat = GetUnitTotalDamage(u)
-                set str = I2S(iStat)
+                set rStat = GetUnitAttackSpeed(u)
+                if rStat > 5 then
+                    set rStat = 5
+                endif
+                set rStat2 = GetUnitAttackCooldownByIndex(u, 0) / rStat
+                set str = I2S(iStat) + " / " + R2SW(rStat2, 0, 2) + "s"
             endif
             if GetFrameText(frame1) != str and GetLocalPlayer() == p then
                 call SetFrameText(frame1, str)
@@ -191,6 +196,8 @@ library runTimeUI uses Utilities
     
     function runTimeUIPeriod takes nothing returns nothing
         local framehandle frame1
+        local framehandle frame2
+        local framehandle frame3
         local string str = ""
         local boolean keypress
 
@@ -207,7 +214,9 @@ library runTimeUI uses Utilities
         endif
         
         set frame1 = GetFrameByName("BoardMainFrame", 0)
-        set keypress = IsKeyPressed(OSKEY_TAB) and IsWindowActive()
+        set frame2 = GetFrameByName("ShopMainFrame", 0)
+        set frame3 = GetFrameByName("VoiceBox", 0)
+        set keypress = IsKeyPressed(OSKEY_TAB) and IsWindowActive() and not IsFrameVisible(frame2) and not IsFrameVisible(frame3)
         if frame1 != null then
             if keypress then
                 if not IsFrameVisible(frame1) then
@@ -226,7 +235,25 @@ library runTimeUI uses Utilities
             endif
         endif
         
+        set frame1 = GetFrameByName("VoiceBox", 0)
+        set frame2 = GetFrameByName("BoardMainFrame", 0)
+        set frame3 = GetFrameByName("ShopMainFrame", 0)
+        set keypress = IsKeyPressed(OSKEY_V) and IsWindowActive() and not IsFrameVisible(frame2) and not IsFrameVisible(frame3)
+        if frame1 != null then
+            if keypress then
+                if not IsFrameVisible(frame1) then
+                    call ShowFrame(frame1, true)
+                endif
+            else
+                if IsFrameVisible(frame1) then
+                    call ShowFrame(frame1, false)
+                endif
+            endif
+        endif
+        
         set frame1 = null
+        set frame2 = null
+        set frame3 = null
     endfunction
 
     globals
@@ -236,7 +263,7 @@ library runTimeUI uses Utilities
     function callRunTimeUI takes nothing returns nothing
         if not isActive then
             set isActive = true
-            call TimerStart(CreateTimer(), 0.09, true, function runTimeUIPeriod)
+            call TimerStart(CreateTimer(), 0.1, true, function runTimeUIPeriod)
         endif
     endfunction
 endlibrary

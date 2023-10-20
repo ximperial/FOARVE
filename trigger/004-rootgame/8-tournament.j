@@ -619,7 +619,15 @@ library tournament uses Utilities
                 set g = CreateGroup()
                 call GroupEnumUnitsInRect(g, gg_rct_Boss_Arena, function bossTarget)
                 set u = GroupGetUnitByIndex(g, GetRandomInt(0, GroupGetCount(g) - 1))
-                if not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A03N')) then
+                if not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A04B')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852244 then
+                        call IssueImmediateOrderById(gg_unit_H0DS_0046, 852244)
+                    endif
+                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A03O')) then
+                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852663 then
+                        call IssueImmediateOrderById(gg_unit_H0DS_0046, 852663)
+                    endif
+                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A03N')) then
                     if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852652 then
                         call IssueTargetOrderById(gg_unit_H0DS_0046, 852652, u)
                     endif
@@ -630,14 +638,6 @@ library tournament uses Utilities
                 elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A0DL')) then
                     if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852474 then
                         call IssueTargetOrderById(gg_unit_H0DS_0046, 852474, u)
-                    endif
-                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A04B')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852244 then
-                        call IssueImmediateOrderById(gg_unit_H0DS_0046, 852244)
-                    endif
-                elseif not IsAbilityOnCooldown(GetUnitAbility(gg_unit_H0DS_0046, 'A03O')) then
-                    if GetUnitCurrentOrder(gg_unit_H0DS_0046) != 852663 then
-                        call IssueImmediateOrderById(gg_unit_H0DS_0046, 852663)
                     endif
                 elseif GetUnitCurrentOrder(gg_unit_H0DS_0046) == 0 then
                     call IssuePointOrderById(gg_unit_H0DS_0046, 851990, GetUnitX(u), GetUnitY(u))

@@ -397,7 +397,7 @@ scope zorospell initializer init
             call SetUnitAnimationByIndex(u, 11)
             set d = CreateUnit(GetOwningPlayer(u), 'h0CO', GetUnitX(u), GetUnitY(u), a)
             call SaveUnitHandle(ht, GetHandleId(z), 10, d)
-            call EnableUnitMovement(d, false)
+            call UnitEnableMovement(d, false, false)
             call UnitApplyTimedLife(d, 'BTLF', 2)
             if GetLocalPlayer() == GetOwningPlayer(u) then 
                 call ClearSelection()

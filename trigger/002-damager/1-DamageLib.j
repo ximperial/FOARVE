@@ -43,7 +43,10 @@ scope DamageLib
             call SetUnitInvulnerable(c, false)
             call SetUnitInvulnerable(t, false)
             set c2 = LoadUnitHandle(ht, StringHash("AizenD") , GetHandleId(c))
-            call DamageUnit(c2 , t, (8 + 0.4 * GetUnitAbilityLevel(c2 , 'A03V')) * GetHeroAgi(c2 , true))
+            if c2 == null then
+                set c2 = LoadUnitHandle(ht, StringHash("AizenD") , GetHandleId(t))
+            endif
+            call DamageUnit(c2 , t, (8 + B2I(GetUnitAbilityLevel(c2, 'A03V') > 0) * 2) * GetHeroAgi(c2 , true))
             call VisionArea(GetOwningPlayer(c) , 1200, 3, GetUnitX(t) , GetUnitY(t))
             call PauseUnit(c, false)
             call PauseUnit(t, false)
@@ -136,11 +139,7 @@ scope DamageLib
                 set gUnit = GroupForEachUnit(gGroup)
                 exitwhen gUnit == null 
                 if FilterGeneral(c, gUnit) then 
-                    if GetUnitTypeId(c) == 'H0FV' then
-                        call DamageUnit(c, gUnit, ((8 + 2 * GetUnitAbilityLevel(c, 'A0BD')) * GetHeroStr(c, true)) / 180)
-                    else
-                        call DamageUnit(c, gUnit, ((6 + 2 * GetUnitAbilityLevel(c, 'A0BD')) * GetHeroStr(c, true)) / 180)
-                    endif
+                    call DamageUnit(c, gUnit, ((6 + 2 * GetUnitAbilityLevel(c, 'A0BD')) * GetHeroStr(c, true)) / 180)
                     call IssueImmediateOrderById(gUnit, 851972)
                 endif
             endloop
@@ -524,6 +523,7 @@ scope DamageLib
         call SaveInteger(ht, GetHandleId(z), 0, 0)
         call SaveInteger(ht, GetHandleId(z), 1, 0)
         call SaveBoolean(ht, GetHandleId(z), 0, GetUnitAbilityLevel(u, 'B00Y') > 0)
+        call SaveReal(ht, GetHandleId(z) , - 1, GetUnitState(t, UNIT_STATE_LIFE))
         call TimerStart(z, 0.02, true, function ByakuranR_End)
         
         set z = null
@@ -900,7 +900,7 @@ scope DamageLib
         if count >= 45 and count <= 145 then
             set x = PolarX(GetUnitX(t), 12, a)
             set y = PolarY(GetUnitY(t), 12, a)
-            call SetUnitXY(t, x, y, 1)
+            call SetUnitXY(t, x, y, 2)
             set x = PolarX(GetUnitX(t), - 140, a)
             set y = PolarY(GetUnitY(t), - 140, a)
             call SetUnitXY(u, x, y, 0)

@@ -7,12 +7,14 @@ scope aetherwisp initializer init
         if GetItemTypeId(it) == 'I058' then
             call UnitAddStat(u, 20, 20, 20)
             call UnitAddBonus(u, BONUS_HEALTH, 100)
-        elseif GetItemTypeId(it) == 'I033' then
+        elseif GetItemTypeId(it) == 'I05C' then
             call UnitAddStat(u, 30, 30, 30)
             call UnitAddBonus(u, BONUS_HEALTH, 200)
-        elseif GetItemTypeId(it) == 'I034' then
+            call SetAbilityRealLevelField(GetItemAbility(it, 'A0BL'), ABILITY_RLF_COOLDOWN, 0, 55)
+        elseif GetItemTypeId(it) == 'I05D' then
             call UnitAddStat(u, 40, 40, 40)
             call UnitAddBonus(u, BONUS_HEALTH, 300)
+            call SetAbilityRealLevelField(GetItemAbility(it, 'A0BL'), ABILITY_RLF_COOLDOWN, 0, 50)
         endif
         if GetItemTypeId(it) == 'I00E' then
             call RemoveItem(it)
@@ -44,10 +46,10 @@ scope aetherwisp initializer init
         if GetItemTypeId(it) == 'I058' then
             call UnitAddStat(u, - 20, - 20, - 20)
             call UnitAddBonus(u, BONUS_HEALTH, - 100)
-        elseif GetItemTypeId(it) == 'I033' then
+        elseif GetItemTypeId(it) == 'I05C' then
             call UnitAddStat(u, - 30, - 30, - 30)
             call UnitAddBonus(u, BONUS_HEALTH, - 200)
-        elseif GetItemTypeId(it) == 'I034' then
+        elseif GetItemTypeId(it) == 'I05D' then
             call UnitAddStat(u, - 40, - 40, - 40)
             call UnitAddBonus(u, BONUS_HEALTH, - 300)
         endif

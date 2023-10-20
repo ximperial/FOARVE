@@ -484,234 +484,267 @@ scope vegetaspell initializer init
         set t = null
     endfunction
 
-    private struct VegetaD extends Missiles
-                    
-    method onPeriod takes nothing returns boolean
-        return false
-    endmethod
-                    
-    method onRemove takes nothing returns nothing
-        call Effect("war3mapimported\\by_wood_effect_qigongbo_lan.mdx", .x, .y, .z, randomAngle(), 0, 0, 2, 1, 255, 255, 255, 255)
-        call SetSpecialEffectAnimationByIndex(bj_lastCreatedEffect, 1)
-        call Effect("war3mapimported\\by_wood_bashenan_juqi_1_4.mdx", .x, .y, .z, randomAngle(), 0, 0, 0.8, 1, 255, 255, 255, 255)
-    endmethod
-    
-endstruct
+    private function period6_2 takes nothing returns nothing
+        local timer z = GetExpiredTimer()
+        local integer zid = GetHandleId(z)
+        local unit u = LoadUnitHandle(ht, zid, 0)
+        local effect e = LoadEffectHandle(ht, zid, 100)
+        local integer count = LoadInteger(ht, zid, 0) + 1
+        local integer iterator = LoadInteger(ht, zid, 1)
+        local real x = LoadReal(ht, zid, 0)
+        local real y = LoadReal(ht, zid, 1)
+        local real a = Angle(GetUnitX(u), GetUnitY(u), x, y) + LoadReal(ht, zid, 2)
+        local real dist = LoadReal(ht, zid, 3)
+        local real h = LoadReal(ht, zid, 4) + GetRandomReal(20, 25)
+        local real x2 = PolarX(GetEffectX(e), dist / 20, a)
+        local real y2 = PolarY(GetEffectY(e), dist / 20, a)
 
-private function period6 takes nothing returns nothing
-    local timer z = GetExpiredTimer()
-    local unit u = LoadUnitHandle(ht, GetHandleId(z), 0)
-    local unit t = LoadUnitHandle(ht, GetHandleId(z), 1)
-    local real a = Angle(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
-    local real dist = Distance(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
-    local real x
-    local real y
-    local integer count = LoadInteger(ht, GetHandleId(z), 0) + 1
-    local integer iterator = LoadInteger(ht, GetHandleId(z), 1)
-    local VegetaD move
-    local effect e
-    local real z1
-
-    call SaveInteger(ht, GetHandleId(z), 0, count)
-    call PauseUnit(t, true)
-    call SetUnitInvulnerable(t, true)
-    call PauseUnit(u, true)
-    call SetUnitInvulnerable(u, true)
-    if count == 1 then
-        call SoundStart("war3mapImported\\Vegeta_4-3.mp3")
-        set x = PolarX(GetUnitX(t), - 120, a)
-        set y = PolarY(GetUnitY(t), - 120, a)
-        call SetUnitXY(u, x, y, 0)
-        call SetUnitAnimationByIndex(u, 6)
-        call UnitAddAbility(t, 'Amrf')
-        call UnitRemoveAbility(t, 'Amrf')
-        call Effect("war3mapImported\\earthdetonation.mdl", GetUnitX(u), GetUnitY(u), 50, a, - 45, 0, 1, 1, 255, 255, 255, 255)
-        call Effect("war3mapImported\\freezingring.mdl", GetUnitX(t), GetUnitY(t), 50, a, - 45, 0, 1, 1, 255, 255, 255, 255)
-        call Effect("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", GetUnitX(t), GetUnitY(t), 50, a, - 45, 0, 1, 1, 255, 255, 255, 255)
-    endif
-    if count <= 20 then
-        set x = PolarX(GetUnitX(t), 20, a)
-        set y = PolarY(GetUnitY(t), 20, a)
-        call SetUnitXY(t, x, y, 2)
-        call SetUnitFlyHeight(t, GetUnitFlyHeight(t) + 20, 0)
-    endif
-    if count == 20 then
-        call SoundStart("war3mapImported\\Vegeta_7.mp3")
-        call SetUnitTimeScale(u, 2)
-    endif
-    if count == 25 then
-        call ShakeCamera(2, GetOwningPlayer(u), 5)
-        call ShakeCamera(2, GetOwningPlayer(t), 5)
-    endif
-    if count >= 20 and count <= 120 then
-        set iterator = iterator + 1
-        call SaveInteger(ht, GetHandleId(z), 1, iterator)
-        if iterator >= 4 then
-            call SaveInteger(ht, GetHandleId(z), 1, 0)
-            call SetUnitAnimation(u, "attack")
-            set x = PolarX(GetUnitX(t), GetRandomReal(- 400, 400), randomAngle())
-            set y = PolarY(GetUnitY(t), GetRandomReal(- 400, 400), randomAngle())
-            set move = VegetaD.create(GetUnitX(u), GetUnitY(u), 100, x, y, GetRandomReal(350, 450))
-            set move.duration = 0.3
-            set move.model = "war3mapimported\\by_wood_effect_qigongbo_lan.mdl"
-            set move.scale = 2
-            if GetRandomInt(1, 2) == 1 then
-                set move.curve = 20
-            else
-                set move.curve = - 20
-            endif
-            call move.launch()
+        call SaveInteger(ht, zid, 0, count)
+        call SaveReal(ht, zid, 4, h)
+        call SetEffectXY(e, x2, y2, 1)
+        call SetSpecialEffectZ(e, h + GetAxisZ(x2, y2))
+        call SetSpecialEffectYaw(e, a)
+        if count >= 20 then
+            call SetSpecialEffectAnimation(e, "death")
+            call SetSpecialEffectTimeScale(e, 0.6)
+            call Effect("war3mapimported\\by_wood_bashenan_juqi_1_4.mdx", GetEffectX(e), GetEffectY(e), h, randomAngle(), 0, 0, 1, 1, 233, 221, 44, 255)
+            call FlushChildHashtable(ht, zid)
+            call PauseTimer(z)
+            call DestroyTimer(z)
         endif
-    endif
-    if count == 130 then
-        call Effect("war3mapImported\\VegetaEff1.mdl", GetUnitX(u), GetUnitY(u), 50, randomAngle(), 0, 0, 1, 2.5, 255, 255, 255, 255)
-        call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.7)
-        call SetUnitAnimationByIndex(u, 21)
-        call SetUnitTimeScale(u, 1)
-    endif
-    if count == 160 then
-        call Effect("war3mapImported\\utsuhoredsun.mdl", GetUnitX(u), GetUnitY(u), 100, a, 0, 0, 3, 1.5, 255, 255, 255, 255)
-        call SaveEffectHandle(ht, GetHandleId(z), 10, bj_lastCreatedEffect)
-        call Effect("Abilities\\Spells\\Orc\\Purge\\PurgeBuffTarget.mdl", GetUnitX(u), GetUnitY(u), 100, a, 0, 0, 2, 1.5, 255, 255, 255, 255)
-        call SaveEffectHandle(ht, GetHandleId(z), 11, bj_lastCreatedEffect)
-        call SetSpecialEffectAnimationByIndex(bj_lastCreatedEffect, 0)
-    endif
-    if count >= 160 and count <= 190 then
-        set e = LoadEffectHandle(ht, GetHandleId(z), 10)
-        set x = PolarX(GetEffectX(e), dist / 30, a)
-        set y = PolarY(GetEffectY(e), dist / 30, a)
-        set z1 = GetEffectZ(e) + GetAxisZ(x + 0.01, y) - GetAxisZ(x, y)
-        call SetEffectXY(e, x, y, 0)
-        call SetSpecialEffectZ(e, z1 + 15)
-        set e = LoadEffectHandle(ht, GetHandleId(z), 11)
-        set x = PolarX(GetEffectX(e), dist / 30, a)
-        set y = PolarY(GetEffectY(e), dist / 30, a)
-        set z1 = GetEffectZ(e) + GetAxisZ(x + 0.01, y) - GetAxisZ(x, y)
-        call SetEffectXY(e, x, y, 0)
-        call SetSpecialEffectZ(e, z1 + 15)
-    endif
-    if count == 190 then
-        set e = LoadEffectHandle(ht, GetHandleId(z), 10)
-        call SetSpecialEffectAnimation(e, "death")
-        set e = LoadEffectHandle(ht, GetHandleId(z), 11)
-        call SetSpecialEffectAnimation(e, "death")
-        call Effect("war3mapImported\\VegetaEff3.mdl", GetUnitX(t), GetUnitY(t), 400, randomAngle(), 0, 0, 3, 1.5, 255, 255, 255, 255)
-        call Effect("war3mapImported\\Abyssal_Impact_Base.mdl", GetUnitX(t), GetUnitY(t), 400, randomAngle(), 0, 0, 2, 1, 255, 255, 255, 255)
-        call Effect("war3mapImported\\Asuma-Explosion.mdl", GetUnitX(t), GetUnitY(t), 400, randomAngle(), 0, 0, 2, 1, 255, 255, 255, 255)
-    endif
-    if count == 200 then
-        call SetUnitFlyHeight(t, 0, 0)
-        call SetUnitTimeScale(u, 1)
-        call PauseUnit(u, false)
-        call PauseUnit(t, false)
-        call SetUnitInvulnerable(u, false)
-        call SetUnitInvulnerable(t, false)
-        call DamageUnit(u, t, (8 + 0.4 * GetUnitAbilityLevel(u, 'A04I')) * GetHeroStr(u, true))
-        call VisionArea(GetOwningPlayer(u), 1200, 3, GetUnitX(u), GetUnitY(u))
-        call IssueTargetOrderById(u, 851983, t)
-        call IssueImmediateOrderById(t, 851972)
-        call FlushChildHashtable(ht, GetHandleId(z))
-        call PauseTimer(z)
-        call DestroyTimer(z)
-    endif
 
-    set z = null
-    set u = null
-    set t = null
-    set e = null
-endfunction
+        set z = null
+        set u = null
+        set e = null
+    endfunction
 
-private function action takes nothing returns nothing
-    local timer z
-    local unit u = GetTriggerUnit()
-    local unit t = GetSpellTargetUnit()
-    local real x = GetSpellTargetX()
-    local real y = GetSpellTargetY()
-    local real a = Angle(GetUnitX(u), GetUnitY(u), x, y)
-    local real dist = Distance(GetUnitX(u), GetUnitY(u), x, y)
-    local integer abilId = GetSpellAbilityId()
+    private function period6_1 takes unit u, real x, real y returns nothing
+        local timer z = CreateTimer()
+        local integer zid = GetHandleId(z)
+        local real a = Angle(GetUnitX(u), GetUnitY(u), x, y)
+        local real dist = Distance(GetUnitX(u), GetUnitY(u), x, y)
 
-    if abilId == 'A04F' then
-        set z = CreateTimer()
-        call PauseUnit(u, true)
-        call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-        call SaveInteger(ht, GetHandleId(z), 0, 0)
-        call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call SaveReal(ht, GetHandleId(z), 0, a)
-        call SaveGroupHandle(ht, GetHandleId(z), 1, CreateGroup())
-        call TimerStart(z, 0.02, true, function period1)
-    endif
+        call SaveUnitHandle(ht, zid, 0, u)
+        call SaveInteger(ht, zid, 0, 0)
+        call SaveInteger(ht, zid, 1, 0)
+        call SaveReal(ht, zid, 0, x)
+        call SaveReal(ht, zid, 1, y)
+        call SaveReal(ht, zid, 2, GetRandomReal(- 40, 40))
+        call SaveReal(ht, zid, 3, dist)
+        call SaveReal(ht, zid, 4, 50)
+        call Effect("war3mapimported\\by_wood_effect_qigongbo_lan.mdx", GetUnitX(u), GetUnitY(u), 50, a, - 45, 0, 2, 2, 233, 221, 44, 255)
+        call SaveEffectHandle(ht, zid, 100, bj_lastCreatedEffect)
+        call TimerStart(z, 0.02, true, function period6_2)
 
-    if abilId == 'A04H' then
-        set z = CreateTimer()
+        set z = null
+    endfunction
+
+    private function period6 takes nothing returns nothing
+        local timer z = GetExpiredTimer()
+        local unit u = LoadUnitHandle(ht, GetHandleId(z), 0)
+        local unit t = LoadUnitHandle(ht, GetHandleId(z), 1)
+        local real a = Angle(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
+        local real dist = Distance(GetUnitX(u), GetUnitY(u), GetUnitX(t), GetUnitY(t))
+        local real x
+        local real y
+        local real randomA
+        local integer count = LoadInteger(ht, GetHandleId(z), 0) + 1
+        local integer iterator = LoadInteger(ht, GetHandleId(z), 1)
+        local effect e
+        local real z1
+
+        call SaveInteger(ht, GetHandleId(z), 0, count)
         call PauseUnit(t, true)
         call SetUnitInvulnerable(t, true)
         call PauseUnit(u, true)
         call SetUnitInvulnerable(u, true)
-        call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-        call SaveUnitHandle(ht, GetHandleId(z), 1, t)
-        call SaveInteger(ht, GetHandleId(z), 0, 0)
-        call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call TimerStart(z, 0.02, true, function period2)
-    endif
+        if count == 1 then
+            call SoundStart("war3mapImported\\Vegeta_4-3.mp3")
+            set x = PolarX(GetUnitX(t), - 120, a)
+            set y = PolarY(GetUnitY(t), - 120, a)
+            call SetUnitXY(u, x, y, 0)
+            call SetUnitAnimationByIndex(u, 6)
+            call UnitAddAbility(t, 'Amrf')
+            call UnitRemoveAbility(t, 'Amrf')
+            call Effect("war3mapImported\\earthdetonation.mdl", GetUnitX(u), GetUnitY(u), 50, a, - 45, 0, 1, 1, 255, 255, 255, 255)
+            call Effect("war3mapImported\\freezingring.mdl", GetUnitX(t), GetUnitY(t), 50, a, - 45, 0, 1, 1, 255, 255, 255, 255)
+            call Effect("Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl", GetUnitX(t), GetUnitY(t), 50, a, - 45, 0, 1, 1, 255, 255, 255, 255)
+        endif
+        if count <= 20 then
+            set x = PolarX(GetUnitX(t), 20, a)
+            set y = PolarY(GetUnitY(t), 20, a)
+            call SetUnitXY(t, x, y, 2)
+            call SetUnitFlyHeight(t, GetUnitFlyHeight(t) + 20, 0)
+        endif
+        if count == 20 then
+            call SoundStart("war3mapImported\\Vegeta_7.mp3")
+            call SetUnitTimeScale(u, 2)
+        endif
+        if count == 25 then
+            call ShakeCamera(2, GetOwningPlayer(u), 5)
+            call ShakeCamera(2, GetOwningPlayer(t), 5)
+        endif
+        if count >= 20 and count <= 120 then
+            set iterator = iterator + 1
+            call SaveInteger(ht, GetHandleId(z), 1, iterator)
+            if iterator >= 4 then
+                call SaveInteger(ht, GetHandleId(z), 1, 0)
+                call SetUnitAnimation(u, "attack")
+                set randomA = randomAngle()
+                set x = PolarX(GetUnitX(t), GetRandomReal(- 400, 400), randomA)
+                set y = PolarY(GetUnitY(t), GetRandomReal(- 400, 400), randomA)
+                call period6_1(u, x, y)
+            endif
+        endif
+        if count == 130 then
+            call Effect("war3mapImported\\VegetaEff1.mdl", GetUnitX(u), GetUnitY(u), 50, randomAngle(), 0, 0, 1, 2.5, 255, 255, 255, 255)
+            call SetSpecialEffectTimeScale(bj_lastCreatedEffect, 0.7)
+            call SetUnitAnimationByIndex(u, 21)
+            call SetUnitTimeScale(u, 1)
+        endif
+        if count == 160 then
+            call Effect("war3mapImported\\utsuhoredsun.mdl", GetUnitX(u), GetUnitY(u), 100, a, 0, 0, 3, 1.5, 255, 255, 255, 255)
+            call SaveEffectHandle(ht, GetHandleId(z), 10, bj_lastCreatedEffect)
+            call Effect("Abilities\\Spells\\Orc\\Purge\\PurgeBuffTarget.mdl", GetUnitX(u), GetUnitY(u), 100, a, 0, 0, 2, 1.5, 255, 255, 255, 255)
+            call SaveEffectHandle(ht, GetHandleId(z), 11, bj_lastCreatedEffect)
+            call SetSpecialEffectAnimationByIndex(bj_lastCreatedEffect, 0)
+        endif
+        if count >= 160 and count <= 190 then
+            set e = LoadEffectHandle(ht, GetHandleId(z), 10)
+            set x = PolarX(GetEffectX(e), dist / 30, a)
+            set y = PolarY(GetEffectY(e), dist / 30, a)
+            set z1 = GetEffectZ(e) + GetAxisZ(x + 0.01, y) - GetAxisZ(x, y)
+            call SetEffectXY(e, x, y, 0)
+            call SetSpecialEffectZ(e, z1 + 15)
+            set e = LoadEffectHandle(ht, GetHandleId(z), 11)
+            set x = PolarX(GetEffectX(e), dist / 30, a)
+            set y = PolarY(GetEffectY(e), dist / 30, a)
+            set z1 = GetEffectZ(e) + GetAxisZ(x + 0.01, y) - GetAxisZ(x, y)
+            call SetEffectXY(e, x, y, 0)
+            call SetSpecialEffectZ(e, z1 + 15)
+        endif
+        if count == 190 then
+            set e = LoadEffectHandle(ht, GetHandleId(z), 10)
+            call SetSpecialEffectAnimation(e, "death")
+            set e = LoadEffectHandle(ht, GetHandleId(z), 11)
+            call SetSpecialEffectAnimation(e, "death")
+            call Effect("war3mapImported\\VegetaEff3.mdl", GetUnitX(t), GetUnitY(t), 400, randomAngle(), 0, 0, 3, 1.5, 255, 255, 255, 255)
+            call Effect("war3mapImported\\Abyssal_Impact_Base.mdl", GetUnitX(t), GetUnitY(t), 400, randomAngle(), 0, 0, 2, 1, 255, 255, 255, 255)
+            call Effect("war3mapImported\\Asuma-Explosion.mdl", GetUnitX(t), GetUnitY(t), 400, randomAngle(), 0, 0, 2, 1, 255, 255, 255, 255)
+        endif
+        if count == 200 then
+            call SetUnitFlyHeight(t, 0, 0)
+            call SetUnitTimeScale(u, 1)
+            call PauseUnit(u, false)
+            call PauseUnit(t, false)
+            call SetUnitInvulnerable(u, false)
+            call SetUnitInvulnerable(t, false)
+            call DamageUnit(u, t, (8 + 0.4 * GetUnitAbilityLevel(u, 'A04I')) * GetHeroStr(u, true))
+            call VisionArea(GetOwningPlayer(u), 1200, 3, GetUnitX(t), GetUnitY(t))
+            call IssueTargetOrderById(u, 851983, t)
+            call IssueImmediateOrderById(t, 851972)
+            call FlushChildHashtable(ht, GetHandleId(z))
+            call PauseTimer(z)
+            call DestroyTimer(z)
+        endif
 
-    if abilId == 'A01Z' then
-        set z = CreateTimer()
-        call PauseUnit(t, true)
-        call SetUnitInvulnerable(t, true)
-        call PauseUnit(u, true)
-        call SetUnitInvulnerable(u, true)
-        call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-        call SaveUnitHandle(ht, GetHandleId(z), 1, t)
-        call SaveInteger(ht, GetHandleId(z), 0, 0)
-        call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call TimerStart(z, 0.02, true, function period3)
-    endif
+        set z = null
+        set u = null
+        set t = null
+        set e = null
+    endfunction
 
-    if abilId == 'A04L' then
-        set z = CreateTimer()
-        call PauseUnit(u, true)
-        call SetUnitInvulnerable(u, true)
-        call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-        call SaveInteger(ht, GetHandleId(z), 0, 0)
-        call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call SaveReal(ht, GetHandleId(z), 0, a)
-        call SaveGroupHandle(ht, GetHandleId(z), 1, CreateGroup())
-        call TimerStart(z, 0.02, true, function period4)
-    endif
+    private function action takes nothing returns nothing
+        local timer z
+        local unit u = GetTriggerUnit()
+        local unit t = GetSpellTargetUnit()
+        local real x = GetSpellTargetX()
+        local real y = GetSpellTargetY()
+        local real a = Angle(GetUnitX(u), GetUnitY(u), x, y)
+        local real dist = Distance(GetUnitX(u), GetUnitY(u), x, y)
+        local integer abilId = GetSpellAbilityId()
 
-    if abilId == 'A029' then
-        set z = CreateTimer()
-        call PauseUnit(t, true)
-        call SetUnitInvulnerable(t, true)
-        call PauseUnit(u, true)
-        call SetUnitInvulnerable(u, true)
-        call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-        call SaveUnitHandle(ht, GetHandleId(z), 1, t)
-        call SaveInteger(ht, GetHandleId(z), 0, 0)
-        call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call TimerStart(z, 0.02, true, function period5)
-    endif
+        if abilId == 'A04F' then
+            set z = CreateTimer()
+            call PauseUnit(u, true)
+            call SaveUnitHandle(ht, GetHandleId(z), 0, u)
+            call SaveInteger(ht, GetHandleId(z), 0, 0)
+            call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call SaveReal(ht, GetHandleId(z), 0, a)
+            call SaveGroupHandle(ht, GetHandleId(z), 1, CreateGroup())
+            call TimerStart(z, 0.02, true, function period1)
+        endif
 
-    if abilId == 'A04N' then
-        set z = CreateTimer()
-        call PauseUnit(t, true)
-        call SetUnitInvulnerable(t, true)
-        call PauseUnit(u, true)
-        call SetUnitInvulnerable(u, true)
-        call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-        call SaveUnitHandle(ht, GetHandleId(z), 1, t)
-        call SaveInteger(ht, GetHandleId(z), 0, 0)
-        call SaveInteger(ht, GetHandleId(z), 1, 0)
-        call TimerStart(z, 0.02, true, function period6)
-    endif
+        if abilId == 'A04H' then
+            set z = CreateTimer()
+            call PauseUnit(t, true)
+            call SetUnitInvulnerable(t, true)
+            call PauseUnit(u, true)
+            call SetUnitInvulnerable(u, true)
+            call SaveUnitHandle(ht, GetHandleId(z), 0, u)
+            call SaveUnitHandle(ht, GetHandleId(z), 1, t)
+            call SaveInteger(ht, GetHandleId(z), 0, 0)
+            call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call TimerStart(z, 0.02, true, function period2)
+        endif
 
-    set z = null
-    set u = null
-    set t = null
-endfunction
+        if abilId == 'A01Z' then
+            set z = CreateTimer()
+            call PauseUnit(t, true)
+            call SetUnitInvulnerable(t, true)
+            call PauseUnit(u, true)
+            call SetUnitInvulnerable(u, true)
+            call SaveUnitHandle(ht, GetHandleId(z), 0, u)
+            call SaveUnitHandle(ht, GetHandleId(z), 1, t)
+            call SaveInteger(ht, GetHandleId(z), 0, 0)
+            call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call TimerStart(z, 0.02, true, function period3)
+        endif
 
-private function init takes nothing returns nothing
-    call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT, function action)
-endfunction
+        if abilId == 'A04L' then
+            set z = CreateTimer()
+            call PauseUnit(u, true)
+            call SetUnitInvulnerable(u, true)
+            call SaveUnitHandle(ht, GetHandleId(z), 0, u)
+            call SaveInteger(ht, GetHandleId(z), 0, 0)
+            call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call SaveReal(ht, GetHandleId(z), 0, a)
+            call SaveGroupHandle(ht, GetHandleId(z), 1, CreateGroup())
+            call TimerStart(z, 0.02, true, function period4)
+        endif
+
+        if abilId == 'A029' then
+            set z = CreateTimer()
+            call PauseUnit(t, true)
+            call SetUnitInvulnerable(t, true)
+            call PauseUnit(u, true)
+            call SetUnitInvulnerable(u, true)
+            call SaveUnitHandle(ht, GetHandleId(z), 0, u)
+            call SaveUnitHandle(ht, GetHandleId(z), 1, t)
+            call SaveInteger(ht, GetHandleId(z), 0, 0)
+            call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call TimerStart(z, 0.02, true, function period5)
+        endif
+
+        if abilId == 'A04N' then
+            set z = CreateTimer()
+            call PauseUnit(t, true)
+            call SetUnitInvulnerable(t, true)
+            call PauseUnit(u, true)
+            call SetUnitInvulnerable(u, true)
+            call SaveUnitHandle(ht, GetHandleId(z), 0, u)
+            call SaveUnitHandle(ht, GetHandleId(z), 1, t)
+            call SaveInteger(ht, GetHandleId(z), 0, 0)
+            call SaveInteger(ht, GetHandleId(z), 1, 0)
+            call TimerStart(z, 0.02, true, function period6)
+        endif
+
+        set z = null
+        set u = null
+        set t = null
+    endfunction
+
+    private function init takes nothing returns nothing
+        call RegisterPlayerUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT, function action)
+    endfunction
 endscope

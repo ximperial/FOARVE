@@ -13,7 +13,7 @@ scope farsight initializer init
         if distance < 4000 then
             call SetEffectXY(e, x, y, 1)
             call SetSpecialEffectZ(e, 100 + GetAxisZ(x, y))
-            call VisionArea(GetOwningPlayer(u), 800, 5, x, y)
+            call VisionArea(GetOwningPlayer(u), 800, 6, x, y)
         else
             call FlushChildHashtable(ht, GetHandleId(z))
             call PauseTimer(z)

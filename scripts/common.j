@@ -111,31 +111,31 @@ type textaligntype										extends handle
 type frameeventtype										extends handle
 type oskeytype											extends handle
 type mousebuttontype									extends handle
-type abilityintegerfield								extends handle
-type abilityrealfield									extends handle
-type abilitybooleanfield								extends handle
-type abilitystringfield									extends handle
-type abilityintegerlevelfield							extends handle
-type abilityreallevelfield								extends handle
-type abilitybooleanlevelfield							extends handle
-type abilitystringlevelfield							extends handle
-type abilityintegerlevelarrayfield						extends handle
-type abilityreallevelarrayfield							extends handle
-type abilitybooleanlevelarrayfield						extends handle
-type abilitystringlevelarrayfield						extends handle
-type buffstringfield									extends handle
-type unitintegerfield									extends handle
-type unitrealfield										extends handle
-type unitbooleanfield									extends handle
-type unitstringfield									extends handle
-type unitweaponintegerfield								extends handle
-type unitweaponrealfield								extends handle
-type unitweaponbooleanfield								extends handle
-type unitweaponstringfield								extends handle
-type itemintegerfield									extends handle
-type itemrealfield										extends handle
-type itembooleanfield									extends handle
-type itemstringfield									extends handle
+type agentdatafield										extends handle
+type abilityintegerfield								extends agentdatafield
+type abilityrealfield									extends agentdatafield
+type abilitybooleanfield								extends agentdatafield
+type abilitystringfield									extends agentdatafield
+type abilityintegerlevelfield							extends abilityintegerfield
+type abilityreallevelfield								extends abilityrealfield
+type abilitybooleanlevelfield							extends abilitybooleanfield
+type abilitystringlevelfield							extends abilitystringfield
+type abilityintegerlevelarrayfield						extends abilityintegerlevelfield
+type abilityreallevelarrayfield							extends abilityreallevelfield
+type abilitybooleanlevelarrayfield						extends abilitybooleanlevelfield
+type abilitystringlevelarrayfield						extends abilitystringlevelfield
+type unitintegerfield									extends agentdatafield
+type unitrealfield										extends agentdatafield
+type unitbooleanfield									extends agentdatafield
+type unitstringfield									extends agentdatafield
+type unitweaponintegerfield								extends agentdatafield
+type unitweaponrealfield								extends agentdatafield
+type unitweaponbooleanfield								extends agentdatafield
+type unitweaponstringfield								extends agentdatafield
+type itemintegerfield									extends agentdatafield
+type itemrealfield										extends agentdatafield
+type itembooleanfield									extends agentdatafield
+type itemstringfield									extends agentdatafield
 type movetype											extends handle
 type pathingaitype										extends handle
 type collisiontype										extends handle
@@ -222,7 +222,6 @@ constant native ConvertAbilityIntegerLevelArrayField	takes integer i returns abi
 constant native ConvertAbilityRealLevelArrayField		takes integer i returns abilityreallevelarrayfield
 constant native ConvertAbilityBooleanLevelArrayField	takes integer i returns abilitybooleanlevelarrayfield
 constant native ConvertAbilityStringLevelArrayField		takes integer i returns abilitystringlevelarrayfield
-constant native ConvertBuffStringField					takes integer i returns buffstringfield
 constant native ConvertUnitIntegerField					takes integer i returns unitintegerfield
 constant native ConvertUnitRealField					takes integer i returns unitrealfield
 constant native ConvertUnitBooleanField					takes integer i returns unitbooleanfield
@@ -1140,6 +1139,13 @@ globals
 	constant originframetype			ORIGIN_FRAME_CURSOR_FRAME									= ConvertOriginFrameType(44)
 	constant originframetype			ORIGIN_FRAME_INVENTORY_COVER_FRAME							= ConvertOriginFrameType(45)
 	constant originframetype			ORIGIN_FRAME_UNIT_TIP										= ConvertOriginFrameType(46)
+	constant originframetype			ORIGIN_FRAME_ITEM_BUTTON_COOLDOWN_INDICATOR					= ConvertOriginFrameType(47)
+	constant originframetype			ORIGIN_FRAME_ITEM_BUTTON_AUTOCAST_FRAME						= ConvertOriginFrameType(48)
+	constant originframetype			ORIGIN_FRAME_ITEM_BUTTON_CHARGES_FRAME						= ConvertOriginFrameType(49)
+	constant originframetype			ORIGIN_FRAME_ITEM_BUTTON_CHARGES_TEXT						= ConvertOriginFrameType(50)
+	constant originframetype			ORIGIN_FRAME_TRAINABLE_BUTTON								= ConvertOriginFrameType(51)
+	constant originframetype			ORIGIN_FRAME_CARGO_BUTTON									= ConvertOriginFrameType(52)
+	constant originframetype			ORIGIN_FRAME_GROUP_BUTTON									= ConvertOriginFrameType(53)
 
 	constant framepointtype				FRAMEPOINT_TOPLEFT											= ConvertFramePointType(0)
 	constant framepointtype				FRAMEPOINT_TOP												= ConvertFramePointType(1)
@@ -2159,9 +2165,9 @@ globals
 	constant abilitystringlevelfield	ABILITY_SLF_SPAWN_UNIT_ID_NSY2								= ConvertAbilityStringLevelField('Nsy2')
 
 	// Buff
-	constant buffstringfield			BUFF_SF_ICON_NORMAL											= ConvertBuffStringField('fart')
-	constant buffstringfield			BUFF_SF_TOOLTIP_NORMAL										= ConvertBuffStringField('ftip')
-	constant buffstringfield			BUFF_SF_TOOLTIP_NORMAL_EXTENDED								= ConvertBuffStringField('fube')
+	constant abilitystringfield			BUFF_SF_ICON_NORMAL											= ConvertAbilityStringField('fart')
+	constant abilitystringfield			BUFF_SF_TOOLTIP_NORMAL										= ConvertAbilityStringField('ftip')
+	constant abilitystringfield			BUFF_SF_TOOLTIP_NORMAL_EXTENDED								= ConvertAbilityStringField('fube')
 
 	// Item
 	constant itemintegerfield			ITEM_IF_TINTING_COLOR										= ConvertItemIntegerField('iclt')
@@ -2209,21 +2215,21 @@ globals
 	constant unitintegerfield			UNIT_IF_ARMOR_TYPE											= ConvertUnitIntegerField('uarm')
 	constant unitintegerfield			UNIT_IF_LOOPING_FADE_IN_RATE								= ConvertUnitIntegerField('ulfi')
 	constant unitintegerfield			UNIT_IF_LOOPING_FADE_OUT_RATE								= ConvertUnitIntegerField('ulfo')
-	constant unitintegerfield			UNIT_IF_AGILITY_BASE										= ConvertUnitIntegerField('ustr')
-	constant unitintegerfield			UNIT_IF_INTELLIGENCE_BASE									= ConvertUnitIntegerField('uagi')
-	constant unitintegerfield			UNIT_IF_STRENGTH_BASE										= ConvertUnitIntegerField('uint')
+	constant unitintegerfield			UNIT_IF_STRENGTH_BASE										= ConvertUnitIntegerField('ustr')
+	constant unitintegerfield			UNIT_IF_AGILITY_BASE										= ConvertUnitIntegerField('uagi')
+	constant unitintegerfield			UNIT_IF_INTELLIGENCE_BASE									= ConvertUnitIntegerField('uint')
+	constant unitintegerfield			UNIT_IF_STRENGTH											= ConvertUnitIntegerField('ustc')
 	constant unitintegerfield			UNIT_IF_AGILITY												= ConvertUnitIntegerField('uagc')
 	constant unitintegerfield			UNIT_IF_INTELLIGENCE										= ConvertUnitIntegerField('uinc')
-	constant unitintegerfield			UNIT_IF_STRENGTH											= ConvertUnitIntegerField('ustc')
+	constant unitintegerfield			UNIT_IF_STRENGTH_PERMANENT									= ConvertUnitIntegerField('ustm')
 	constant unitintegerfield			UNIT_IF_AGILITY_PERMANENT									= ConvertUnitIntegerField('uagm')
 	constant unitintegerfield			UNIT_IF_INTELLIGENCE_PERMANENT								= ConvertUnitIntegerField('uinm')
-	constant unitintegerfield			UNIT_IF_STRENGTH_PERMANENT									= ConvertUnitIntegerField('ustm')
+	constant unitintegerfield			UNIT_IF_STRENGTH_WITH_BONUS									= ConvertUnitIntegerField('ustb')
 	constant unitintegerfield			UNIT_IF_AGILITY_WITH_BONUS									= ConvertUnitIntegerField('uagb')
 	constant unitintegerfield			UNIT_IF_INTELLIGENCE_WITH_BONUS								= ConvertUnitIntegerField('uinb')
-	constant unitintegerfield			UNIT_IF_STRENGTH_WITH_BONUS									= ConvertUnitIntegerField('ustb')
+	constant unitintegerfield			UNIT_IF_STRENGTH_BONUS										= ConvertUnitIntegerField('ust+') // Get Only
 	constant unitintegerfield			UNIT_IF_AGILITY_BONUS										= ConvertUnitIntegerField('uag+') // Get Only
 	constant unitintegerfield			UNIT_IF_INTELLIGENCE_BONUS									= ConvertUnitIntegerField('uin+') // Get Only
-	constant unitintegerfield			UNIT_IF_STRENGTH_BONUS										= ConvertUnitIntegerField('ust+') // Get Only
 	constant unitintegerfield			UNIT_IF_FOOD_USED											= ConvertUnitIntegerField('ufoo')
 	constant unitintegerfield			UNIT_IF_FOOD_PRODUCED										= ConvertUnitIntegerField('ufma')
 	constant unitintegerfield			UNIT_IF_GOLD_COST											= ConvertUnitIntegerField('ugol')
@@ -2290,10 +2296,12 @@ globals
 	constant unitrealfield				UNIT_RF_CAST_POINT											= ConvertUnitRealField('ucpt')
 	constant unitrealfield				UNIT_RF_MINIMUM_ATTACK_RANGE								= ConvertUnitRealField('uamn')
 	constant unitrealfield				UNIT_RF_COLLISION_SIZE										= ConvertUnitRealField('ucol')
-	constant unitrealfield				UNIT_RF_HEALTH_FROM_BONUS_STRENGTH							= ConvertUnitRealField('uhs+') // Get Only
-	constant unitrealfield				UNIT_RF_MANA_FROM_BONUS_INTELLIGENCE						= ConvertUnitRealField('umi+') // Get Only
-	constant unitrealfield				UNIT_RF_DEFENSE_BONUS										= ConvertUnitRealField('udf+') // Get Only
-	constant unitrealfield				UNIT_RF_SPEED_BONUS											= ConvertUnitRealField('umv+') // Get Only
+	// Get Only Fields
+	constant unitrealfield				UNIT_RF_HEALTH_FROM_BONUS_STRENGTH							= ConvertUnitRealField('uhs+')
+	constant unitrealfield				UNIT_RF_MANA_FROM_BONUS_INTELLIGENCE						= ConvertUnitRealField('umi+')
+	constant unitrealfield				UNIT_RF_DEFENSE_BONUS										= ConvertUnitRealField('udf+')
+	constant unitrealfield				UNIT_RF_DEFENSE_BASE										= ConvertUnitRealField('udfb')
+	constant unitrealfield				UNIT_RF_SPEED_BONUS											= ConvertUnitRealField('umv+')
 
 	constant unitbooleanfield			UNIT_BF_RAISABLE											= ConvertUnitBooleanField('urai')
 	constant unitbooleanfield			UNIT_BF_DECAYABLE											= ConvertUnitBooleanField('udec')
@@ -2336,7 +2344,11 @@ globals
 	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_WEAPON_SOUND							= ConvertUnitWeaponIntegerField('ucs1')
 	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_AREA_OF_EFFECT_TARGETS				= ConvertUnitWeaponIntegerField('ua1p')
 	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_TARGETS_ALLOWED						= ConvertUnitWeaponIntegerField('ua1g')
-	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_DAMAGE_BONUS							= ConvertUnitWeaponIntegerField('ud1+') // Get Only | this is the + (Green) or - (Red) value next to attack.
+	// Get Only Fields
+	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE_MINIMUM					= ConvertUnitWeaponIntegerField('udm1')
+	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE_MAXIMUM					= ConvertUnitWeaponIntegerField('udh1')
+	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_DAMAGE_BONUS							= ConvertUnitWeaponIntegerField('ud1+') // This is the + (Green) or - (Red) value next to attack.
+	constant unitweaponintegerfield		UNIT_WEAPON_IF_ATTACK_DAMAGE_BONUS_FROM_STATS				= ConvertUnitWeaponIntegerField('udbs') // Only gets how much attack is gained from str or agi or intelligence.
 
 	constant unitweaponrealfield		UNIT_WEAPON_RF_ATTACK_BACKSWING_POINT						= ConvertUnitWeaponRealField('ubs1')
 	constant unitweaponrealfield		UNIT_WEAPON_RF_ATTACK_DAMAGE_POINT							= ConvertUnitWeaponRealField('udp1')
@@ -4280,6 +4292,7 @@ native HandleToSubAnimType								takes handle h returns subanimtype
 //
 native GetHandleCount									takes nothing returns integer
 native GetNextHandleIndex								takes nothing returns integer
+native GetStringCount									takes nothing returns integer
 //
 
 //============================================================================
@@ -4348,7 +4361,7 @@ native MathIntegerClamp									takes integer value, integer min, integer max re
 
 // Angle / Axis / Point API | All natives operate in Degrees!
 
-// These natives act identical to basic Sinc/Cos/Tan/etc. but they take degrees instead of radians, so you won't need to do Ded2Rad or Rad2Deg in multiple functions.
+// These natives act identical to basic Sin/Cos/Tan/etc. but they take degrees instead of radians, so you won't need to do Deg2Rad or Rad2Deg in multiple functions.
 native MathSinDeg										takes real r returns real
 native MathCosDeg										takes real r returns real
 native MathTanDeg										takes real r returns real
@@ -4380,7 +4393,7 @@ native StringInsert										takes string s, string whichString, integer whichPo
 //
 
 // Debug API
-native ConsoleEnable									takes boolean flag returns nothing
+native ConsoleEnable									takes boolean enable returns nothing
 native ConsolePrint										takes string s returns nothing
 native ConsolePause										takes string s returns nothing
 //
@@ -4388,6 +4401,8 @@ native ConsolePause										takes string s returns nothing
 // Text File API
 native TextFileOpen										takes string filePath returns textfilehandle
 native TextFileExists									takes string filePath returns boolean
+native TextFileGetSizeByPath							takes string filePath returns integer
+native TextFileGetSize									takes textfilehandle whichTextFile returns integer
 native TextFileGetPath									takes textfilehandle whichTextFile returns string
 native TextFileClose									takes textfilehandle whichTextFile returns nothing
 native TextFileClear									takes textfilehandle whichTextFile returns nothing
@@ -4400,6 +4415,7 @@ native TextFileWriteLine								takes textfilehandle whichTextFile, string text 
 
 // Misc API
 native GetUjAPIVersion									takes nothing returns string
+native GetLocale										takes nothing returns string
 
 native GetMiscDataString								takes string sectionName, string optionName, integer index returns string
 native SetMiscDataString								takes string sectionName, string optionName, integer index, string value returns nothing
@@ -4441,10 +4457,12 @@ native GetTimeStamp										takes boolean isLocalTime, integer isMiliseconds re
 native GetTickCount										takes nothing returns integer
 //
 
-// Screen/Window API
+// Screen API
 native SetScreenFieldOfView								takes real fov returns nothing
 native SetWidescreenState								takes boolean flag returns nothing
+//
 
+// Window API
 native IsWindowActive									takes nothing returns boolean
 native GetWindowWidth									takes nothing returns integer
 native GetWindowHeight									takes nothing returns integer
@@ -4506,7 +4524,10 @@ native EnumHandlesOfType								takes integer handleBaseTypeId, boolexpr filter,
 //
 
 // AntiHack API
-native EnableAntiHack									takes boolean enable returns nothing
+native AntiHackEnable									takes boolean enable returns nothing // by default only checks addresses.
+native AntiHackEnableEx									takes boolean enable, boolean isModuleCheck, boolean isProcessCheck returns nothing
+native AntiHackEnableModuleCheck						takes boolean enable returns nothing
+native AntiHackEnableProcessCheck						takes boolean enable returns nothing
 //
 
 //============================================================================
@@ -4585,6 +4606,7 @@ native HandleListGetWidgetCount							takes handlelist whichHandleList returns i
 native HandleListGetUnitCount							takes handlelist whichHandleList returns integer
 native HandleListGetItemCount							takes handlelist whichHandleList returns integer
 native HandleListGetDestructableCount					takes handlelist whichHandleList returns integer
+native HandleListGetDoodadCount							takes handlelist whichHandleList returns integer
 native HandleListGetAbilityCount						takes handlelist whichHandleList returns integer
 native HandleListGetBuffCount							takes handlelist whichHandleList returns integer
 native HandleListGetEffectCount							takes handlelist whichHandleList returns integer
@@ -4600,6 +4622,7 @@ native HandleListGetWidgetByIndex						takes handlelist whichHandleList, integer
 native HandleListGetUnitByIndex							takes handlelist whichHandleList, integer index returns unit
 native HandleListGetItemByIndex							takes handlelist whichHandleList, integer index returns item
 native HandleListGetDestructableByIndex					takes handlelist whichHandleList, integer index returns destructable
+native HandleListGetDoodadByIndex						takes handlelist whichHandleList, integer index returns doodad
 native HandleListGetAbilityByIndex						takes handlelist whichHandleList, integer index returns ability
 native HandleListGetBuffByIndex							takes handlelist whichHandleList, integer index returns buff
 native HandleListGetEffectByIndex						takes handlelist whichHandleList, integer index returns effect
@@ -4612,6 +4635,7 @@ native HandleListGetFilterWidget						takes nothing returns widget
 native HandleListGetFilterUnit							takes nothing returns unit
 native HandleListGetFilterItem							takes nothing returns item
 native HandleListGetFilterDestructable					takes nothing returns destructable
+native HandleListGetFilterDoodad						takes nothing returns doodad
 native HandleListGetFilterAbility						takes nothing returns ability
 native HandleListGetFilterBuff							takes nothing returns buff
 native HandleListGetFilterEffect						takes nothing returns effect
@@ -4624,6 +4648,7 @@ native HandleListGetEnumWidget							takes nothing returns widget
 native HandleListGetEnumUnit							takes nothing returns unit
 native HandleListGetEnumItem							takes nothing returns item
 native HandleListGetEnumDestructable					takes nothing returns destructable
+native HandleListGetEnumDoodad							takes nothing returns doodad
 native HandleListGetEnumAbility							takes nothing returns ability
 native HandleListGetEnumBuff							takes nothing returns buff
 native HandleListGetEnumEffect							takes nothing returns effect
@@ -4638,6 +4663,7 @@ native HandleListEnumWidgetsInRange						takes handlelist whichHandleList, real 
 native HandleListEnumUnitsInRange						takes handlelist whichHandleList, real x, real y, real radius, boolexpr filter returns nothing
 native HandleListEnumItemsInRange						takes handlelist whichHandleList, real x, real y, real radius, boolexpr filter returns nothing
 native HandleListEnumDestructablesInRange				takes handlelist whichHandleList, real x, real y, real radius, boolexpr filter returns nothing
+native HandleListEnumDoodadsInRange						takes handlelist whichHandleList, real x, real y, real radius, boolexpr filter returns nothing
 native HandleListEnumEffectsInRange						takes handlelist whichHandleList, real x, real y, real radius, boolexpr filter returns nothing
 native HandleListEnumProjectilesInRange					takes handlelist whichHandleList, real x, real y, real radius, boolexpr filter returns nothing
 
@@ -4649,6 +4675,7 @@ native HandleListEnumWidgetsInRangeOfLoc				takes handlelist whichHandleList, lo
 native HandleListEnumUnitsInRangeOfLoc					takes handlelist whichHandleList, location whichLocation, real radius, boolexpr filter returns nothing
 native HandleListEnumItemsInRangeOfLoc					takes handlelist whichHandleList, location whichLocation, real radius, boolexpr filter returns nothing
 native HandleListEnumDestructablesInRangeOfLoc			takes handlelist whichHandleList, location whichLocation, real radius, boolexpr filter returns nothing
+native HandleListEnumDoodadsInRangeOfLoc				takes handlelist whichHandleList, location whichLocation, real radius, boolexpr filter returns nothing
 native HandleListEnumEffectsInRangeOfLoc				takes handlelist whichHandleList, location whichLocation, real radius, boolexpr filter returns nothing
 native HandleListEnumProjectilesInRangeOfLoc			takes handlelist whichHandleList, location whichLocation, real radius, boolexpr filter returns nothing
 
@@ -4660,11 +4687,15 @@ native HandleListEnumWidgetsInRect						takes handlelist whichHandleList, rect w
 native HandleListEnumUnitsInRect						takes handlelist whichHandleList, rect whichRect, boolexpr filter returns nothing
 native HandleListEnumItemsInRect						takes handlelist whichHandleList, rect whichRect, boolexpr filter returns nothing
 native HandleListEnumDestructablesInRect				takes handlelist whichHandleList, rect whichRect, boolexpr filter returns nothing
+native HandleListEnumDoodadsInRect						takes handlelist whichHandleList, rect whichRect, boolexpr filter returns nothing
 native HandleListEnumEffectsInRect						takes handlelist whichHandleList, rect whichRect, boolexpr filter returns nothing
 native HandleListEnumProjectilesInRect					takes handlelist whichHandleList, rect whichRect, boolexpr filter returns nothing
 
 native HandleListEnumByTypeId							takes handlelist whichHandleList, integer handleTypeId, boolexpr filter returns nothing
 native HandleListEnumByTypeIdEx							takes handlelist whichHandleList, integer handleTypeId, integer typeId, boolexpr filter returns nothing
+
+native HandleListEnumUnitAbilities						takes handlelist whichHandleList, unit whichUnit, boolexpr filter returns nothing
+native HandleListEnumUnitBuffs							takes handlelist whichHandleList, unit whichUnit, boolexpr filter returns nothing
 
 native HandleListForEach								takes handlelist whichHandleList, code c returns nothing
 native HandleListForEachByTypeId						takes handlelist whichHandleList, integer handleTypeId, code c returns nothing
@@ -4734,7 +4765,7 @@ native GetLightningColourA								takes lightning whichBolt returns integer
 native GetLightningColourR								takes lightning whichBolt returns integer
 native GetLightningColourG								takes lightning whichBolt returns integer
 native GetLightningColourB								takes lightning whichBolt returns integer
-native SetLightningColour								takes lightning whichBolt, integer r, integer g, integer b, integer a returns boolean
+native SetLightningColour								takes lightning whichBolt, integer red, integer green, integer blue, integer alpha returns boolean
 native GetLightningLength 								takes lightning whichBolt returns real
 native SetLightningLength 								takes lightning whichBolt, real value returns nothing
 native GetLightningNoiseScaling 						takes lightning whichBolt returns real
@@ -4800,15 +4831,45 @@ native TimerSetCallback 								takes timer whichTimer, code whichFunction retur
 //============================================================================
 // Doodad API
 //
+native CreateDoodad										takes integer objectid, real x, real y, real face, real scale, integer variation returns doodad
+native CreateDoodadZ									takes integer objectid, real x, real y, real z, real face, real scale, integer variation returns doodad
+native RemoveDoodad										takes doodad whichDoodad returns nothing
 native GetDoodadCount									takes nothing returns integer
 native GetDoodadByIndex									takes integer index returns doodad
 native GetDoodadIndex									takes doodad whichDoodad returns integer
-
+native GetDoodadColour									takes doodad whichDoodad returns integer
+native SetDoodadColour									takes doodad whichDoodad, integer colour returns nothing
+native SetDoodadVertexColour							takes doodad whichDoodad, integer red, integer green, integer blue, integer alpha returns nothing
+native GetDoodadScale									takes doodad whichDoodad returns real
+native SetDoodadScale									takes doodad whichDoodad, real facing returns nothing
+native GetDoodadX										takes doodad whichDoodad returns real
+native SetDoodadX										takes doodad whichDoodad, real x returns nothing
+native GetDoodadY										takes doodad whichDoodad returns real
+native SetDoodadY										takes doodad whichDoodad, real y returns nothing
+native GetDoodadZ										takes doodad whichDoodad returns real
+native SetDoodadZ										takes doodad whichDoodad, real z returns nothing
+native SetDoodadPosition								takes doodad whichDoodad, real x, real y returns nothing
+native SetDoodadPositionEx								takes doodad whichDoodad, real x, real y, real z returns nothing
+native GetDoodadPositionLocation						takes doodad whichDoodad returns location
+native SetDoodadPositionLocation						takes doodad whichDoodad, location whichLocation returns nothing
+native GetDoodadScreenX									takes doodad whichDoodad returns real
+native GetDoodadScreenY									takes doodad whichDoodad returns real
+native SetDoodadMatrixScale								takes doodad whichDoodad, real x, real y, real z returns nothing
+native ResetDoodadMatrix								takes doodad whichDoodad returns nothing
+native SetDoodadOrientationEx							takes doodad whichDoodad, real yaw, real pitch, real roll, integer eulerOrder returns nothing
+native GetDoodadYaw										takes doodad whichDoodad returns real		
+native SetDoodadYaw										takes doodad whichDoodad, real yaw returns nothing
+native GetDoodadFacing									takes doodad whichDoodad returns real
+native SetDoodadFacing									takes doodad whichDoodad, real facing returns nothing
+native GetDoodadPitch									takes doodad whichDoodad returns real
+native SetDoodadPitch									takes doodad whichDoodad, real pitch returns nothing
+native GetDoodadRoll									takes doodad whichDoodad returns real
+native SetDoodadRoll									takes doodad whichDoodad, real roll returns nothing
+native SetDoodadOrientation								takes doodad whichDoodad, real yaw, real pitch, real roll returns nothing
 native GetDoodadModel									takes doodad whichDoodad returns string
 native SetDoodadModel									takes doodad whichDoodad, string whichModel returns nothing
 native IsDoodadVisible									takes doodad whichDoodad returns boolean
 native ShowDoodad										takes doodad whichDoodad, boolean isShow returns nothing
-
 native SetDoodadAnimationWithRarityByIndex				takes doodad whichDoodad, integer animIndex, raritycontrol rarity returns nothing
 native SetDoodadAnimationWithRarity						takes doodad whichDoodad, string animationName, raritycontrol rarity returns nothing
 native SetDoodadAnimationByIndex						takes doodad whichDoodad, integer animIndex returns nothing
@@ -4928,7 +4989,10 @@ native ResetAbilityFieldData							takes ability whichAbility returns boolean //
 native IsAbilityBaseTargetAllowed						takes integer abilityId, widget source, widget target returns boolean // source can be null
 
 // Normal API
+native CreateAbility									takes integer abilityId returns ability
 native GetAbilityOwner									takes ability whichAbility returns unit
+native SetAbilityOwner									takes ability whichAbility, unit whichUnit returns nothing
+native GetAbilityOwningItem								takes ability whichAbility returns item
 native GetAbilityOrderId								takes ability whichAbility returns integer
 native SetAbilityOrderId								takes ability whichAbility, integer orderId returns boolean // Highly experimental, may be removed if proven unstable.
 native GetAbilityLevel									takes ability whichAbility returns integer
@@ -4972,19 +5036,33 @@ native EnumUnitAbilities								takes unit whichUnit, boolexpr whichBoolexpr, co
 //
 
 // Base Field API
-native GetBuffBaseStringFieldById						takes integer aid, buffstringfield whichField returns string
-native SetBuffBaseStringFieldById						takes integer aid, buffstringfield whichField, string value returns boolean
+native GetBuffBaseStringFieldById						takes integer buffId, abilitystringfield whichField returns string
+native SetBuffBaseStringFieldById						takes integer buffId, abilitystringfield whichField, string value returns boolean
 //
 
 // Field API
-native GetBuffStringField								takes buff whichBuff, buffstringfield whichField returns string
-native SetBuffStringField								takes buff whichBuff, buffstringfield whichField, string value returns boolean
+native GetBuffIntegerField								takes buff whichBuff, abilityintegerfield whichField returns integer
+native SetBuffIntegerField								takes buff whichBuff, abilityintegerfield whichField, integer value returns boolean
+
+native GetBuffBooleanField								takes buff whichBuff, abilitybooleanfield whichField returns boolean
+native SetBuffBooleanField								takes buff whichBuff, abilitybooleanfield whichField, boolean value returns boolean
+
+native GetBuffRealField									takes buff whichBuff, abilityrealfield whichField returns real
+native SetBuffRealField									takes buff whichBuff, abilityrealfield whichField, real value returns boolean
+
+native GetBuffStringField								takes buff whichBuff, abilitystringfield whichField returns string
+native SetBuffStringField								takes buff whichBuff, abilitystringfield whichField, string value returns boolean
+
+native ResetBuffFieldData								takes buff whichBuff returns boolean // Acts same as ResetAbilityFieldData, but for buffs.
 //
 
 // Normal API
+native CreateBuff										takes integer buffId returns buff
+
 native GetBuffTypeId									takes buff whichBuff returns integer
 native GetBuffBaseTypeId								takes buff whichBuff returns integer
 native GetBuffOwner										takes buff whichbuff returns unit
+native SetBuffOwner										takes buff whichBuff, unit whichUnit returns nothing
 native GetBuffLevel										takes buff whichBuff returns integer
 native SetBuffLevel										takes buff whichBuff, integer level returns nothing
 native GetBuffRemainingDuration							takes buff whichBuff returns real
@@ -5031,7 +5109,7 @@ native SetSpecialEffectColour							takes effect whichEffect, integer colour ret
 native SetSpecialEffectAlpha							takes effect whichEffect, integer alpha returns boolean
 native SetSpecialEffectVertexColour						takes effect whichEffect, integer red, integer green, integer blue, integer alpha returns boolean
 native SetSpecialEffectMatrixScale						takes effect whichEffect, real x, real y, real z returns nothing
-native ResetSpecialEffectetMatrix						takes effect whichEffect returns nothing
+native ResetSpecialEffectMatrix							takes effect whichEffect returns nothing
 native SetSpecialEffectOrientationEx					takes effect whichEffect, real yaw, real pitch, real roll, integer eulerOrder returns boolean // XYZ = 0, YZX = 1, ZXY = 2, ZYX = 3, YXZ = 4, XZY = 5
 native GetSpecialEffectYaw								takes effect whichEffect returns real // X
 native SetSpecialEffectYaw								takes effect whichEffect, real yaw returns boolean // X
@@ -5041,7 +5119,7 @@ native GetSpecialEffectPitch							takes effect whichEffect returns real // Y
 native SetSpecialEffectPitch							takes effect whichEffect, real pitch returns boolean // Y
 native GetSpecialEffectRoll								takes effect whichEffect returns real // Z
 native SetSpecialEffectRoll								takes effect whichEffect, real roll returns boolean // Z
-native SetSpecialEffectOrientation						takes effect whichEffect, real yaw, real pitch, real roll returns nothing // uses SetSpecialEffectSpaceRotation with XYZ orientation as default
+native SetSpecialEffectOrientation						takes effect whichEffect, real yaw, real pitch, real roll returns nothing // uses SetSpecialEffectOrientationEx with XYZ orientation as default
 native SetSpecialEffectMaterialTexture					takes effect whichEffect, string textureName, integer materialId, integer textureIndex returns nothing
 native SetSpecialEffectTexture							takes effect whichEffect, string textureName, integer textureIndex returns nothing
 native SetSpecialEffectReplaceableTexture				takes effect whichEffect, string textureName, integer textureIndex returns nothing
@@ -5099,7 +5177,7 @@ native SetTrackableColour								takes trackable whichTrackable, integer colour 
 native SetTrackableAlpha								takes trackable whichTrackable, integer alpha returns boolean
 native SetTrackableVertexColour							takes trackable whichTrackable, integer red, integer green, integer blue, integer alpha returns boolean
 native SetTrackableEffectMatrixScale					takes trackable whichTrackable, real x, real y, real z returns nothing
-native ResetTrackableetMatrix							takes trackable whichTrackable returns nothing
+native ResetTrackableMatrix								takes trackable whichTrackable returns nothing
 native SetTrackableOrientationEx						takes trackable whichTrackable, real yaw, real pitch, real roll, integer eulerOrder returns boolean
 native GetTrackableYaw									takes trackable whichTrackable returns real
 native SetTrackableYaw									takes trackable whichTrackable, real yaw returns boolean
@@ -5139,9 +5217,9 @@ native EnumTrackablesInRange							takes real x, real y, real radius, boolexpr f
 //============================================================================
 // Widget API
 //
+native GetWidgetTypeId									takes widget whichWidget returns integer
 native IsWidgetTipEnabled								takes nothing returns boolean // Internally this is called CUnitTip, but used for all widgets.
 native SetWidgetTipEnabled								takes boolean enable returns nothing
-
 native IsWidgetVisible									takes widget whichWidget returns boolean
 native SetWidgetVisible									takes widget whichWidget, boolean visible returns nothing
 native IsWidgetInvulnerable								takes widget whichWidget returns boolean
@@ -5162,7 +5240,9 @@ native GetWidgetScale									takes widget whichWidget returns real
 native SetWidgetScale									takes widget whichWidget, real scale returns nothing
 native GetWidgetFacing									takes widget whichWidget returns real
 native SetWidgetFacing									takes widget whichWidget, real facing, boolean isInstant returns nothing
-native SetWidgetSpaceRotation							takes widget whichWidget, real yaw, real pitch, real roll, integer eulerOrder returns nothing
+native SetWidgetMatrixScale								takes widget whichWidget, real x, real y, real z returns nothing
+native ResetWidgetMatrix								takes widget whichWidget returns nothing
+native SetWidgetOrientationEx							takes widget whichWidget, real yaw, real pitch, real roll, integer eulerOrder returns nothing
 native SetWidgetOrientation								takes widget whichWidget, real yaw, real pitch, real roll returns nothing
 native GetWidgetYaw										takes widget whichWidget returns real
 native SetWidgetYaw										takes widget whichWidget, real yaw returns nothing
@@ -5211,7 +5291,9 @@ native GetDestructableScale								takes destructable whichDestructable returns 
 native SetDestructableScale								takes destructable whichDestructable, real scale returns nothing
 native GetDestructableFacing							takes destructable whichDestructable returns real
 native SetDestructableFacing							takes destructable whichDestructable, real facing, boolean isInstant returns nothing
-native SetDestructableSpaceRotation						takes destructable whichDestructable, real yaw, real pitch, real roll, integer eulerOrder returns nothing
+native SetDestructableMatrixScale						takes destructable whichDestructable, real x, real y, real z returns nothing
+native ResetDestructableMatrix							takes destructable whichDestructable returns nothing
+native SetDestructableOrientationEx						takes destructable whichDestructable, real yaw, real pitch, real roll, integer eulerOrder returns nothing
 native SetDestructableOrientation						takes destructable whichDestructable, real yaw, real pitch, real roll returns nothing
 native GetDestructableYaw								takes destructable whichDestructable returns real
 native SetDestructableYaw								takes destructable whichDestructable, real yaw returns nothing
@@ -5293,7 +5375,9 @@ native GetItemScale										takes item whichItem returns real
 native SetItemScale										takes item whichItem, real scale returns nothing
 native GetItemFacing									takes item whichItem returns real
 native SetItemFacing									takes item whichItem, real facing, boolean isInstant returns nothing
-native SetItemSpaceRotation								takes item whichItem, real yaw, real pitch, real roll, integer eulerOrder returns nothing
+native SetItemMatrixScale								takes item whichItem, real x, real y, real z returns nothing
+native ResetItemMatrix									takes item whichItem returns nothing
+native SetItemOrientationEx								takes item whichItem, real yaw, real pitch, real roll, integer eulerOrder returns nothing
 native SetItemOrientation								takes item whichItem, real yaw, real pitch, real roll returns nothing
 native GetItemYaw										takes item whichItem returns real
 native SetItemYaw										takes item whichItem, real yaw returns nothing
@@ -5404,37 +5488,52 @@ native IsUnitHero										takes unit whichUnit returns boolean
 native IsUnitTower										takes unit whichUnit returns boolean
 native IsUnitShop										takes unit whichUnit returns boolean
 native IsUnitInventoryEnabled							takes unit whichUnit returns boolean
-native EnableUnitInventory								takes unit whichUnit, boolean enable returns nothing
-native IsUnitInventoryEnabledEx							takes unit whichUnit returns boolean
-native EnableUnitInventoryEx							takes unit whichUnit, boolean enable returns nothing
+native UnitEnableInventory								takes unit whichUnit, boolean enable, boolean ignoreErrorMessages returns nothing // ignoreErrorMessages simply causes the game not to print errors such as "unable to drop/unable to pick up" messages, etc.
 native IsUnitMovementEnabled							takes unit whichUnit returns boolean
-native EnableUnitMovement								takes unit whichUnit, boolean enable returns nothing
-native IsUnitMovementEnabledEx							takes unit whichUnit returns boolean
-native EnableUnitMovementEx								takes unit whichUnit, boolean enable returns nothing
+native UnitEnableMovement								takes unit whichUnit, boolean enable, boolean fullDisable returns nothing // fullDisable will also block unit from being able to rotate.
 native IsUnitAttackEnabled								takes unit whichUnit returns boolean
-native EnableUnitAttack									takes unit whichUnit, boolean enable returns nothing
-native IsUnitAttackEnabledEx							takes unit whichUnit returns boolean
-native EnableUnitAttackEx								takes unit whichUnit, boolean enable returns nothing
+native UnitEnableAttack									takes unit whichUnit, boolean enable, boolean extraFlag returns nothing // extraFlag - sets internal flag, but no real changes were noticed... 
 native IsUnitStateNormal								takes unit whichUnit, boolean additionalCheck returns boolean
 native RedrawUnit										takes unit whichUnit returns nothing
-native UpdateUnitInfoBar								takes unit whichUnit returns integer
-native UnitUnapplyUpgrades								takes unit whichUnit returns integer
-native UnitApplyUpgrades								takes unit whichUnit returns integer
+native UpdateUnitInfoBar								takes unit whichUnit returns nothing
+native UnitUnapplyUpgrades								takes unit whichUnit returns nothing
+native UnitApplyUpgrades								takes unit whichUnit returns nothing
+
+// Unit Ability API
 native GetUnitAbility									takes unit whichUnit, integer aid returns ability
 native GetUnitAbilityByIndex							takes unit whichUnit, integer index returns ability
-native GetUnitBuff										takes unit whichUnit, integer buffId returns buff
-native GetUnitBuffByIndex								takes unit whichUnit, integer index returns buff
-native GetUnitBuffLevel									takes unit whichUnit, integer buffId returns integer
 native UnitAddAbilityEx									takes unit whichUnit, integer abilityId, boolean checkForDuplicates returns boolean
 native UnitRemoveAbilityEx								takes unit whichUnit, integer abilityId, boolean removeDuplicates returns boolean
 native IsUnitAbilityVisible								takes unit whichUnit, integer abilityId returns boolean
 native ShowUnitAbility									takes unit whichUnit, integer abilityId, boolean show returns nothing
+native ShowUnitAbilityEx								takes unit whichUnit, integer abilityId, boolean show, boolean checkDuplicates returns nothing
 native DisableUnitAbility								takes unit whichUnit, integer abilityId, boolean hide, boolean disable returns nothing
+native DisableUnitAbilityEx								takes unit whichUnit, integer abilityId, boolean hide, boolean disable, boolean checkDuplicates returns nothing
 native EnableUnitAbility								takes unit whichUnit, integer abilityId, boolean show, boolean enable returns nothing
+native EnableUnitAbilityEx								takes unit whichUnit, integer abilityId, boolean show, boolean enable, boolean checkDuplicates returns nothing
+//
+
+// Unit Buff API
+// In very early stages of development, may be unstable for now.
+native UnitAddBuff										takes unit whichUnit, buff whichBuff returns boolean // Does not add duplicates!
+native UnitAddBuffEx									takes unit whichUnit, buff whichBuff, boolean checkForDuplicates returns boolean
+
+native UnitAddBuffById									takes unit whichUnit, integer buffId returns boolean // Does not add duplicates!
+native UnitAddBuffByIdEx								takes unit whichUnit, integer buffId, boolean checkForDuplicates returns boolean
+//
+native GetUnitBuff										takes unit whichUnit, integer buffId returns buff
+native GetUnitBuffByIndex								takes unit whichUnit, integer index returns buff
+native GetUnitBuffLevel									takes unit whichUnit, integer buffId returns integer
+//
+
+native UnitCancelTimedLife								takes unit whichUnit returns nothing
+native GetUnitRemainingTimedLife						takes unit whichUnit returns real
+native SetUnitRemainingTimedLife						takes unit whichUnit, real duration returns nothing
 native IsUnitSelectable									takes unit whichUnit returns boolean
 native SetUnitSelectable								takes unit whichUnit, boolean selectable returns nothing
-native SetUnitControl									takes unit whichUnit, integer flagValue, boolean isSetFlagValue, boolean ismove, boolean isattack, boolean isinventory returns nothing // flagValue = 0x200 and isSetFlagValue = true to emulate pause 
-native SetUnitLocustFlag								takes unit whichUnit, integer flag, integer mode returns nothing
+native IsUnitTargetable									takes unit whichUnit returns boolean
+native SetUnitTargetable								takes unit whichUnit, boolean targetable returns nothing
+native IsUnitTruesightImmune							takes unit whichUnit returns boolean
 native SetUnitTruesightImmuneState						takes unit whichUnit, boolean state returns nothing
 native GetUnitZ											takes unit whichUnit returns real
 native GetUnitDamageReduction							takes unit whichUnit returns real
@@ -5452,8 +5551,14 @@ native GetUnitAttackRemainingDamagePoint				takes unit whichUnit returns real
 native SetUnitAttackRemainingDamagePoint				takes unit whichUnit, real time returns nothing
 native GetUnitAttackRemainingBackswing					takes unit whichUnit returns real
 native SetUnitAttackRemainingBackswing					takes unit whichUnit, real time returns nothing
-native UnitResetAttack									takes unit whichUnit returns boolean
-native UnitFinishAttack									takes unit whichUnit returns boolean
+// ignoreDistance only works if isInstant is set to true.
+native UnitAttackTarget									takes unit whichUnit, widget whichTarget, boolean ignoreDistance, boolean isInstant returns nothing
+native UnitAttackTargetPointZ							takes unit whichUnit, real x, real y, real z, boolean ignoreDistance, boolean isInstant returns nothing
+native UnitAttackTargetPoint							takes unit whichUnit, real x, real y, boolean ignoreDistance, boolean isInstant returns nothing
+native UnitAttackTargetPointLoc							takes unit whichUnit, location whichLocation, boolean ignoreDistance, boolean isInstant returns nothing
+native UnitAttackCancel									takes unit whichUnit returns boolean
+native UnitAttackRestart								takes unit whichUnit returns boolean
+native UnitAttackFinish									takes unit whichUnit returns boolean
 native GetUnitAttackTypeByIndex							takes unit whichUnit, integer attackIndex returns attacktype
 native SetUnitAttackTypeByIndex							takes unit whichUnit, integer attackIndex, attacktype whichAttackType returns nothing
 native GetUnitWeaponTypeByIndex							takes unit whichUnit, integer attackIndex returns weapontype
@@ -5527,14 +5632,18 @@ native GetUnitRallyPointX								takes unit whichUnit returns real
 native GetUnitRallyPointY								takes unit whichUnit returns real
 native GetHeroMaxLevelExperienceNeeded					takes unit whichUnit returns integer
 native GetHeroExperienceNeeded							takes unit whichUnit, integer forLevel returns integer
-native UnitApplySilence									takes unit whichUnit, boolean state returns nothing
-native UnitDisableAbilities								takes unit whichUnit, boolean state returns nothing
-native PauseUnitEx										takes unit whichUnit, boolean flag returns nothing // this is pretty much a copy of SetUnitStunned, added for compatibility.
+native UnitApplySilence									takes unit whichUnit, boolean state returns nothing // Does not hide abilities
+native UnitDisableAbilities								takes unit whichUnit, boolean state returns nothing // Also hides abilities
+native PauseUnitEx										takes unit whichUnit, boolean pause returns nothing
 native SetUnitStunned									takes unit whichUnit, boolean state returns nothing
 native GetUnitStunCounter								takes unit whichUnit returns integer
 native SetUnitStunCounter								takes unit whichUnit, integer stunCounter returns nothing
 native SetUnitKiller									takes unit whichUnit, unit killer returns nothing
 native KillUnitEx										takes unit whichUnit, unit killer returns nothing
+native GetUnitTarget									takes unit whichUnit returns widget
+native GetUnitTargetUnit								takes unit whichUnit returns unit
+native GetUnitTargetItem								takes unit whichUnit returns item
+native GetUnitTargetDestructable						takes unit whichUnit returns destructable
 native MorphUnitToTypeIdEx								takes unit whichUnit, integer uid, integer unitFlags, boolean updateHealthState, boolean updateManaState, integer healthStateId, integer manaStateId, boolean updateScale, boolean replaceAbilities, ability whichAbility, boolean resetBuildingAnimation returns nothing
 native MorphUnitToTypeId								takes unit whichUnit, integer uid returns nothing
 native GetUnitModelObjectPositionX						takes unit whichUnit, string whichObject returns real
@@ -5544,6 +5653,49 @@ native GetUnitModelObjectPositionLoc					takes unit whichUnit, string whichObjec
 native GetUnitCurrentAnimationId						takes unit whichUnit returns integer
 native GetUnitCurrentAnimationName						takes unit whichUnit returns string
 native SetUnitAnimationOffsetPercent					takes unit whichUnit, real percent returns boolean
+// Unit Orientation API, these only work if AutoOrientation is set to false. Note, this will disable auto yaw/pitch/roll updates as well, you will have to do them manually.
+native IsUnitAutoOrientationEnabled						takes unit whichUnit returns boolean
+native UnitEnableAutoOrientation						takes unit whichUnit, boolean enable returns nothing
+native GetUnitYaw										takes unit whichUnit returns real
+native SetUnitYaw										takes unit whichUnit, real yaw returns nothing
+native GetUnitPitch										takes unit whichUnit returns real
+native SetUnitPitch										takes unit whichUnit, real pitch returns nothing
+native GetUnitRoll										takes unit whichUnit returns real
+native SetUnitRoll										takes unit whichUnit, real roll returns nothing
+native SetUnitMatrixScale								takes unit whichUnit, real x, real y, real z returns nothing
+native ResetUnitMatrix									takes unit whichUnit returns nothing
+native SetUnitOrientationEx								takes unit whichUnit, real yaw, real pitch, real roll, integer eulerOrder returns nothing
+native SetUnitOrientation								takes unit whichUnit, real yaw, real pitch, real roll returns nothing
+//
+
+// Building API
+native CreateBuilding									takes player whichPlayer, integer unitTypeId, real x, real y, real facing returns unit
+native CreateBuildingEx									takes player whichPlayer, integer unitTypeId, real x, real y, real facing, boolean isAutoBuild, boolean workersCanAssist returns unit
+
+// Construction API
+native UnitGetConstructionProgress						takes unit whichUnit returns real
+native UnitGetConstructionRemainingTime					takes unit whichUnit returns real
+native UnitSetConstructionRemainingTime					takes unit whichUnit, real time returns nothing
+//
+
+// Upgrade API
+native UnitGetUpgradeProgress							takes unit whichUnit returns real
+native UnitGetUpgradeRemainingTime						takes unit whichUnit returns real
+native UnitSetUpgradeRemainingTime						takes unit whichUnit, real time returns nothing
+//
+
+// Illusion API
+// All created illusions are created without timed life, this can and should be handled by the mapmaker.
+native CreateIllusion									takes player whichPlayer, integer unitTypeId, real x, real y, real facing returns unit
+native CreateIllusionAtLoc								takes player whichPlayer, integer unitTypeId, location whichLocation, real facing returns unit
+native CreateIllusionFromUnit							takes unit whichUnit returns unit
+native CreateIllusionFromUnitEx							takes unit whichUnit, boolean copyPassives returns unit
+
+// Damage Dealt and Received are multipliers, not direct values. These will only work on illusions created by abilities/items or by: CreateUnitIllusion, CreateUnitIllusionAtLoc and CloneUnit.
+native GetIllusionDamageDealt							takes unit whichUnit returns real
+native SetIllusionDamageDealt							takes unit whichUnit, real multiplier returns nothing
+native GetIllusionDamageReceived						takes unit whichUnit returns real
+native SetIllusionDamageReceived						takes unit whichUnit, real multiplier returns nothing
 //
 
 // Order API
@@ -5571,6 +5723,7 @@ native CreateProjectile									takes integer projectileTypeId returns projectil
 native CreateProjectileEx								takes unit owner, integer projectileTypeId, integer attackIndex returns projectile
 native SetProjectileUnitData							takes projectile whichProjectile, unit owner, integer attackIndex returns nothing
 native KillProjectile									takes projectile whichProjectile returns nothing
+native RemoveProjectile									takes projectile whichProjectile returns nothing
 native LaunchTargetProjectile							takes projectile whichProjectile, widget whichWidget returns nothing
 native LaunchProjectile									takes projectile whichProjectile returns nothing
 
@@ -5601,6 +5754,7 @@ native GetProjectileColour								takes projectile whichProjectile returns integ
 native SetProjectileColour								takes projectile whichProjectile, integer colour returns boolean
 native SetProjectileAlpha								takes projectile whichProjectile, integer alpha returns boolean
 native SetProjectileVertexColour						takes projectile whichProjectile, integer red, integer green, integer blue, integer alpha returns boolean
+native SetProjectileMatrixScale							takes projectile whichProjectile, real x, real y, real z returns nothing
 native ResetProjectileMatrix							takes projectile whichProjectile returns nothing
 native SetProjectileOrientationEx						takes projectile whichProjectile, real yaw, real pitch, real roll, integer eulerOrder returns boolean
 native GetProjectileYaw									takes projectile whichProjectile returns real
@@ -5721,6 +5875,9 @@ native GetFrameText										takes framehandle whichFrame returns string
 native AddFrameText										takes framehandle whichFrame, string text returns nothing
 native SetFrameTextSizeLimit							takes framehandle whichFrame, integer textSize returns nothing
 native GetFrameTextSizeLimit							takes framehandle whichFrame returns integer
+native GetFrameTextColourEx								takes framehandle whichFrame, integer stateId returns integer // 0 = font | 1 = highlighted | 2 = disabled | 3 = shadow
+native SetFrameTextColourEx								takes framehandle whichFrame, integer stateId, integer colour returns nothing
+native GetFrameTextColour								takes framehandle whichFrame returns integer
 native SetFrameTextColour								takes framehandle whichFrame, integer colour returns nothing
 native SetFrameFocus									takes framehandle whichFrame, boolean isFocus returns boolean
 native GetFrameModel									takes framehandle whichFrame returns string
@@ -5743,7 +5900,6 @@ native GetFrameTexture									takes framehandle whichFrame, integer textureId r
 native SetFrameBackdropTexture							takes framehandle whichFrame, integer textureId, string backgroundTextureFile, boolean allowTransparency, boolean blend, string borderTextureFile, integer borderFlags, boolean isControlBackdrop returns nothing
 native SetFrameTextureEx								takes framehandle whichFrame, integer textureId, string backgroundTextureFile, boolean blend, string borderTextureFile, integer borderFlags returns nothing
 native SetFrameTexture									takes framehandle whichFrame, string textureFile, integer textureId, boolean blend returns nothing
-native SetFrameScale									takes framehandle whichFrame, real scale returns nothing
 native SetFrameTooltip									takes framehandle whichFrame, framehandle tooltipFrame returns nothing
 native SetFrameMouseCaged								takes framehandle whichFrame, boolean enable returns nothing
 native GetFrameValue									takes framehandle whichFrame returns real
@@ -5757,6 +5913,7 @@ native SetFrameWidth									takes framehandle whichFrame, real width returns no
 native GetFrameHeight									takes framehandle whichFrame returns real
 native SetFrameHeight									takes framehandle whichFrame, real height returns nothing
 native SetFrameSize										takes framehandle whichFrame, real width, real height returns nothing
+native SetFrameScale									takes framehandle whichFrame, real scale returns nothing
 native SetFrameVertexColourEx							takes framehandle whichFrame, integer alpha, integer red, integer blue, integer green returns nothing
 native SetFrameVertexColour								takes framehandle whichFrame, integer colour returns nothing
 native GetFramePriority									takes framehandle whichFrame returns integer
@@ -5849,7 +6006,8 @@ native GetFrameSpriteRoll								takes framehandle whichFrame returns real
 native SetFrameSpriteRoll								takes framehandle whichFrame, real roll returns boolean
 native SetFrameSpriteOrientation						takes framehandle whichFrame, real yaw, real pitch, real roll returns nothing
 native SetFrameSpriteMaterialTexture					takes framehandle whichFrame, string textureName, integer materialId, integer textureIndex returns nothing
-native SetFrameSpriteMaterialScale						takes framehandle whichFrame, real sizeX, real sizeY, real sizeZ returns nothing
+native SetFrameSpriteMatrixScale						takes framehandle whichFrame, real sizeX, real sizeY, real sizeZ returns nothing
+native ResetFrameSpriteMatrix							takes framehandle whichFrame returns nothing
 native SetFrameSpriteTexture							takes framehandle whichFrame, string textureName, integer textureIndex returns nothing
 native SetFrameSpriteReplaceableTexture					takes framehandle whichFrame, string textureName, integer textureIndex returns nothing
 native SetFrameSpriteModel								takes framehandle whichFrame, string modelName returns nothing

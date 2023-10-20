@@ -688,6 +688,48 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapImported\\BY_Wood_GongChengSiPai_6.mdl")
             endif
         endif
+        if uid == 'H00F' then
+            if eid == 1 then
+                call PreloadEffect("war3mapImported\\slashdigital.mdl")
+                call PreloadEffect("war3mapImported\\BY_Wood_Effect_Naruto_MingRen_WeiShouYu_2.mdl")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapImported\\blackblink.mdl")
+                call PreloadEffect("war3mapImported\\[A]az_axe_ef1.mdl")
+                call PreloadEffect("war3mapImported\\wind2.mdl")
+                call PreloadEffect("war3mapImported\\62.mdl")
+                call PreloadEffect("war3mapImported\\bloodex.mdl")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapImported\\punchshot.mdl")
+                call PreloadEffect("war3mapImported\\wind4.mdl")
+                call PreloadEffect("war3mapImported\\HakenSaber2.mdl")
+                call PreloadEffect("war3mapImported\\[A]howling_reverse_sfx.mdl")
+                call PreloadEffect("war3mapImported\\Black.mdl")
+                call PreloadEffect("war3mapImported\\[A]BlueRing.mdl")
+                call PreloadEffect("war3mapImported\\[A]ZoroEf3.mdl")
+                call PreloadEffect("war3mapImported\\[A]GrassPisses.mdl")
+                call PreloadEffect("war3mapImported\\[A]t_icesparks.mdl")
+                call PreloadEffect("war3mapImported\\[A]ZoroEf6.mdl")
+
+                call PreloadEffect("war3mapImported\\[A]SlamWithOut.mdl")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapImported\\0203.mdl")
+                call PreloadEffect("war3mapImported\\[A]zise-lizi-tous.mdl")
+                call PreloadEffect("war3mapImported\\[Plagiat]Effect302.mdl")
+                call PreloadEffect("war3mapImported\\[DoFT]blinkcasterWhite.mdl")
+                call PreloadEffect("war3mapImported\\ginSFX1.mdl")
+                call PreloadEffect("war3mapImported\\[A]ChuShou_Blue1.mdl")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapImported\\cleave.mdl")
+                call PreloadEffect("war3mapImported\\ChuShou_Effect_Earth1.mdl")
+                call PreloadEffect("war3mapImported\\Cyclon Explosion.mdl")
+            elseif eid == 7 then
+                call PreloadEffect("war3mapImported\\1062.mdl")
+                call PreloadEffect("war3mapImported\\3mihawkslashhit.mdl")
+                call PreloadEffect("war3mapImported\\[A]blackstrike.mdl")
+                call PreloadEffect("war3mapImported\\[A]blue-qiliu-daoguang_2.mdl")
+                call PreloadEffect("war3mapImported\\[A]blue--zhendi3.mdl")
+            endif
+        endif
         if uid == 'H0EF' then
             if eid == 1 then
                 call PreloadEffect("war3mapImported\\WindCirclefaster.mdl")
@@ -960,6 +1002,53 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapImported\\DustWaveAnimate2.mdx")
             endif
         endif
+        if uid == 'H013' then
+            if eid == 1 then
+                call PreloadEffect("war3mapImported\\getsugatrap.mdx")
+                call PreloadEffect("war3mapImported\\darkexcalibureffect1.mdx")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapImported\\[A]az_axe_ef1.mdx")
+                call PreloadEffect("war3mapImported\\devilslam.mdx")
+                call PreloadEffect("war3mapImported\\DarkBlast.mdx")
+                call PreloadEffect("war3mapImported\\daoguang_purp.mdx")
+                call PreloadEffect("war3mapImported\\cyzdtred.mdx")
+                call PreloadEffect("war3mapImported\\baojiang.mdx")
+                call PreloadEffect("war3mapImported\\akiha claw black.mdx")
+                call PreloadEffect("war3mapImported\\[A]AsumaEXP4.mdx")
+                call PreloadEffect("war3mapImported\\[DoFT]t_thunderclapcaster.mdx")
+                call PreloadEffect("war3mapImported\\DashKirei.mdx")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapImported\\devilslam.mdx")
+                call PreloadEffect("war3mapImported\\blackblink.mdx")
+                call PreloadEffect("war3mapImported\\saberalterqc.mdx")
+                call PreloadEffect("war3mapImported\\rb10.mdx")
+                call PreloadEffect("war3mapImported\\SAlterEffect1.mdx")
+                call PreloadEffect("war3mapImported\\[A]HibikiSlam_purp.mdx")
+                call PreloadEffect("war3mapImported\\BY_Wood_Eff_Ord_YeYe_Eat_DiBanZhaKai.mdx")
+                call PreloadEffect("war3mapImported\\wind3.mdx")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapImported\\SFXBreakGround.mdx")
+                call PreloadEffect("war3mapImported\\DustWaveAnimate2.mdx")
+                call PreloadEffect("war3mapImported\\Dash Sfx 2.mdx")
+                call PreloadEffect("war3mapImported\\windcirclefaster.mdx")
+                call PreloadEffect("war3mapImported\\36-purp.mdx")
+                call PreloadEffect("war3mapImported\\windcirclefaster.mdx")
+                call PreloadEffect("war3mapImported\\akiha claw black.mdx")
+                call PreloadEffect("war3mapImported\\hakensaber2.mdx")
+                call PreloadEffect("war3mapImported\\cf2.mdx")
+                call PreloadEffect("war3mapImported\\wind3.mdx")
+
+                call PreloadEffect("war3mapImported\\a_new_k3.mdx")
+                call PreloadEffect("war3mapImported\\az_airfloww12.mdx")
+                call PreloadEffect("war3mapImported\\2953.mdx")
+                call PreloadEffect("war3mapImported\\exshexianblack.mdx")
+                call PreloadEffect("war3mapImported\\FantasyBattle (1582).mdx")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapImported\\nlygpz.mdx")
+                call PreloadEffect("war3mapImported\\bossbirth.mdx")
+                call PreloadEffect("war3mapImported\\[R]wave1.mdx")
+            endif
+        endif
         if uid == 'H00T' then
             if eid == 1 then
                 call PreloadEffect("war3mapImported\\effect2.mdl")
@@ -1091,6 +1180,50 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapImported\\HibariKyoya.mdx")
             endif
         endif
+        if uid == 'H017' then
+            if eid == 1 then
+                call PreloadEffect("war3mapImported\\BY_Wood_Eff_Ord_DanGe_Dus_Kuosan_1_2_2.mdx")
+                call PreloadEffect("war3mapImported\\blackblink.mdx")
+                call PreloadEffect("war3mapImported\\HibikiQ.mdx")
+                call PreloadEffect("war3mapImported\\earthdetonation.mdx")
+                call PreloadEffect("war3mapImported\\BY_Wood_Eff_Ord_YeYe_Eat_DiBanZhaKai.mdx")
+                call PreloadEffect("war3mapImported\\BY_Wood_Effect_Order_DanGe_DaoGuang_BaoZha_1_2_2.mdx")
+                call PreloadEffect("war3mapImported\\Dls1.mdx")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapImported\\dustwaveanimate2.mdx")
+                call PreloadEffect("war3mapImported\\[A]supershinythingyGon.mdx")
+                call PreloadEffect("war3mapImported\\Chongfengnew.mdx")
+                call PreloadEffect("war3mapImported\\punchshot.mdx")
+                call PreloadEffect("war3mapImported\\a_new_k3.mdx")
+                call PreloadEffect("war3mapImported\\zxd1.mdx")
+                call PreloadEffect("war3mapImported\\dls2.mdx")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapImported\\Light4.mdx")
+                call PreloadEffect("war3mapImported\\HibikiR1.mdx")
+                call PreloadEffect("war3mapImported\\ChargeWhite.mdx")
+                call PreloadEffect("war3mapImported\\Light2.mdx")
+                call PreloadEffect("war3mapImported\\[A]HibikiSlam.mdx")
+                call PreloadEffect("war3mapImported\\HibikiR2.mdx")
+                call PreloadEffect("war3mapImported\\HibikiR3.mdx")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapImported\\BY_Wood_Eff_Ord_DanGe_Wid_ChongFengQiLiu.mdx")
+                call PreloadEffect("war3mapImported\\wind3.mdx")
+                call PreloadEffect("war3mapImported\\QQQQQ.mdx")
+                call PreloadEffect("war3mapImported\\djcjb.mdx")
+                call PreloadEffect("war3mapImported\\Hit.mdx")
+                call PreloadEffect("war3mapImported\\wavejojo.mdx")
+                call PreloadEffect("war3mapImported\\XZDL2.mdx")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapImported\\Dustwavevin.mdx")
+                call PreloadEffect("war3mapImported\\valkdustnew.mdx")
+                call PreloadEffect("war3mapImported\\ChuShou_BY_Wood_Effect_Wind_xuanfeng.mdx")
+            elseif eid == 7 then
+                call PreloadEffect("war3mapImported\\AgusWind.mdx")
+                call PreloadEffect("war3mapImported\\SuperBigExplosion2.mdx")
+                call PreloadEffect("war3mapImported\\[A]GonFef.mdx")
+                call PreloadEffect("war3mapImported\\[A]Natsu ef roar.mdx")
+            endif
+        endif
         if uid == 'H05G' then
             if eid == 1 then
                 call PreloadEffect("war3mapImported\\Shockwave(Blue).mdx")
@@ -1128,12 +1261,6 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapImported\\BY_Wood_Effect_KOF_BaShenAn_BaJiuBei.mdx")
                 call PreloadEffect("war3mapImported\\XZDL2.mdx")
                 call PreloadEffect("war3mapImported\\a_new_skybigbang.mdx")
-                /*elseif eid == 7 then
-                call PreloadEffect("war3mapImported\\AFBXZWD.mdx")
-                call PreloadEffect("war3mapImported\\SuperShinyThingyBlack.mdx")
-                call PreloadEffect("war3mapImported\\eros.mdx")
-                call PreloadEffect("war3mapImported\\baojiang.mdx")
-                call PreloadEffect("war3mapImported\\ChuShou_Effect_Earth1.mdx") */
             endif
         endif
         if uid == 'H01L' then
@@ -1631,6 +1758,48 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapimported\\AliceFSFX2.mdx")
             elseif eid == 7 then
                 call PreloadEffect("war3mapimported\\oxgz-alice.mdx")
+            endif
+        endif
+        if uid == 'H012' then
+            if eid == 1 then
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_DanGe_Dus_Kuosan_1_2_2.mdx")
+                call PreloadEffect("war3mapimported\\blackblink.mdx")
+                call PreloadEffect("war3mapimported\\earthdetonation.mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_YeYe_Eat_DiBanZhaKai.mdx")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_DanGe_Wid_ChongFengQiLiu.mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Effect_Naruto_MingRen_WeiShouYu_2.mdx")
+                call PreloadEffect("war3mapimported\\[Plagiat]Effect249.mdx")
+                call PreloadEffect("war3mapimported\\[A]cherry blossom impact.mdx")
+                call PreloadEffect("war3mapimported\\[A]sandpoff123.mdx")
+            elseif eid == 3 then
+                call PreloadEffect("war3mapimported\\Dls1.mdx")
+                call PreloadEffect("war3mapimported\\SBXZAFB2.mdx")
+                call PreloadEffect("war3mapimported\\[A]Sand3.mdx")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapimported\\Tornado vino.mdx")
+                call PreloadEffect("war3mapimported\\wind2.mdx")
+                call PreloadEffect("war3mapimported\\wind4.mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_YeYe_Eat_DiBanZhaKai.mdx")
+                call PreloadEffect("war3mapimported\\SZBYAFB2.mdx")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapimported\\Asuma-Explosion.mdx")
+                call PreloadEffect("war3mapimported\\punchshot.mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_YeYe_Wid_KuoSan_2.mdx")
+                call PreloadEffect("war3mapimported\\Dustwavevin.mdx")
+                call PreloadEffect("war3mapimported\\AgusWind.mdx")
+                call PreloadEffect("war3mapimported\\[A]supershinythingyGon.mdx")
+                call PreloadEffect("war3mapimported\\SuperBigExplosion2.mdx")
+                call PreloadEffect("war3mapimported\\zxd1.mdx")
+                call PreloadEffect("war3mapimported\\XZDL2.mdx")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapimported\\valkdustnew.mdx")
+                call PreloadEffect("war3mapimported\\dtkuning.mdx")
+                call PreloadEffect("war3mapimported\\[A]GonFef.mdx")
+                call PreloadEffect("war3mapimported\\[A]Natsu ef roar.mdx")
+            elseif eid == 7 then
+                call PreloadEffect("war3mapimported\\XZDL.mdx")
+                call PreloadEffect("war3mapimported\\az_tormentedsoul_t1.mdx")
             endif
         endif
         if uid == 'H0CY' then
@@ -2514,6 +2683,36 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapimported\\BY_Wood_Decade_RiderKick_Explode.mdx")
             endif
         endif
+        if uid == 'H014' then
+            if eid == 1 then
+                call PreloadEffect("war3mapimported\\PinoEffect1.mdx")
+                call PreloadEffect("war3mapimported\\tx-smoke1.mdx")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapimported\\DTJJ.mdx")
+                call PreloadEffect("war3mapimported\\bossbirth.mdx")
+                call PreloadEffect("war3mapimported\\Knife1.mdx")
+                call PreloadEffect("war3mapimported\\DustWindFasterExact.mdx")
+                call PreloadEffect("war3mapimported\\bloodslash.mdx")
+                call PreloadEffect("war3mapimported\\by_wood_effect_d2_shadowfiend_shadowraze_1.mdx")
+                call PreloadEffect("war3mapimported\\Dls1.mdx")
+            elseif eid == 3 then
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_DanGe_Wav_Kuosan_1_2_0.25s.mdx")
+                call PreloadEffect("war3mapImported\\blackblink.mdl")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapimported\\PinoEffect2.mdx")
+                call PreloadEffect("war3mapimported\\MomijiThunder_red.mdx")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapimported\\UwU2.mdx")
+                call PreloadEffect("war3mapimported\\UwU5.mdx")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapimported\\az_coco_t2.mdx")
+                call PreloadEffect("war3mapimported\\model (349).mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Effect_Order_MoBai_Dev_BianShen_KuoSan2.mdx")
+                call PreloadEffect("war3mapimported\\[Plagiat]Effect43.mdx")
+            elseif eid == 7 then
+                call PreloadEffect("war3mapimported\\[DoFT]DevilSlamAddetivRed.mdx")
+            endif
+        endif
         if uid == 'H09Y' then
             if eid == 1 then
                 call PreloadEffect("war3mapImported\\VoidDrown.mdx")
@@ -2675,14 +2874,16 @@ library preloadEffect uses Utilities
             elseif eid == 4 then
                 call PreloadEffect("war3mapimported\\Dark Magic.mdx")
                 call PreloadEffect("war3mapimported\\sjkjz.mdx")
-                call PreloadEffect("war3mapimported\\zxd1.mdx")
                 call PreloadEffect("war3mapimported\\az_tormentedsoul_t1.mdx")
-                call PreloadEffect("war3mapimported\\XZDL2.mdx")
+                call PreloadEffect("war3mapimported\\az_airfloww12.mdx")
+                call PreloadEffect("war3mapimported\\obelisk.mdx")
+                call PreloadEffect("war3mapimported\\misaka light a.mdx")
+                call PreloadEffect("war3mapimported\\earthdetonation.mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Effect_YuBanMeiQin_Lightning_ZhenZhengDeLuoLei-purp.mdx")
+                call PreloadEffect("war3mapimported\\Dls1.mdx")
             elseif eid == 5 then
                 call PreloadEffect("war3mapimported\\SkyDragon.mdx")
                 call PreloadEffect("war3mapimported\\oxgz.mdx")
-                call PreloadEffect("war3mapimported\\Black.mdx")
-                call PreloadEffect("war3mapimported\\misaka light a.mdx")
                 call PreloadEffect("war3mapimported\\plasma+zanber+lightning.mdx")
                 call PreloadEffect("war3mapimported\\hhzy123.mdx")
             elseif eid == 6 then
@@ -2690,13 +2891,17 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapimported\\demon.mdx")
                 call PreloadEffect("war3mapimported\\ethereal lightning2.mdx")
                 call PreloadEffect("war3mapimported\\dianqiu.mdx")
-                call PreloadEffect("war3mapimported\\tenshi swr explode.mdx")
                 call PreloadEffect("war3mapimported\\misaka light b.mdx")
             elseif eid == 7 then
                 call PreloadEffect("war3mapimported\\exodia.mdx")
                 call PreloadEffect("war3mapimported\\AZ_Rune31.mdx")
                 call PreloadEffect("war3mapimported\\SZBYAFB2.mdx")
                 call PreloadEffect("war3mapimported\\by_wood_effect_yuzhiboyou_fire_babangouyu_1_kong.mdx")
+                call PreloadEffect("war3mapimported\\kuriboh_compressed.mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Eff_Ord_YeYe_Hit_DaJi_Add.mdx")
+                call PreloadEffect("war3mapimported\\WindExploreEffect(Bigger).mdx")
+                call PreloadEffect("war3mapimported\\BY_Wood_Sand_YueKongJi.mdx")
+                call PreloadEffect("war3mapimported\\by_wood_effect_yuzhiboyou_fire_babangouyu_2_di_.mdx")
             endif
         endif
         if uid == 'H03E' then
@@ -2791,6 +2996,32 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapImported\\spiritarrow_pink.mdl")
             endif
         endif
+        if uid == 'H006' then
+            if eid == 1 then
+                call PreloadEffect("war3mapImported\\zxd1.mdl")
+                call PreloadEffect("war3mapImported\\blizzard.mdl")
+                call PreloadEffect("war3mapImported\\effect_IRui03.mdl")
+                call PreloadEffect("war3mapImported\\afbbxks.mdl")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapImported\\miku.mdl")
+                call PreloadEffect("war3mapImported\\blueaftershock.mdl")
+                call PreloadEffect("war3mapImported\\effect_IRui02.mdl")
+                call PreloadEffect("war3mapImported\\SZBYAFB2.mdl")
+                call PreloadEffect("war3mapImported\\62.mdl")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapImported\\AOE2m.mdl")
+                call PreloadEffect("war3mapImported\\Blizzard II Missile.mdl")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapImported\\ShadeAura.mdl")
+                call PreloadEffect("war3mapImported\\DarknessRising2.mdl")
+                call PreloadEffect("war3mapImported\\SandAura.mdl")
+                call PreloadEffect("war3mapImported\\DustWaveAnimate2.mdl")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapImported\\Absolute Zero.mdl")
+                call PreloadEffect("war3mapImported\\sbss_bingdongxili.mdl")
+                call PreloadEffect("war3mapImported\\Drop_the_beat.mdl")
+            endif
+        endif
         if uid == 'H0FY' then
             if eid == 1 then
                 call PreloadEffect("war3mapimported\\AFBBXKS.mdx")
@@ -2862,6 +3093,35 @@ library preloadEffect uses Utilities
                 call PreloadEffect("war3mapImported\\sbss_bingdongxili.mdl")
                 call PreloadEffect("war3mapImported\\icestomp.mdl")
                 call PreloadEffect("war3mapImported\\sxbbtx2.mdl")
+            endif
+        endif
+        if uid == 'H015' then
+            if eid == 1 then
+                call PreloadEffect("war3mapImported\\BY_Wood_Eff_Ord_DanGe_Dus_Kuosan_1_2_2.mdl")
+                call PreloadEffect("war3mapImported\\blackblink.mdl")
+                call PreloadEffect("war3mapImported\\kdls2.mdl")
+                call PreloadEffect("war3mapImported\\dingzhi_by_wood_effect_kuosanqiliu.mdl")
+                call PreloadEffect("war3mapImported\\BY_Wood_Effect_Order_DanGe_DaoGuang_BaoZha_1_2_2.mdl")
+            elseif eid == 2 then
+                call PreloadEffect("war3mapImported\\tx-smoke1.mdl")
+                call PreloadEffect("war3mapImported\\SlashCRITLOW.mdl")
+                call PreloadEffect("war3mapImported\\VergilSlashes.mdl")
+                call PreloadEffect("war3mapImported\\File00010078.mdl")
+                call PreloadEffect("war3mapImported\\ZK-Knife light1_2.mdl")
+                call PreloadEffect("war3mapImported\\model (24).mdl")
+            elseif eid == 4 then
+                call PreloadEffect("war3mapImported\\bingk.mdl")
+                call PreloadEffect("war3mapImported\\[A]zhendi-water.mdl")
+                call PreloadEffect("war3mapImported\\az_nevermoreice_x.mdl")
+                call PreloadEffect("war3mapImported\\[Plagiat]Effect373.mdl")
+            elseif eid == 5 then
+                call PreloadEffect("war3mapImported\\OmaShu.mdl")
+                call PreloadEffect("war3mapImported\\BD_YEQI03.mdl")
+                call PreloadEffect("AshuraAura.mdl")
+                call PreloadEffect("war3mapImported\\UDeathBlu.mdl")
+            elseif eid == 6 then
+                call PreloadEffect("war3mapImported\\wavejojo.mdl")
+                call PreloadEffect("war3mapImported\\[Plagiat]Effect568_2.mdl")
             endif
         endif
         if uid == 'H001' then

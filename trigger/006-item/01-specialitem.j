@@ -1,7 +1,8 @@
 scope specialitem initializer init
     
     private function heroItem takes unit u returns nothing
-        local ability a
+        local ability ab
+        local real cd
 
         if GetUnitTypeId(u) == 'H0EQ' then 
             call UnitAddItemByIdSwapped('I01F', u)
@@ -75,8 +76,23 @@ scope specialitem initializer init
             call UnitAddItemByIdSwapped('I045', u)
         elseif GetUnitTypeId(u) == 'H042' then 
             call UnitAddItemByIdSwapped('I00H', u)
-        elseif GetUnitTypeId(u) == 'H03B' or GetUnitTypeId(u) == 'H0CS' then 
+        elseif GetUnitTypeId(u) == 'H03B' or GetUnitTypeId(u) == 'H0CS' then
             call UnitAddItemByIdSwapped('I00I', u)
+            if GetUnitTypeId(u) == 'H0CS' then
+                set ab = GetUnitAbility(u, 'A00T')
+                if IsAbilityOnCooldown(ab) then
+                    set cd = GetAbilityRemainingCooldown(ab)
+                endif
+                if ab != null then
+                    call ShowAbilityEx(u, 'A00T', false)
+                endif
+                call UnitAddAbility(u, 'A0F0')
+                call UnitMakeAbilityPermanent(u, true, 'A0F0')
+                if cd != 0 then
+                    set ab = GetUnitAbility(u, 'A0F0')
+                    call StartAbilityCooldown(ab, cd)
+                endif
+            endif
         elseif GetUnitTypeId(u) == 'H02V' then 
             call UnitAddItemByIdSwapped('I00G', u)
         elseif GetUnitTypeId(u) == 'H03E' then 
@@ -109,8 +125,8 @@ scope specialitem initializer init
             call UnitAddItemByIdSwapped('I05K', u)
             call UnitAddAbility(u, 'A0I3')
             call UnitMakeAbilityPermanent(u, true, 'A0I3')
-            set a = GetUnitAbility(u, 'A0I3')
-            call DisableAbility(a, true, true)
+            set ab = GetUnitAbility(u, 'A0I3')
+            call DisableAbility(ab, true, true)
         elseif GetUnitTypeId(u) == 'H0FY' then 
             call UnitAddItemByIdSwapped('I05L', u)
         elseif GetUnitTypeId(u) == 'H0G0' then 
@@ -163,8 +179,8 @@ scope specialitem initializer init
             call UnitAddItemByIdSwapped('I04W', u)
             call UnitAddAbility(u, 'A0H2')
             call UnitMakeAbilityPermanent(u, true, 'A0H2')
-            set a = GetUnitAbility(u, 'A0H2')
-            call DisableAbility(a, true, true)
+            set ab = GetUnitAbility(u, 'A0H2')
+            call DisableAbility(ab, true, true)
         elseif GetUnitTypeId(u) == 'H00T' then 
             call UnitAddItemByIdSwapped('I05E', u)
         elseif GetUnitTypeId(u) == 'H00N' then 
@@ -191,15 +207,33 @@ scope specialitem initializer init
             call UnitAddItemByIdSwapped('I01P', u)
         elseif GetUnitTypeId(u) == 'H012' then 
             call UnitAddItemByIdSwapped('I01T', u)
+        elseif GetUnitTypeId(u) == 'H006' then 
+            call UnitAddItemByIdSwapped('I02D', u)
+        elseif GetUnitTypeId(u) == 'H013' then 
+            call UnitAddItemByIdSwapped('I02L', u)
+        elseif GetUnitTypeId(u) == 'H014' then 
+            call UnitAddItemByIdSwapped('I02O', u)
+        elseif GetUnitTypeId(u) == 'H015' then 
+            call UnitAddItemByIdSwapped('I02Y', u)
+        elseif GetUnitTypeId(u) == 'H016' then 
+            call UnitAddItemByIdSwapped('I02Z', u)
+        elseif GetUnitTypeId(u) == 'H017' then 
+            call UnitAddItemByIdSwapped('I031', u)
+        elseif GetUnitTypeId(u) == 'H018' then
+            call UnitAddAbility(u, 'A0KM')
+            call UnitMakeAbilityPermanent(u, true, 'A0KM')
+            call DisableAbilityEx(u, 'A0KM', true)
+            call UnitAddItemByIdSwapped('I037', u)
+        elseif GetUnitTypeId(u) == 'H019' or GetUnitTypeId(u) == 'H01A' then 
+            call UnitAddItemByIdSwapped('I03C', u)
         endif
         call SetItemDroppable(bj_lastCreatedItem, false)
 
-        set a = null
+        set ab = null
     endfunction
     private function action takes nothing returns nothing
         local unit u = GetManipulatingUnit()
         local item it = GetManipulatedItem()
-        local ability a
         local integer pid = GetPlayerId(GetOwningPlayer(u))
         local integer i
         local integer abilId
@@ -232,11 +266,9 @@ scope specialitem initializer init
                 call Effect("Abilities\\Spells\\Other\\Awaken\\Awaken.mdl", GetUnitX(u), GetUnitY(u), 0, randomAngle(), 0, 0, 1, 1, 255, 255, 255, 255)
                 call Effect("Abilities\\Spells\\Human\\Resurrect\\ResurrectTarget.mdl", GetUnitX(u), GetUnitY(u), 0, randomAngle(), 0, 0, 1, 1, 255, 255, 255, 255)
                 set abilId = LoadInteger(ht, StringHash("AbilKey_" + I2S(pid)), 5) 
-                set a = GetUnitAbility(u, abilId)
-                call EnableAbility(a, true, true)
+                call EnableAbilityEx(u, abilId, true)
                 set abilId = LoadInteger(ht, StringHash("AbilKey_" + I2S(pid)), 6)
-                set a = GetUnitAbility(u, abilId)
-                call EnableAbility(a, true, true)
+                call EnableAbilityEx(u, abilId, true)
                 call heroItem(u)
             else
                 call AdjustPlayerStateBJ(10000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
@@ -245,7 +277,6 @@ scope specialitem initializer init
 
         set u = null
         set it = null
-        set a = null
     endfunction
 
     private function init takes nothing returns nothing

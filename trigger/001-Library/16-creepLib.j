@@ -55,9 +55,9 @@ library creepLib uses Utilities
                     endif
                 elseif movePoint == 3 then
                     if p == Player(4) then
-                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_RightCTeam3_1) , GetRectCenterY(gg_rct_RightCTeam3_1))
+                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam3) , GetRectCenterY(gg_rct_BaseTeam3))
                     elseif p == Player(8) then
-                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BottomCTeam2_1) , GetRectCenterY(gg_rct_BottomCTeam2_1))
+                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam2) , GetRectCenterY(gg_rct_BaseTeam2))
                     endif
                 elseif movePoint == 4 then
                     if p == Player(0) then
@@ -82,18 +82,6 @@ library creepLib uses Utilities
                         call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam3) , GetRectCenterY(gg_rct_BaseTeam3))
                     elseif p == Player(8) then
                         call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_Center) , GetRectCenterY(gg_rct_Center))
-                    endif
-                elseif movePoint == 8 then
-                    if p == Player(4) then
-                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam3) , GetRectCenterY(gg_rct_BaseTeam3))
-                    elseif p == Player(8) then
-                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BottomRight) , GetRectCenterY(gg_rct_BottomRight))
-                    endif
-                elseif movePoint == 9 then
-                    if p == Player(4) then
-                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BottomRight) , GetRectCenterY(gg_rct_BottomRight))
-                    elseif p == Player(8) then
-                        call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_BaseTeam2) , GetRectCenterY(gg_rct_BaseTeam2))
                     endif
                 endif
             endif
@@ -125,9 +113,7 @@ library creepLib uses Utilities
 
         loop
             set u = CreateUnit(p, uid, x, y, randomAngle())
-            call UnitAddAbility(u, 'Aeth')
-            call UnitMakeAbilityPermanent(u, true, 'Aeth')
-            call LinkSpell(u, 'Aeth', 12, false)
+            call RemoveGuardPosition(u)
             if p == Player(0) then 
                 if point == 0 then  
                     call IssuePointOrderById(u, 851983, GetRectCenterX(gg_rct_Top) , GetRectCenterY(gg_rct_Top))
@@ -251,7 +237,7 @@ library creepLib uses Utilities
             endif
             
             // Team3
-            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 then
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
                 call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
             endif
             if CreepCountdown == 29.5 then
@@ -261,7 +247,7 @@ library creepLib uses Utilities
                 call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_RightCTeam3), GetRectCenterY(gg_rct_RightCTeam3), 0)
             endif                                        
 
-            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 then
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
                 call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
             endif
             if CreepCountdown == 29.5 then
@@ -271,7 +257,7 @@ library creepLib uses Utilities
                 call CreateCreep(1, Player(8), 'e00A', GetRectCenterX(gg_rct_MidCTeam3), GetRectCenterY(gg_rct_MidCTeam3), 1)
             endif
 
-            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 then
+            if CreepCountdown == 27.5 or CreepCountdown == 28.0 or CreepCountdown == 28.5 or CreepCountdown == 29.0 then
                 call CreateCreep(1, Player(8), 'e008', GetRectCenterX(gg_rct_LeftCTeam3), GetRectCenterY(gg_rct_LeftCTeam3), 2)
             endif
             if CreepCountdown == 29.5 then

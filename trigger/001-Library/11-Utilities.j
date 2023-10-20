@@ -765,19 +765,20 @@ library Utilities uses lowefflib
     endfunction
 
     function UnitAddStat takes unit u, integer str, integer int, integer agi returns nothing
-        local real percent
+        local real pVit
         if str != 0 then
             call SetHeroStr(u, GetHeroStr(u, true) + str, true)
-            call SetUnitLifeRegen(u, GetUnitLifeRegen(u) + str * 0.08)
-            if GetUnitPrimaryStat(u) == HERO_ATTRIBUTE_STR then
-                set percent = GetUnitLifePercent(u)
-                call SetUnitMaxLife(u, GetUnitMaxLife(u) - str * 3)
-                call SetUnitLifePercentBJ(u, percent)
-            endif
+            call SetUnitLifeRegen(u, GetUnitLifeRegen(u) + str * 0.05)
+            set pVit = GetUnitLifePercent(u)
+            call SetUnitMaxLife(u, GetUnitMaxLife(u) - str * 2)
+            call SetUnitLifePercentBJ(u, pVit)
         endif
         if int != 0 then
             call SetHeroInt(u, GetHeroInt(u, true) + int, true)
-            call SetUnitManaRegen(u, GetUnitManaRegen(u) + int * 0.08)
+            call SetUnitManaRegen(u, GetUnitManaRegen(u) + int * 0.05)
+            set pVit = GetUnitManaPercent(u)
+            call SetUnitMaxMana(u, GetUnitMaxMana(u) - int * 4)
+            call SetUnitManaPercentBJ(u, pVit)
         endif
         if agi != 0 then
             call SetHeroAgi(u, GetHeroAgi(u, true) + agi, true)
@@ -825,9 +826,96 @@ library Utilities uses lowefflib
     function MorphUnit takes unit u, integer uid returns nothing
         call MorphUnitToTypeIdEx(u, uid, 0, true, true, 1, 1, true, true, null, true)
     endfunction
+    
+    function ShowAbilityEx takes unit u, integer aid, boolean flag returns nothing
+        local ability ab = GetUnitAbility(u, aid)
+        
+        if ab != null then
+            if IsUnitPaused(u) then
+                call PauseUnit(u, false)
+                if not flag then 
+                    if IsAbilityVisible(ab) then
+                        call ShowAbility(ab, false)
+                    endif
+                else
+                    if not IsAbilityVisible(ab) then
+                        call ShowAbility(ab, true)
+                    endif
+                endif
+                call PauseUnit(u, true)
+            else
+                if not flag then 
+                    if IsAbilityVisible(ab) then
+                        call ShowAbility(ab, false)
+                    endif
+                else
+                    if not IsAbilityVisible(ab) then
+                        call ShowAbility(ab, true)
+                    endif
+                endif
+            endif
+        endif
+        
+        set ab = null
+    endfunction
+    
+    function DisableAbilityEx takes unit u, integer aid, boolean hide returns nothing
+        local ability ab = GetUnitAbility(u, aid)
+        
+        if ab != null then
+            if IsUnitPaused(u) then
+                call PauseUnit(u, false)
+                if IsAbilityEnabledEx(ab) then
+                    call SetAbilityEnabledEx(ab, false)
+                endif
+                if hide and IsAbilityVisible(ab) then
+                    call ShowAbility(ab, false)
+                endif
+                call PauseUnit(u, true)
+            else
+                if IsAbilityEnabledEx(ab) then
+                    call SetAbilityEnabledEx(ab, false)
+                endif
+                if hide and IsAbilityVisible(ab) then
+                    call ShowAbility(ab, false)
+                endif
+            endif
+        endif
+        
+        set ab = null
+    endfunction
+    
+    function EnableAbilityEx takes unit u, integer aid, boolean show returns nothing
+        local ability ab = GetUnitAbility(u, aid)
+        
+        if ab != null then
+            if IsUnitPaused(u) then
+                call PauseUnit(u, false)
+                if not IsAbilityEnabledEx(ab) then
+                    call SetAbilityEnabledEx(ab, true)
+                endif
+                if show and not IsAbilityVisible(ab) then
+                    call ShowAbility(ab, true)
+                endif
+                call PauseUnit(u, true)
+            else
+                if not IsAbilityEnabledEx(ab) then
+                    call SetAbilityEnabledEx(ab, true)
+                endif
+                if show and not IsAbilityVisible(ab) then
+                    call ShowAbility(ab, true)
+                endif
+            endif
+        endif
+        
+        set ab = null
+    endfunction
+        
 
     function DamageUnit takes unit u, unit t, real dmg returns nothing
-        if dmg > 0 then
+        local unit d
+        
+        if dmg > 0 and not IsUnitInvulnerable(t) then
             if not isTourStart then
                 call UnitDamageTarget(u, t, dmg, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_MAGIC, null)
             else
@@ -836,6 +924,8 @@ library Utilities uses lowefflib
                 endif
             endif
         endif
+        
+        set d = null
     endfunction
 
     private function LinkSpell1 takes nothing returns nothing 

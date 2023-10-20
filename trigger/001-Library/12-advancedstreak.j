@@ -147,7 +147,7 @@ scope advancedstreak initializer init
                 endif
                 if UserPlayer(p1) or p1 == Player(0) or p1 == Player(4) or p1 == Player(8) then
                     set scoreKill[pid1] = scoreKill[pid1] + 1
-                    set gold = 50 + R2I((killContinue[pid2] * 30) + (killStreak[pid1] + 50))
+                    set gold = 50 + (killContinue[pid2] * 30) + (killStreak[pid1] * 50)
                     if IsUnitAlly(u, Player(0)) then
                         set i = 1
                         loop
@@ -195,10 +195,10 @@ scope advancedstreak initializer init
                         endif
                         set z = CreateTimer()
                         call SaveUnitHandle(ht, GetHandleId(z), 0, u)
-                        call SaveReal(ht, GetHandleId(z), 0, 14)
+                        call SaveReal(ht, GetHandleId(z), 0, 15)
                         call TimerStart(z, 0.02, true, function KillstreakEnd)
                         set timer1[pid1] = z
-                        set gold = 150 + (killContinue[pid2] * 50) + (killStreak[pid1] * 90)
+                        set gold = 170 + (killContinue[pid2] * 60) + (killStreak[pid1] * 90)
                         set s3 = COLOR[pid1] + playerName[pid1] + "|r has killed " + COLOR[pid2] + playerName[pid2] + "|r"
                         call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, s3)
                         if firstBlood[pid1] then
@@ -226,7 +226,7 @@ scope advancedstreak initializer init
                             endif
                         else
                             set firstBlood[pid1] = true
-                            set gold = 250
+                            set gold = 300
                             call SoundStart("war3mapImported\\firstblood.mp3")
                             call AdjustPlayerStateBJ(gold, p1, PLAYER_STATE_RESOURCE_GOLD)
                             set s3 = COLOR[pid1] + playerName[pid1] + "|r pwned " + COLOR[pid2] + playerName[pid2] + "|r head for |cffffcc00" + I2S(gold) + "|r gold\nAssisted By " + s1
@@ -288,10 +288,10 @@ scope advancedstreak initializer init
             if not HaveSavedReal(ht, StringHash("Assist_" + I2S(pid2)), pid1) then
                 call SaveReal(ht, StringHash("Assist_" + I2S(pid2)), pid1, 0)
             endif
-            if timer2[pid1] == null then
-                set timer2[pid1] = CreateTimer()
+            if timer2[pid2] == null then
+                set timer2[pid2] = CreateTimer()
             endif
-            set z = timer2[pid1]
+            set z = timer2[pid2]
             call SaveUnitHandle(ht, GetHandleId(z), 0, t)
             call SaveReal(ht, GetHandleId(z), 0, 10)
             call TimerStart(z, 0.02, true, function destroyAssist)

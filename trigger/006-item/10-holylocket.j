@@ -10,9 +10,11 @@ scope holylocket initializer init
         elseif GetItemTypeId(it) == 'I01O' then
             call UnitAddStat(u, 30, 30, 30)
             call UnitAddBonus(u, BONUS_HEALTH, 200)
+            call SetAbilityRealLevelField(GetItemAbility(it, 'A00S'), ABILITY_RLF_LIFE_REGENERATION_INCREASE_PERCENT, 0, 40)
         elseif GetItemTypeId(it) == 'I04U' then
             call UnitAddStat(u, 40, 40, 40)
             call UnitAddBonus(u, BONUS_HEALTH, 300)
+            call SetAbilityRealLevelField(GetItemAbility(it, 'A00S'), ABILITY_RLF_LIFE_REGENERATION_INCREASE_PERCENT, 0, 50)
         endif
         if GetItemTypeId(it) == 'I01H' then
             call RemoveItem(it)

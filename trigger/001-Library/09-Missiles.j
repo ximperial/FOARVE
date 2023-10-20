@@ -13,12 +13,12 @@ library Missiles requires MissileEffect, TimerUtils, WorldBounds
     /* ---------------------------------------------------------------------------------------------- */
     globals
         // The update period of the system
-        public  constant real    PERIOD             = 1./50.
+        public  constant real    PERIOD             = 1./32.
         // The max amount of Missiles processed in a PERIOD
         // You can play around with both these values to find
         // your sweet spot. If equal to 0, the system will
         // process all missiles at once every period.
-        public  constant real    SWEET_SPOT         = 150
+        public  constant real    SWEET_SPOT         = 256
         // the avarage collision size compensation when detecting collisions
         private constant real    COLLISION_SIZE     = 128.
         // item size used in z collision
@@ -207,7 +207,7 @@ library Missiles requires MissileEffect, TimerUtils, WorldBounds
             if allocated and collision > 0 then
                 call GroupEnumUnitsInRange(group, x, y, collision + COLLISION_SIZE, null)
                 loop
-                    set u = FirstOfGroup(group)
+                    set u = GroupForEachUnit(group)
                     exitwhen u == null
                         if not HaveSavedBoolean(table, this, GetHandleId(u)) then
                             if IsUnitInRangeXY(u, x, y, collision) then
@@ -230,8 +230,8 @@ library Missiles requires MissileEffect, TimerUtils, WorldBounds
                                 endif
                             endif
                         endif
-                    call GroupRemoveUnit(group, u)
                 endloop
+                call GroupClear(group)
             endif
         endif
     endmodule

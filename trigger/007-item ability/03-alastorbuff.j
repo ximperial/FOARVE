@@ -4,9 +4,16 @@ scope alastorbuff initializer init
         local timer z = GetExpiredTimer()
         local unit u = LoadUnitHandle(ht, GetHandleId(z), 0)
         local unit t = LoadUnitHandle(ht, GetHandleId(z), 1)
+        local real dmg
 
-        if GetUnitAbilityLevel(t, 'B010') > 0 then
-            call DamageUnit(u, t, GetUnitMaxLife(t) * 0.03 / 10)
+        if GetUnitAbilityLevel(t, 'B010') > 0 and IsUnitAlive(u) then
+            if UnitHasItemOfTypeBJ(u, 'I04N') then
+                call DamageUnit(u, t, GetUnitMaxLife(t) * 0.05 / 10)
+            elseif UnitHasItemOfTypeBJ(u, 'I03F') then
+                call DamageUnit(u, t, GetUnitMaxLife(t) * 0.04 / 10)
+            elseif UnitHasItemOfTypeBJ(u, 'I03E') then
+                call DamageUnit(u, t, GetUnitMaxLife(t) * 0.03 / 10)
+            endif
         else
             call FlushChildHashtable(ht, GetHandleId(z))
             call PauseTimer(z)
@@ -25,7 +32,7 @@ scope alastorbuff initializer init
         local buff buffs = GetTriggerBuff()
         local integer abilId = GetBuffTypeId(buffs)
 
-        if abilId == 'B010' and t != gg_unit_H0DS_0046 then
+        if abilId == 'B010' and GetUnitTypeId(t) != 'H0DS' and GetUnitTypeId(t) != 'H0G7' then
             set z = CreateTimer()
             call SaveUnitHandle(ht, GetHandleId(z), 0, u)
             call SaveUnitHandle(ht, GetHandleId(z), 1, t)

@@ -2,7 +2,6 @@ scope joinMap initializer init
 
     private function action takes nothing returns nothing
         local unit u = GetIndexUnit()
-        local ability a
         local integer pid = GetPlayerId(GetOwningPlayer(u))
         local string s = ""
         local string s2 = ""
@@ -29,27 +28,23 @@ scope joinMap initializer init
                 set aidkey = aidkey + 1
             endloop
             
+            set abilId = LoadInteger(ht, StringHash("AbilKey_" + I2S(pid)), 2)
+            call HibariEGain(u, abilId, 0.15)
+            call KirinEGain(u, abilId, 0.3)
+            
             set s = GetUnitStringField(u, UNIT_SF_ABILITY_LIST)
             set s2 = SubString(s, 0, 4)
             set abilId = String2Id(s2)
             call SaveInteger(ht, StringHash("AbilKey_" + I2S(pid)), 5, abilId)
-            set a = GetUnitAbility(u, abilId)
-            call DisableAbility(a, true, true)
+            call DisableAbilityEx(u, abilId, true)
         
             set s2 = SubString(s, 5, 9)
             set abilId = String2Id(s2)
             call SaveInteger(ht, StringHash("AbilKey_" + I2S(pid)), 6, abilId)
-            set a = GetUnitAbility(u, abilId)
-            call DisableAbility(a, true, true)
-        
-            set abilId = LoadInteger(ht, StringHash("AbilKey_" + I2S(pid)), 2)
-            call HibariEGain(u, abilId, 0.15)
-            call MinatoEGain(u, abilId)
-            call KirinEGain(u, abilId, 0.3)
+            call DisableAbilityEx(u, abilId, true)
         endif
                 
         set u = null
-        set a = null
     endfunction
 
     private function init takes nothing returns nothing

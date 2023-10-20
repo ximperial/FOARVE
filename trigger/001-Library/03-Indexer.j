@@ -69,11 +69,11 @@ library Indexer
                 exitwhen i == bj_MAX_PLAYER_SLOTS
                     call GroupEnumUnitsOfPlayer(bj_lastCreatedGroup, Player(i), null)
                     loop
-                        set unit = FirstOfGroup(bj_lastCreatedGroup)
+                        set unit = GroupForEachUnit(bj_lastCreatedGroup)
                         exitwhen unit == null
                         call index(unit)
-                        call GroupRemoveUnit(bj_lastCreatedGroup, unit)
                     endloop
+                    call GroupClear(bj_lastCreatedGroup)
                     call TriggerRegisterPlayerUnitEvent(t, Player(i), EVENT_PLAYER_UNIT_ISSUED_ORDER, null)
                 set i = i + 1
             endloop

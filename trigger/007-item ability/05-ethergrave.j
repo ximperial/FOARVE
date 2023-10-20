@@ -10,7 +10,13 @@ scope ethergrave initializer init
                 set gUnit = GroupForEachUnit(gGroup)
                 exitwhen gUnit == null
                 if IsUnitAlly(gUnit, GetOwningPlayer(t)) and IsUnitAlive(gUnit) and IsUnitHero(gUnit) then
-                    call VisionArea(GetOwningPlayer(u), 1000, 4, GetUnitX(gUnit), GetUnitY(gUnit))
+                    if UnitHasItemOfTypeBJ(u, 'I04T') then
+                        call VisionArea(GetOwningPlayer(u), 800, 6, GetUnitX(gUnit), GetUnitY(gUnit))
+                    elseif UnitHasItemOfTypeBJ(u, 'I01L') then
+                        call VisionArea(GetOwningPlayer(u), 800, 5, GetUnitX(gUnit), GetUnitY(gUnit))
+                    elseif UnitHasItemOfTypeBJ(u, 'I01K') then
+                        call VisionArea(GetOwningPlayer(u), 800, 4, GetUnitX(gUnit), GetUnitY(gUnit))
+                    endif
                 endif
             endloop
             call GroupClear(gGroup)

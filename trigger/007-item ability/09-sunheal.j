@@ -6,11 +6,11 @@ scope sunheal initializer init
 
         if GetSpellAbilityId() == 'A057' then
             if UnitHasItemOfTypeBJ(u, 'I04L') then
-                set heal = 7 * GetHeroStr(u, true)
+                set heal = 8 * GetHeroStr(u, true)
             elseif UnitHasItemOfTypeBJ(u, 'I02N') then
-                set heal = 6 * GetHeroStr(u, true)
+                set heal = 7 * GetHeroStr(u, true)
             else
-                set heal = 5 * GetHeroStr(u, true)
+                set heal = 6 * GetHeroStr(u, true)
             endif
             call GroupEnumUnitsInRange(gGroup, GetUnitX(u), GetUnitY(u), 1000, null)
             loop

@@ -8,10 +8,10 @@ scope echosabre initializer init
             call UnitAddBonus(u, BONUS_ATTACK, 200)
         elseif GetItemTypeId(it) == 'I01R' then
             call UnitAddStat(u, 25, 25, 25)
-            call UnitAddBonus(u, BONUS_ATTACK, 250)
+            call UnitAddBonus(u, BONUS_ATTACK, 300)
         elseif GetItemTypeId(it) == 'I04P' then
             call UnitAddStat(u, 30, 30, 30)
-            call UnitAddBonus(u, BONUS_ATTACK, 300)
+            call UnitAddBonus(u, BONUS_ATTACK, 400)
         endif
         if GetItemTypeId(it) == 'I005' then
             call RemoveItem(it)
