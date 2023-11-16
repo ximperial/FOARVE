@@ -1,36 +1,36 @@
-001-Library: Library
+01-Library: Library
     01-Alloc: Alloc
     02-Table: Table
     03-Indexer: Indexer
     04-TimerUtilsEx: TimerUtilsEx
     05-WorldBounds: WorldBounds
     06-RegisterPlayerUnitEvent: RegisterPlayerUnitEvent
-    07-MissileEffect: MissileEffect
-    08-MissileUtils: MissileUtils
-    09-Missiles: Missiles
-    10-loweff: loweff
-    11-Utilities: Utilities
-    12-advancedstreak: advancedstreak
-    13-creepbonty: creepbonty
-    14-crowdcontrol: crowdcontrol
-    15-spellLib: spellLib
-    16-creepLib: creepLib
-    17-regionLib: regionLib
-    18-cooldown: cooldown
-    19-backwards: backwards
-    20-FloatingTextArc: FloatingTextArc
-002-damager: damager
+    07-loweff: loweff
+    08-Utilities: Utilities
+    09-advancedstreak: advancedstreak
+    10-creepbonty: creepbonty
+    11-crowdcontrol: crowdcontrol
+    12-forestcreep: forestcreep
+    13-creepLib: creepLib
+    14-regionLib: regionLib
+02-Misc: Misc
+    1-dynamicability: dynamicability
+    2-MiscLib: MiscLib
+    3-Misc: Misc
+    4-cooldown: cooldown
+03-Damage: Damage
     1-DamageLib: DamageLib
     2-DamageEvent: DamageEvent
-003-CustomUI: CustomUI
+04-CustomUI: CustomUI
     1-StartInitFrame: StartInitFrame
         Run
     2-initFrame: initFrame
     3-mainSelect: mainSelect
     4-runTimeUI: runTimeUI
-    5-joinMap: joinMap
-    6-lvlUP: lvlUP
-004-rootgame: rootgame
+    5-spellLib: spellLib
+    6-joinMap: joinMap
+    7-lvlUP: lvlUP
+05-rootgame: rootgame
     1-gamesystem: gamesystem
     2-preloadEffect: preloadEffect
     3-finishselect: finishselect
@@ -38,521 +38,58 @@
     5-gpm: gpm
     6-killme: killme
     7-revivehero: revivehero
-    8-tournament: tournament
-    9-lockmap: lockmap
-005-bossSpell: bossSpell
-    1-bossspell: bossspell
-006-item: item
-    01-specialitem: specialitem
-    02-bootspeed: bootspeed
-    03-acc: acc
-    04-bootmafia: bootmafia
-    05-bootpirate: bootpirate
-    06-bootshunpo: bootshunpo
-    07-periapt: periapt
-    08-aetherwisp: aetherwisp
-    09-alastor: alastor
-    10-holylocket: holylocket
-    11-sword: sword
-    12-bloodthirst: bloodthirst
-    13-desolator: desolator
-    14-echosabre: echosabre
-    15-ringprotect: ringprotect
-    16-ghostscepter: ghostscepter
-    17-gloveshaste: gloveshaste
-    18-etherglove: etherglove
-    19-halfring: halfring
-    20-clodring: clodring
-    21-mistring: mistring
-    22-rainring: rainring
-    23-skyring: skyring
-    24-stormring: stormring
-    25-sunring: sunring
-    26-thunderring: thunderring
-'007-item ability': 'item ability'
-    01-farsight: farsight
-    02-wisptrack: wisptrack
-    03-alastorbuff: alastorbuff
-    04-ghostblast: ghostblast
-    05-ethergrave: ethergrave
-    06-clodbarrier: clodbarrier
-    07-skyshield: skyshield
-    08-stormexplode: stormexplode
-    09-sunheal: sunheal
-    10-thundershield: thundershield
-008-systemqu: systemqu
-    01-bosswarp: bosswarp
-    02-camera: camera
-    03-stopcam: stopcam
-    04-LowEff: LowEff
-    05-widescreen: widescreen
-    06-antihack: antihack
-    07-music: music
-    08-reset: reset
-    09-dummyclear: dummyclear
-    10-configur: configur
-009---------------------------------------------------: --------------------------------------------------
-'010----- Fight Of Anime Reverse ----': '---- Fight Of Anime Reverse ----'
-011---------------------------------------------------: --------------------------------------------------
-'012-Natsu Dragneel': 'Natsu Dragneel'
-    1-natsuspell: natsuspell
-'013-Satomi Rentaro': 'Satomi Rentaro'
-    1-satomispell: satomispell
-'014-Roronoa Zoro': 'Roronoa Zoro'
-    1-zorospell: zorospell
-'015-Sting Eucliffe': 'Sting Eucliffe'
-    1-stingspell: stingspell
-'016-Grimmoire Heart Zancrow': 'Grimmoire Heart Zancrow'
-    1-zancrowspell: zancrowspell
-017-Vegeta: Vegeta
-    1-vegetaspell: vegetaspell
-'018-Tanjiro Kamado': 'Tanjiro Kamado'
-    1-tanjirospell: tanjirospell
-'019-King Hassan': 'King Hassan'
-    1-hassanspell: hassanspell
-020-Ace: Ace
+06-systemqu: systemqu
+    1-camera: camera
+    2-LowEff: LowEff
+    3-widescreen: widescreen
+    4-antihack: antihack
+    5-music: music
+    6-reset: reset
+    7-dummyclear: dummyclear
+    8-configur: configur
+07-Item1: Item1
+    1-Acc: Acc
+    2-VongolaRing: VongolaRing
+    3-CloudRing: CloudRing
+    4-StormRing: StormRing
+    5-SunRing: SunRing
+    6-BootSpeed: BootSpeed
+    7-Sword: Sword
+    8-Periapt: Periapt
+08-==============: ==============
+09-Ace: Ace
     1-acespell: acespell
-021-Byakuran: Byakuran
-    1-byakuranspell: byakuranspell
-'022-Kamijo Toma': 'Kamijo Toma'
-    1-tomaspell: tomaspell
-'023-Sakamaki Izayoi': 'Sakamaki Izayoi'
-    1-izayoispell: izayoispell
-'024-Gon Freecss': 'Gon Freecss'
-    1-gonspell: gonspell
-'025-Jotaro Kujo': 'Jotaro Kujo'
-    1-jotarospell: jotarospell
-026-Sabo: Sabo
-    1-sabospell: sabospell
-'027-Kenshiro Kasumi': 'Kenshiro Kasumi'
-    1-kenshirospell: kenshirospell
-'028-Laxus Dreyar': 'Laxus Dreyar'
-    1-laxusspell: laxusspell
-'029-Gajel Redfox': 'Gajel Redfox'
-    1-gajelspell: gajelspell
-030-Guts: Guts
-    1-gutsspell: gutsspell
-031-Yamaji: Yamaji
-    1-yamajispell: yamajispell
-032-Escanor: Escanor
-    1-escanorspell: escanorspell
-033-Diego: Diego
-    1-diegospell: diegospell
-'034-Pein Rikudo': 'Pein Rikudo'
-    1-peinspell: peinspell
-035-Ryuzaki: Ryuzaki
-    1-ryuzakispell: ryuzakispell
-036-Arash: Arash
-    1-arashspell: arashspell
-037-Ichigo: Ichigo
-    1-ichigospell: ichigospell
-038-Sistina: Sistina
-    1-sistinaspell: sistinaspell
-039-CloudStrife: CloudStrife
+'10-Cloud Strife': 'Cloud Strife'
     1-cloudspell: cloudspell
-040-Zamasu: Zamasu
-    1-zamasuspell: zamasuspell
-041-Allmight: Allmight
-    1-allmightspell: allmightspell
-'042-Saber Alter': 'Saber Alter'
-    '1-Salter spell': 'Salter spell'
-043---------------------------------------------------: --------------------------------------------------
-'044-Hibari Kyoya': 'Hibari Kyoya'
-    1-hibarispell: hibarispell
-'045-Kirigaya Kazuto': 'Kirigaya Kazuto'
-    1-kiritospell: kiritospell
-'046-Namikaze Minato': 'Namikaze Minato'
-    1-minatospell: minatospell
-'047-Tendo Kisara': 'Tendo Kisara'
-    1-tendokisaraspell: tendokisaraspell
-'048-Tokisaki Kurumi': 'Tokisaki Kurumi'
-    1-kurumispell: kurumispell
-'049-Sawada Tsunayoshi': 'Sawada Tsunayoshi'
-    1-tsunaspell: tsunaspell
-'050-Borsalino Kizaru': 'Borsalino Kizaru'
-    1-borsalinospell: borsalinospell
-'051-Gray Fullbuster': 'Gray Fullbuster'
-    1-grayspell: grayspell
-'052-Aizen Sousuke': 'Aizen Sousuke'
+11-Escanor: Escanor
+    1-escanorspell: escanorspell
+'12-Saber Alter': 'Saber Alter'
+    1-salterspell: salterspell
+'13-Sakamaki Izayoi': 'Sakamaki Izayoi'
+    1-izayoispell: izayoispell
+'14-Satomi Rentaro': 'Satomi Rentaro'
+    1-satomispell: satomispell
+15-Vegeta: Vegeta
+    1-vegetaspell: vegetaspell
+16-==============: ==============
+'17-Aizen Sousuke': 'Aizen Sousuke'
     1-aizenspell: aizenspell
-'053-Esdeath Shoukun': 'Esdeath Shoukun'
-    1-EsdeathQ: EsdeathQ
-    2-EsdeathW: EsdeathW
-    3-EsdeathE: EsdeathE
-    4-EsdeathR: EsdeathR
-    5-EsdeathT: EsdeathT
-    6-EsdeathF: EsdeathF
-    7-EsdeathD: EsdeathD
-'054-Okita Soji': 'Okita Soji'
-    1-okitaspell: okitaspell
-'055-Kanzaki Kaori': 'Kanzaki Kaori'
-    1-KanzakiQ: KanzakiQ
-    2-KanzakiW: KanzakiW
-    3-KanzakiE: KanzakiE
-    4-KanzakiR: KanzakiR
-    5-KanzakiT: KanzakiT
-    6-KanzakiF: KanzakiF
-    7-KanzakiD: KanzakiD
-056-Kuroyukihime: Kuroyukihime
-    1-KuroyukihimeQ: KuroyukihimeQ
-    2-KuroyukihimeW: KuroyukihimeW
-    3-KuroyukihimeE: KuroyukihimeE
-    4-KuroyukihimeR: KuroyukihimeR
-    5-KuroyukihimeT: KuroyukihimeT
-    6-KuroyukihimeF: KuroyukihimeF
-    7-KuroyukihimeD: KuroyukihimeD
-'057-Shiki Tohno': 'Shiki Tohno'
-    1-TohnoQ: TohnoQ
-    2-TohnoW: TohnoW
-    3-TohnoR: TohnoR
-    4-TohnoT: TohnoT
-    5-TohnoF: TohnoF
-    6-TohnoD: TohnoD
-'058-Shiki Ryougi': 'Shiki Ryougi'
-    1-RyougiQ: RyougiQ
-    2-RyougiW: RyougiW
-    3-RyougiE: RyougiE
-    4-RyougiR: RyougiR
-    5-RyougiT: RyougiT
-    6-RyougiF: RyougiF
-    7-RyougiD: RyougiD
-'059-Alibaba Saluja': 'Alibaba Saluja'
-    1-AlibabaQ: AlibabaQ
-    2-AlibabaW: AlibabaW
-    3-AlibabaE: AlibabaE
-    4-AlibabaR: AlibabaR
-    5-AlibabaT: AlibabaT
-    6-AlibabaF: AlibabaF
-    7-AlibabaD: AlibabaD
-'060-Miyamoto Musashi': 'Miyamoto Musashi'
-    1-MusashiQ: MusashiQ
-    2-MusashiW: MusashiW
-    3-MusashiR: MusashiR
-    4-MusashiT: MusashiT
-    5-MusashiF: MusashiF
-    6-MusashiD: MusashiD
-'061-Nura Rikuo': 'Nura Rikuo'
-    1-NuraQ: NuraQ
-    2-NuraW: NuraW
-    3-NuraE: NuraE
-    4-NuraR: NuraR
-    5-NuraT: NuraT
-    6-NuraF: NuraF
-    7-NuraD: NuraD
-'062-Wendy Marvell': 'Wendy Marvell'
-    1-WendyQ: WendyQ
-    2-WendyW: WendyW
-    3-WendyE: WendyE
-    4-WendyR: WendyR
-    5-WendyT: WendyT
-    6-WendyF: WendyF
-    7-WendyD: WendyD
-'063-Shiki Nanaya': 'Shiki Nanaya'
-    1-NanayaQ: NanayaQ
-    2-NanayaW: NanayaW
-    3-NanayaE: NanayaE
-    4-NanayaR: NanayaR
-    5-NanayaT: NanayaT
-    6-NanayaF: NanayaF
-    7-NanayaD: NanayaD
-'064-Kumagawa Misogi': 'Kumagawa Misogi'
-    1-MisogiQ: MisogiQ
-    2-MisogiW: MisogiW
-    3-MisogiR: MisogiR
-    4-MisogiT: MisogiT
-    5-MisogiF: MisogiF
-    6-MisogiD: MisogiD
-'065-Okumura Rin': 'Okumura Rin'
-    1-RinQ: RinQ
-    2-RinW: RinW
-    3-RinE: RinE
-    4-RinR: RinR
-    5-RinT: RinT
-    6-RinF: RinF
-    7-RinD: RinD
-'066-Monke D. Luffy': 'Monke D. Luffy'
-    1-MonkeQ: MonkeQ
-    2-MonkeW: MonkeW
-    3-MonkeE: MonkeE
-    4-MonkeR: MonkeR
-    5-MonkeT: MonkeT
-    6-MonkeF: MonkeF
-    7-MonkeD: MonkeD
-067-Neptun: Neptun
-    1-NeptunQ: NeptunQ
-    2-NeptunW: NeptunW
-    3-NeptunR: NeptunR
-    4-NeptunT: NeptunT
-    5-NeptunF: NeptunF
-    6-NeptunD: NeptunD
-'068-Rogue Cheney': 'Rogue Cheney'
-    1-RoguQ: RoguQ
-    2-RoguW: RoguW
-    3-RoguE: RoguE
-    4-RoguEMove: RoguEMove
-    5-RoguR: RoguR
-    6-RoguT: RoguT
-    7-RoguF: RoguF
-    8-RoguD: RoguD
-'069-Kenshin Himura': 'Kenshin Himura'
-    1-KenshinQ: KenshinQ
-    2-KenshinW: KenshinW
-    3-KenshinE: KenshinE
-    4-KenshinR: KenshinR
-    5-KenshinT: KenshinT
-    6-KenshinF: KenshinF
-    7-KenshinD: KenshinD
-'070-Emiya Shiro': 'Emiya Shiro'
-    1-EmiyaQ: EmiyaQ
-    2-EmiyaW: EmiyaW
-    3-EmiyaE: EmiyaE
-    4-EmiyaR: EmiyaR
-    5-EmiyaT: EmiyaT
-    6-EmiyaF: EmiyaF
-    7-EmiyaD: EmiyaD
-071-Naruto: Naruto
-    1-NarutoQ: NarutoQ
-    2-NarutoW: NarutoW
-    3-NarutoE: NarutoE
-    4-NarutoR: NarutoR
-    5-NarutoT: NarutoT
-    6-NarutoF: NarutoF
-    7-NarutoD: NarutoD
-'072-Isayama Yomi': 'Isayama Yomi'
-    1-YomiQ: YomiQ
-    2-YomiW: YomiW
-    3-YomiE: YomiE
-    4-YomiR: YomiR
-    5-YomiT: YomiT
-    6-YomiF: YomiF
-    7-YomiD: YomiD
-'073-Levi Akkaman': 'Levi Akkaman'
-    1-LeviQ: LeviQ
-    2-LeviW: LeviW
-    3-LeviE: LeviE
-    4-LeviEMove: LeviEMove
-    5-LeviR: LeviR
-    6-LeviT: LeviT
-    7-LeviF: LeviF
-    8-LeviD: LeviD
-'074-Dio Brando': 'Dio Brando'
-    1-DioQ: DioQ
-    2-DioW: DioW
-    3-DioE: DioE
-    4-DioR: DioR
-    5-DioT: DioT
-    6-DioF: DioF
-    7-DioD: DioD
-075-Chtholly: Chtholly
-    1-ChthollyQ: ChthollyQ
-    2-ChthollyW: ChthollyW
-    3-ChthollyE: ChthollyE
-    4-ChthollyR: ChthollyR
-    5-ChthollyT: ChthollyT
-    6-ChthollyF: ChthollyF
-    7-ChthollyD: ChthollyD
-076-Akame: Akame
-    1-AkameQ: AkameQ
-    2-AkameW: AkameW
-    3-AkameE: AkameE
-    4-AkameR: AkameR
-    5-AkameT: AkameT
-    6-AkameF: AkameF
-    7-AkameD: AkameD
-077-Fujiren: Fujiren
-    1-FujirenQ: FujirenQ
-    2-FujirenW: FujirenW
-    3-FujirenE: FujirenE
-    4-FujirenR: FujirenR
-    5-FujirenT: FujirenT
-    6-FujirenF: FujirenF
-    7-FujirenD: FujirenD
-'078-Ogita Soji': 'Ogita Soji'
-    1-OgitaQ: OgitaQ
-    2-OgitaW: OgitaW
-    3-OgitaE: OgitaE
-    4-OgitaR: OgitaR
-    5-OgitaT: OgitaT
-    6-OgitaF: OgitaF
-    7-OgitaD: OgitaD
-079-KuroIkki: KuroIkki
-    1-kuroganespell: kuroganespell
-080-Akainu: Akainu
-    1-AkainuQ: AkainuQ
-    2-AkainuW: AkainuW
-    3-AkainuR: AkainuR
-    4-AkainuT: AkainuT
-    5-AkainuF: AkainuF
-    6-AkainuD: AkainuD
-081-Momiji: Momiji
-    1-MomijiQ: MomijiQ
-    2-MomijiW: MomijiW
-    3-MomijiR: MomijiR
-    4-MomijiT: MomijiT
-    5-MomijiF: MomijiF
-    6-MomijiD: MomijiD
-082-Kei: Kei
-    1-KeiQ: KeiQ
-    2-KeiW: KeiW
-'083-Alice Zuberg': 'Alice Zuberg'
-    1-AliceQ: AliceQ
-    2-AliceW: AliceW
-    3-AliceE: AliceE
-    4-AliceR: AliceR
-    5-AliceT: AliceT
-    6-AliceF: AliceF
-    7-AliceD: AliceD
-'084-Gin Ichimaru': 'Gin Ichimaru'
-    1-ginspell: ginspell
-'085-Kido Haido': 'Kido Haido'
-    1-KidoSpell: KidoSpell
-'086-Arthur Pendragon': 'Arthur Pendragon'
+18-Akame: Akame
+    1-akamespell: akamespell
+'19-Alice Zuberg': 'Alice Zuberg'
+    1-alicespell: alicespell
+'20-Alpha CW': 'Alpha CW'
+    1-alphaspell: alphaspell
+'21-Arthuria Pendragon': 'Arthuria Pendragon'
     1-arthurspell: arthurspell
-'087-Hibiki Tachibana': 'Hibiki Tachibana'
-    1-hibikispell: hibikispell
-'088-Flame Kiana': 'Flame Kiana'
-    1-flamekianaspell: flamekianaspell
-089---------------------------------------------------: --------------------------------------------------
-'090-Kiana Kaslana': 'Kiana Kaslana'
-    1-KianaQ: KianaQ
-    2-KianaW: KianaW
-    3-KianaR: KianaR
-    4-KianaT: KianaT
-    5-KianaF: KianaF
-    6-KianaD: KianaD
-'091-Reinforce Zwei': 'Reinforce Zwei'
-    1-ZweiQ: ZweiQ
-    2-ZweiW: ZweiW
-    3-ZweiE: ZweiE
-    4-ZweiR: ZweiR
-    5-ZweiT: ZweiT
-    6-ZweiF: ZweiF
-    7-ZweiD: ZweiD
-'092-Sasuke Uchiha': 'Sasuke Uchiha'
-    1-SasukeQ: SasukeQ
-    2-SasukeW: SasukeW
-    3-SasukeR: SasukeR
-    4-SasukeT: SasukeT
-    5-SasukeF: SasukeF
-    6-SasukeD: SasukeD
-'093-Jellal Fernandes': 'Jellal Fernandes'
-    1-JellalQ: JellalQ
-    2-JellalW: JellalW
-    3-JellalE: JellalE
-    4-JellalEMove: JellalEMove
-    5-JellalR: JellalR
-    6-JellalT: JellalT
-    7-JellalF: JellalF
-    8-JellalD: JellalD
-094-Yugi: Yugi
-    1-yugispell: yugispell
-095-Omashu: Omashu
-    1-ShuQ: ShuQ
-    2-ShuW: ShuW
-    3-ShuE: ShuE
-    4-ShuR: ShuR
-    5-ShuT: ShuT
-    6-ShuF: ShuF
-    7-ShuD: ShuD
-096-Cronus: Cronus
-    1-cronusspell: cronusspell
-'097-Reimu Hakurei': 'Reimu Hakurei'
-    1-ReimuQ: ReimuQ
-    2-ReimuW: ReimuW
-    3-ReimuE: ReimuE
-    4-ReimuR: ReimuR
-    5-ReimuT: ReimuT
-    6-ReimuF: ReimuF
-    7-ReimuD: ReimuD
-'098-Aokiji Kuzan': 'Aokiji Kuzan'
-    1-KuzanQ: KuzanQ
-    2-KuzanW: KuzanW
-    3-KuzanR: KuzanR
-    4-KuzanT: KuzanT
-    5-KuzanF: KuzanF
-    6-KuzanD: KuzanD
-099-Shana: Shana
-    1-ShanaQ: ShanaQ
-    2-ShanaW: ShanaW
-    3-ShanaE: ShanaE
-    4-ShanaR: ShanaR
-    5-ShanaT: ShanaT
-    6-ShanaF: ShanaF
-    7-ShanaD: ShanaD
-'100-Hitsugaya Toshiro': 'Hitsugaya Toshiro'
-    1-ToshiQ: ToshiQ
-    2-ToshiW: ToshiW
-    3-ToshiR: ToshiR
-    4-ToshiT: ToshiT
-    5-ToshiF: ToshiF
-    6-ToshiD: ToshiD
-101-Fuhua: Fuhua
-    1-FuhuaQ: FuhuaQ
-    2-FuhuaW: FuhuaW
-    3-FuhuaE: FuhuaE
-    4-FuhuaR: FuhuaR
-    5-FuhuaT: FuhuaT
-    6-FuhuaF: FuhuaF
-    7-FuhuaD: FuhuaD
-102-Mystogan: Mystogan
-    1-MystoQ: MystoQ
-    2-MystoW: MystoW
-    3-MystoE: MystoE
-    4-MystoEMove: MystoEMove
-    5-MystoR: MystoR
-    6-MystoT: MystoT
-    7-MystoF: MystoF
-    8-MystoD: MystoD
-103-Misaka: Misaka
-    1-MisakaQ: MisakaQ
-    2-MisakaW: MisakaW
-    3-MisakaR: MisakaR
-    4-MisakaT: MisakaT
-    5-MisakaF: MisakaF
-    6-MisakaD: MisakaD
-'104-Anos Voldigord': 'Anos Voldigord'
-    1-AnosQ: AnosQ
-    2-AnosW: AnosW
-    3-AnosR: AnosR
-    4-AnosT: AnosT
-    5-AnosF: AnosF
-    6-AnosD: AnosD
-'105-Aya Shameimaru': 'Aya Shameimaru'
-    1-AyaQ: AyaQ
-    2-AyaW: AyaW
-    3-AyaE: AyaE
-    4-AyaR: AyaR
-    5-AyaT: AyaT
-    6-AyaF: AyaF
-    7-AyaD: AyaD
-'106-Yarai Miu': 'Yarai Miu'
-    1-yaraispell: yaraispell
-'107-Tohka Yategami': 'Tohka Yategami'
-    1-TohkaQ: TohkaQ
-    2-TohkaW: TohkaW
-    3-TohkaE: TohkaE
-    4-TohkaR: TohkaR
-    5-TohkaT: TohkaT
-    6-TohkaF: TohkaF
-    7-TohkaD: TohkaD
-'108-Todo Kirin': 'Todo Kirin'
-    1-KirinQ: KirinQ
-    2-KirinW: KirinW
-    3-KirinR: KirinR
-    4-KirinT: KirinT
-    5-KirinF: KirinF
-    6-KirinD: KirinD
-'109-Fujiwara Moko': 'Fujiwara Moko'
-    1-MokoQ: MokoQ
-    2-MokoW: MokoW
-    3-MokoR: MokoR
-    4-MokoT: MokoT
-    5-MokoF: MokoF
-    6-MokoD: MokoD
-'110-Hatsune Miku': 'Hatsune Miku'
-    1-mikuspell: mikuspell
-111-Inori: Inori
-    1-Inorispell: Inorispell
-112-Yaya: Yaya
-    1-yayaspell: yayaspell
-113---------------------------------------------------: --------------------------------------------------
+'22-Emiya Shiro': 'Emiya Shiro'
+    1-emiyaspell: emiyaspell
+'23-Majin Okita': 'Majin Okita'
+    1-mokitaspell: mokitaspell
+'24-Ogita Soji': 'Ogita Soji'
+    1-ogitaspell: ogitaspell
+25-==============: ==============
+'26-Hitsugaya Toshiro': 'Hitsugaya Toshiro'
+    1-toshispell: toshispell
+27-Omashu: Omashu
+    1-omashuspell: omashuspell
